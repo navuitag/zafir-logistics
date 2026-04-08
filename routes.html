@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trade Routes - ZAFIR Logistics Vietnam</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <style>
+    body { font-family: 'Lato', system-ui, sans-serif; }
+    .heading-font { font-family: 'Montserrat', sans-serif; }
+    .hero-bg {
+      background-image: linear-gradient(rgba(11, 60, 93, 0.8), rgba(11, 60, 93, 0.8)), 
+                        url('https://source.unsplash.com/random/1920x1080/?world-map-africa-asia');
+      background-size: cover;
+      background-position: center;
+    }
+    .lang-btn.active {
+      background-color: #D4AF37;
+      color: #0B3C5D;
+      font-weight: 600;
+    }
+    .route-card {
+      transition: all 0.4s ease;
+    }
+    .route-card:hover {
+      transform: translateY(-10px);
+    }
+  </style>
+</head>
+<body class="text-gray-800">
+
+  <!-- HEADER - Consistent Navigation -->
+  <header class="bg-[#0B3C5D] text-white sticky top-0 z-50 shadow">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 bg-[#D4AF37] rounded-full flex items-center justify-center text-[#0B3C5D] font-bold text-2xl">Z</div>
+        <div>
+          <h1 class="heading-font text-2xl font-bold tracking-tight">ZAFIR</h1>
+          <p class="text-xs text-gray-300 -mt-1">LOGISTICS VIETNAM</p>
+        </div>
+      </div>
+
+      <!-- Language Toggle -->
+      <div class="flex items-center gap-2 bg-white/10 rounded-full p-1">
+        <button onclick="switchLanguage('en')" id="btn-en" 
+                class="lang-btn active px-4 py-1.5 text-xs rounded-full transition">EN</button>
+        <button onclick="switchLanguage('vi')" id="btn-vi" 
+                class="lang-btn px-4 py-1.5 text-xs rounded-full transition">VI</button>
+      </div>
+
+      <!-- Updated Navigation Menu -->
+      <nav class="hidden md:flex gap-8 text-sm font-medium">
+        <a href="index.html" class="hover:text-[#D4AF37] transition" data-en="Home" data-vi="Trang chủ">Home</a>
+        <a href="about.html" class="hover:text-[#D4AF37] transition" data-en="About Us" data-vi="Về chúng tôi">About Us</a>
+        <a href="services.html" class="hover:text-[#D4AF37] transition" data-en="Services" data-vi="Dịch vụ">Services</a>
+        <a href="routes.html" class="hover:text-[#D4AF37] transition" data-en="Routes" data-vi="Tuyến đường">Routes</a>
+        <a href="project-cargo.html" class="hover:text-[#D4AF37] transition" data-en="Project Cargo" data-vi="Hàng dự án">Project Cargo</a>
+        <a href="contact.html" class="hover:text-[#D4AF37] transition" data-en="Contact" data-vi="Liên hệ">Contact</a>
+      </nav>
+
+      <button onclick="window.location.href='index.html'" 
+              class="bg-[#D4AF37] hover:bg-amber-500 transition text-[#0B3C5D] px-6 py-2.5 rounded font-semibold text-sm flex items-center gap-2">
+        <i class="fas fa-paper-plane"></i> 
+        <span data-en="GET A QUOTE" data-vi="NHẬN BÁO GIÁ">GET A QUOTE</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="hero-bg h-[500px] flex items-center text-white">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="max-w-2xl">
+        <h1 id="page-title" class="heading-font text-5xl md:text-6xl font-bold leading-tight mb-4" 
+            data-en="Vietnam – Africa Trade Routes" data-vi="Tuyến Vận Chuyển Việt Nam – Châu Phi">
+          Vietnam – Africa Trade Routes
+        </h1>
+        <p id="page-subtitle" class="text-xl text-gray-100" 
+           data-en="We specialize in reliable and cost-effective shipping between Vietnam and key African markets."
+           data-vi="Chúng tôi chuyên sâu tuyến vận chuyển đáng tin cậy và tiết kiệm giữa Việt Nam và các thị trường Châu Phi quan trọng.">
+          We specialize in reliable and cost-effective shipping between Vietnam and key African markets.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- MAIN ROUTES -->
+  <section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-16">
+        <h2 id="main-routes-title" class="heading-font text-4xl font-bold text-[#0B3C5D]" 
+            data-en="Our Main Trade Lanes" data-vi="Các Tuyến Chính">Our Main Trade Lanes</h2>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+
+        <!-- Route 1: Abidjan -->
+        <div class="route-card bg-white border border-gray-100 rounded-3xl overflow-hidden shadow-sm">
+          <div class="h-60 bg-gradient-to-br from-[#0B3C5D] to-[#1E6F9F] flex items-center justify-center text-8xl">
+            🇨🇮
+          </div>
+          <div class="p-8">
+            <h3 id="route1-title" class="heading-font text-2xl font-bold text-[#0B3C5D] mb-2" 
+                data-en="Abidjan, Ivory Coast" data-vi="Abidjan, Bờ Biển Ngà">Abidjan, Ivory Coast</h3>
+            <p class="text-[#D4AF37] font-medium mb-4">West Africa’s Commercial Hub</p>
+            <p id="route1-desc" class="text-gray-600 mb-6" 
+               data-en="Major economic center and busiest port in West Africa. Ideal for general cargo, machinery, and consumer goods."
+               data-vi="Trung tâm kinh tế lớn nhất và cảng bận rộn nhất Tây Phi. Phù hợp với hàng hóa thông thường, máy móc và hàng tiêu dùng.">
+              Major economic center and busiest port in West Africa. Ideal for general cargo, machinery, and consumer goods.
+            </p>
+            <div class="flex justify-between text-sm">
+              <div>
+                <span class="block text-gray-500" data-en="Transit Time" data-vi="Thời gian vận chuyển">Transit Time</span>
+                <span class="font-semibold text-[#0B3C5D]">35 – 42 days</span>
+              </div>
+              <div class="text-right">
+                <span class="block text-gray-500" data-en="Frequency" data-vi="Tần suất">Frequency</span>
+                <span class="font-semibold text-[#0B3C5D]">Weekly sailings</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Route 2: Tema -->
+        <div class="route-card bg-white border border-gray-100 rounded-3xl overflow-hidden shadow-sm">
+          <div class="h-60 bg-gradient-to-br from-[#0B3C5D] to-[#1E6F9F] flex items-center justify-center text-8xl">
+            🇬🇭
+          </div>
+          <div class="p-8">
+            <h3 id="route2-title" class="heading-font text-2xl font-bold text-[#0B3C5D] mb-2" 
+                data-en="Tema, Ghana" data-vi="Tema, Ghana">Tema, Ghana</h3>
+            <p class="text-[#D4AF37] font-medium mb-4">Modern & Fast-Growing Port</p>
+            <p id="route2-desc" class="text-gray-600 mb-6" 
+               data-en="One of the most modern ports in West Africa with excellent infrastructure. Popular for industrial equipment and project cargo."
+               data-vi="Một trong những cảng hiện đại nhất Tây Phi với hạ tầng tốt. Phổ biến cho thiết bị công nghiệp và hàng dự án.">
+              One of the most modern ports in West Africa with excellent infrastructure. Popular for industrial equipment and project cargo.
+            </p>
+            <div class="flex justify-between text-sm">
+              <div>
+                <span class="block text-gray-500" data-en="Transit Time" data-vi="Thời gian vận chuyển">Transit Time</span>
+                <span class="font-semibold text-[#0B3C5D]">36 – 43 days</span>
+              </div>
+              <div class="text-right">
+                <span class="block text-gray-500" data-en="Frequency" data-vi="Tần suất">Frequency</span>
+                <span class="font-semibold text-[#0B3C5D]">Weekly sailings</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Route 3: Lomé -->
+        <div class="route-card bg-white border border-gray-100 rounded-3xl overflow-hidden shadow-sm">
+          <div class="h-60 bg-gradient-to-br from-[#0B3C5D] to-[#1E6F9F] flex items-center justify-center text-8xl">
+            🇹🇬
+          </div>
+          <div class="p-8">
+            <h3 id="route3-title" class="heading-font text-2xl font-bold text-[#0B3C5D] mb-2" 
+                data-en="Lomé, Togo" data-vi="Lomé, Togo">Lomé, Togo</h3>
+            <p class="text-[#D4AF37] font-medium mb-4">Strategic Transshipment Hub</p>
+            <p id="route3-desc" class="text-gray-600 mb-6" 
+               data-en="Important regional hub with excellent connectivity to neighboring countries. Great for distribution across West Africa."
+               data-vi="Trung tâm trung chuyển quan trọng với kết nối tốt đến các nước lân cận. Rất phù hợp để phân phối khắp Tây Phi.">
+              Important regional hub with excellent connectivity to neighboring countries. Great for distribution across West Africa.
+            </p>
+            <div class="flex justify-between text-sm">
+              <div>
+                <span class="block text-gray-500" data-en="Transit Time" data-vi="Thời gian vận chuyển">Transit Time</span>
+                <span class="font-semibold text-[#0B3C5D]">34 – 41 days</span>
+              </div>
+              <div class="text-right">
+                <span class="block text-gray-500" data-en="Frequency" data-vi="Tần suất">Frequency</span>
+                <span class="font-semibold text-[#0B3C5D]">Bi-weekly sailings</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ADVANTAGES -->
+  <section class="py-20 bg-[#0B3C5D] text-white">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid md:grid-cols-2 gap-16 items-center">
+        <div>
+          <h2 id="advantage-title" class="heading-font text-4xl font-bold mb-10" 
+              data-en="Why Ship with ZAFIR on These Routes?" data-vi="Tại sao nên vận chuyển cùng ZAFIR trên các tuyến này?">
+            Why Ship with ZAFIR on These Routes?
+          </h2>
+          <div class="space-y-8">
+            <div class="flex gap-6">
+              <div class="text-4xl text-[#D4AF37]">01</div>
+              <div>
+                <h4 id="adv1" class="font-semibold text-xl" data-en="Strong Space Guarantee" data-vi="Đảm bảo chỗ tàu tốt">Strong Space Guarantee</h4>
+                <p id="adv1-desc" class="text-gray-300" data-en="We secure reliable container space even during peak seasons." data-vi="Chúng tôi đảm bảo chỗ container ổn định ngay cả mùa cao điểm.">We secure reliable container space even during peak seasons.</p>
+              </div>
+            </div>
+            <div class="flex gap-6">
+              <div class="text-4xl text-[#D4AF37]">02</div>
+              <div>
+                <h4 id="adv2" class="font-semibold text-xl" data-en="Competitive Rates" data-vi="Giá cước cạnh tranh">Competitive Rates</h4>
+                <p id="adv2-desc" class="text-gray-300" data-en="Direct contracts with major carriers for best pricing." data-vi="Hợp đồng trực tiếp với các hãng tàu lớn giúp có giá tốt nhất.">Direct contracts with major carriers for best pricing.</p>
+              </div>
+            </div>
+            <div class="flex gap-6">
+              <div class="text-4xl text-[#D4AF37]">03</div>
+              <div>
+                <h4 id="adv3" class="font-semibold text-xl" data-en="Project Cargo Experience" data-vi="Kinh nghiệm hàng dự án">Project Cargo Experience</h4>
+                <p id="adv3-desc" class="text-gray-300" data-en="Specialized handling for heavy lift and oversized shipments." data-vi="Xử lý chuyên biệt cho hàng siêu trọng và siêu trường.">Specialized handling for heavy lift and oversized shipments.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white/10 backdrop-blur rounded-3xl p-10">
+          <h3 id="note-title" class="heading-font text-2xl font-semibold mb-6" 
+              data-en="Important Note" data-vi="Lưu ý quan trọng">Important Note</h3>
+          <p id="note-text" class="text-gray-200 leading-relaxed" 
+             data-en="Transit times are approximate and may vary depending on carrier schedule, port congestion, and weather conditions. We always provide the most accurate ETA when booking."
+             data-vi="Thời gian vận chuyển là ước tính và có thể thay đổi tùy theo lịch tàu, tình trạng cảng và thời tiết. Chúng tôi luôn cung cấp thời gian dự kiến chính xác nhất khi đặt chỗ.">
+            Transit times are approximate and may vary depending on carrier schedule, port congestion, and weather conditions. We always provide the most accurate ETA when booking.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-20 bg-white text-center">
+    <div class="max-w-3xl mx-auto px-6">
+      <h2 id="cta-title" class="heading-font text-4xl font-bold text-[#0B3C5D] mb-6" 
+          data-en="Ready to Ship to Africa?" data-vi="Sẵn sàng vận chuyển sang Châu Phi?">Ready to Ship to Africa?</h2>
+      <p id="cta-desc" class="text-xl text-gray-600 mb-10" 
+         data-en="Let our team help you find the best routing and rates for your cargo." 
+         data-vi="Hãy để đội ngũ chúng tôi hỗ trợ bạn tìm tuyến đường và giá cước tốt nhất cho lô hàng.">
+        Let our team help you find the best routing and rates for your cargo.
+      </p>
+      <a href="contact.html" 
+         class="inline-flex items-center gap-4 bg-[#D4AF37] hover:bg-amber-500 transition text-[#0B3C5D] px-12 py-5 rounded-2xl text-xl font-semibold">
+        <span data-en="Get a Quote Now" data-vi="Nhận Báo Giá Ngay">Get a Quote Now</span>
+        <i class="fas fa-arrow-right"></i>
+      </a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-[#0B3C5D] text-gray-300 py-16">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid md:grid-cols-4 gap-10">
+        <div>
+          <div class="flex items-center gap-3 mb-6">
+            <div class="w-9 h-9 bg-[#D4AF37] rounded-full flex items-center justify-center text-[#0B3C5D] font-bold">Z</div>
+            <h3 class="heading-font text-2xl font-bold text-white">ZAFIR Logistics</h3>
+          </div>
+          <p id="footer-desc" class="text-sm leading-relaxed" 
+             data-en="Your reliable logistics partner specializing in Vietnam – Africa shipments."
+             data-vi="Đối tác logistics đáng tin cậy chuyên tuyến Việt Nam – Châu Phi.">
+            Your reliable logistics partner specializing in Vietnam – Africa shipments.
+          </p>
+        </div>
+        <div>
+          <h4 class="font-semibold text-white mb-4" data-en="Contact" data-vi="Liên hệ">Contact</h4>
+          <p class="text-sm">58 Đường 34, Phường Bình Trưng, TP. Hồ Chí Minh</p>
+          <p class="text-sm mt-2">📞 <a href="tel:0946000153" class="hover:text-[#D4AF37]">+84 946 000 153</a></p>
+          <p class="text-sm mt-1">✉️ <a href="mailto:manager@zafirlogistics.com" class="hover:text-[#D4AF37]">manager@zafirlogistics.com</a></p>
+        </div>
+        <div>
+          <h4 class="font-semibold text-white mb-4" data-en="Services" data-vi="Dịch vụ">Services</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="services.html" class="hover:text-white">Ocean Freight</a></li>
+            <li><a href="#" class="hover:text-white">Project Cargo</a></li>
+            <li><a href="contact.html" class="hover:text-white">Get a Quote</a></li>
+          </ul>
+        </div>
+        <div>
+          <p id="footer-slogan" class="text-sm italic" 
+             data-en='"Delivering Value Across Continents"' 
+             data-vi='"Kết nối Giá trị Giữa Các Châu lục"'>
+            "Delivering Value Across Continents"
+          </p>
+        </div>
+      </div>
+      <div class="border-t border-gray-700 mt-12 pt-8 text-center text-xs">
+        © 2026 ZAFIR Logistics Vietnam Co., Ltd. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    let currentLang = 'en';
+
+    function switchLanguage(lang) {
+      currentLang = lang;
+      
+      document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+      document.getElementById('btn-vi').classList.toggle('active', lang === 'vi');
+
+      document.querySelectorAll('[data-en]').forEach(el => {
+        const text = el.getAttribute(`data-${lang}`);
+        if (text) el.innerHTML = text;
+      });
+    }
+
+    window.onload = () => {
+      switchLanguage('en');
+    };
+  </script>
+</body>
+</html>

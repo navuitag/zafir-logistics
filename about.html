@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us - ZAFIR Logistics Vietnam</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <style>
+    body { font-family: 'Lato', system-ui, sans-serif; }
+    .heading-font { font-family: 'Montserrat', sans-serif; }
+    .hero-bg {
+      background-image: linear-gradient(rgba(11, 60, 93, 0.75), rgba(11, 60, 93, 0.75)), 
+                        url('https://source.unsplash.com/random/1920x1080/?logistics-africa-vietnam');
+      background-size: cover;
+      background-position: center;
+    }
+    .lang-btn.active {
+      background-color: #D4AF37;
+      color: #0B3C5D;
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body class="text-gray-800">
+
+  <!-- HEADER - Consistent Navigation -->
+  <header class="bg-[#0B3C5D] text-white sticky top-0 z-50 shadow">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 bg-[#D4AF37] rounded-full flex items-center justify-center text-[#0B3C5D] font-bold text-2xl">Z</div>
+        <div>
+          <h1 class="heading-font text-2xl font-bold tracking-tight">ZAFIR</h1>
+          <p class="text-xs text-gray-300 -mt-1">LOGISTICS VIETNAM</p>
+        </div>
+      </div>
+
+      <!-- Language Toggle -->
+      <div class="flex items-center gap-2 bg-white/10 rounded-full p-1">
+        <button onclick="switchLanguage('en')" id="btn-en" 
+                class="lang-btn active px-4 py-1.5 text-xs rounded-full transition">EN</button>
+        <button onclick="switchLanguage('vi')" id="btn-vi" 
+                class="lang-btn px-4 py-1.5 text-xs rounded-full transition">VI</button>
+      </div>
+
+      <!-- Updated Navigation Menu -->
+      <nav class="hidden md:flex gap-8 text-sm font-medium">
+        <a href="index.html" class="hover:text-[#D4AF37] transition" data-en="Home" data-vi="Trang chủ">Home</a>
+        <a href="about.html" class="hover:text-[#D4AF37] transition" data-en="About Us" data-vi="Về chúng tôi">About Us</a>
+        <a href="services.html" class="hover:text-[#D4AF37] transition" data-en="Services" data-vi="Dịch vụ">Services</a>
+        <a href="routes.html" class="hover:text-[#D4AF37] transition" data-en="Routes" data-vi="Tuyến đường">Routes</a>
+        <a href="project-cargo.html" class="hover:text-[#D4AF37] transition" data-en="Project Cargo" data-vi="Hàng dự án">Project Cargo</a>
+        <a href="contact.html" class="hover:text-[#D4AF37] transition" data-en="Contact" data-vi="Liên hệ">Contact</a>
+      </nav>
+
+      <button onclick="window.location.href='index.html'" 
+              class="bg-[#D4AF37] hover:bg-amber-500 transition text-[#0B3C5D] px-6 py-2.5 rounded font-semibold text-sm flex items-center gap-2">
+        <i class="fas fa-paper-plane"></i> 
+        <span data-en="GET A QUOTE" data-vi="NHẬN BÁO GIÁ">GET A QUOTE</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="hero-bg h-[500px] flex items-center text-white">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="max-w-2xl">
+        <h1 id="page-title" class="heading-font text-5xl md:text-6xl font-bold leading-tight mb-4" 
+            data-en="About ZAFIR Logistics" data-vi="Về ZAFIR Logistics">
+          About ZAFIR Logistics
+        </h1>
+        <p id="page-subtitle" class="text-xl text-gray-100" 
+           data-en="Connecting Vietnam to Africa with Reliability and Excellence" 
+           data-vi="Kết nối Việt Nam với Châu Phi bằng sự Tin cậy và Chất lượng">
+          Connecting Vietnam to Africa with Reliability and Excellence
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPANY INTRODUCTION -->
+  <section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid md:grid-cols-2 gap-16 items-center">
+        <div>
+          <h2 id="intro-title" class="heading-font text-4xl font-bold text-[#0B3C5D] mb-6" 
+              data-en="Who We Are" data-vi="Chúng tôi là ai">Who We Are</h2>
+          <div class="prose text-gray-700 leading-relaxed">
+            <p id="intro-p1" data-en="ZAFIR Logistics Vietnam is a dynamic international logistics provider headquartered in Ho Chi Minh City, specializing in shipments between Vietnam and Africa." 
+               data-vi="ZAFIR Logistics Vietnam là nhà cung cấp dịch vụ logistics quốc tế năng động có trụ sở tại TP. Hồ Chí Minh, chuyên sâu về vận chuyển giữa Việt Nam và Châu Phi.">
+              ZAFIR Logistics Vietnam is a dynamic international logistics provider headquartered in Ho Chi Minh City, specializing in shipments between Vietnam and Africa.
+            </p>
+            <p id="intro-p2" class="mt-6" 
+               data-en="With strong expertise in ocean freight, project cargo, and African trade lanes, we help Vietnamese exporters reliably reach key African markets such as Abidjan, Tema, and Lomé."
+               data-vi="Với kinh nghiệm sâu rộng về vận tải biển, hàng dự án và các tuyến thương mại Châu Phi, chúng tôi giúp các nhà xuất khẩu Việt Nam tiếp cận thị trường Châu Phi một cách đáng tin cậy tại các cảng chính như Abidjan, Tema và Lomé.">
+              With strong expertise in ocean freight, project cargo, and African trade lanes, we help Vietnamese exporters reliably reach key African markets such as Abidjan, Tema, and Lomé.
+            </p>
+          </div>
+        </div>
+        <div class="bg-gray-100 h-96 rounded-3xl flex items-center justify-center text-gray-400 border-2 border-dashed">
+          Company / Team Photo (Replace with real image)
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OUR MISSION & VALUES -->
+  <section class="py-20 bg-[#0B3C5D] text-white">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-12">
+        <h2 id="mission-title" class="heading-font text-4xl font-bold mb-3" 
+            data-en="Our Mission &amp; Values" data-vi="Sứ mệnh &amp; Giá trị cốt lõi">Our Mission &amp; Values</h2>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-12">
+        <!-- Mission -->
+        <div class="bg-white/10 backdrop-blur p-10 rounded-3xl">
+          <h3 id="mission-head" class="heading-font text-3xl font-semibold mb-6 flex items-center gap-3" 
+              data-en="Our Mission" data-vi="Sứ mệnh của chúng tôi">Our Mission</h3>
+          <p id="mission-text" class="text-lg leading-relaxed text-gray-200" 
+             data-en="To simplify cross-continental logistics and deliver consistent value to our partners by connecting Vietnam’s exporters with the growing African markets through reliable, flexible, and premium services."
+             data-vi="Đơn giản hóa logistics xuyên châu lục và mang lại giá trị bền vững cho đối tác bằng cách kết nối các nhà xuất khẩu Việt Nam với thị trường Châu Phi đang phát triển thông qua dịch vụ tin cậy, linh hoạt và cao cấp.">
+            To simplify cross-continental logistics and deliver consistent value to our partners by connecting Vietnam’s exporters with the growing African markets through reliable, flexible, and premium services.
+          </p>
+        </div>
+
+        <!-- Core Values -->
+        <div>
+          <h3 id="values-title" class="heading-font text-3xl font-semibold mb-8" 
+              data-en="Core Values" data-vi="Giá trị cốt lõi">Core Values</h3>
+          <div class="space-y-8">
+            <div class="flex gap-6">
+              <div class="text-[#D4AF37] text-4xl">01</div>
+              <div>
+                <h4 id="value1" class="font-semibold text-xl mb-2" data-en="Reliability" data-vi="Tin cậy">Reliability</h4>
+                <p id="value1-desc" class="text-gray-300" data-en="Consistent performance and on-time delivery" data-vi="Hiệu suất ổn định và giao hàng đúng hạn">Consistent performance and on-time delivery</p>
+              </div>
+            </div>
+            <div class="flex gap-6">
+              <div class="text-[#D4AF37] text-4xl">02</div>
+              <div>
+                <h4 id="value2" class="font-semibold text-xl mb-2" data-en="Premium Quality" data-vi="Chất lượng Cao cấp">Premium Quality</h4>
+                <p id="value2-desc" class="text-gray-300" data-en="Attention to detail and professional service" data-vi="Chú trọng chi tiết và dịch vụ chuyên nghiệp">Attention to detail and professional service</p>
+              </div>
+            </div>
+            <div class="flex gap-6">
+              <div class="text-[#D4AF37] text-4xl">03</div>
+              <div>
+                <h4 id="value3" class="font-semibold text-xl mb-2" data-en="Flexibility" data-vi="Linh hoạt">Flexibility</h4>
+                <p id="value3-desc" class="text-gray-300" data-en="Tailored solutions for every shipment" data-vi="Giải pháp tùy chỉnh cho từng lô hàng">Tailored solutions for every shipment</p>
+              </div>
+            </div>
+            <div class="flex gap-6">
+              <div class="text-[#D4AF37] text-4xl">04</div>
+              <div>
+                <h4 id="value4" class="font-semibold text-xl mb-2" data-en="Global Mindset" data-vi="Tư duy Toàn cầu">Global Mindset</h4>
+                <p id="value4-desc" class="text-gray-300" data-en="International standards with local expertise" data-vi="Tiêu chuẩn quốc tế kết hợp kinh nghiệm địa phương">International standards with local expertise</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OUR STRENGTH -->
+  <section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-12">
+        <h2 id="strength-title" class="heading-font text-4xl font-bold text-[#0B3C5D]" 
+            data-en="Our Key Strengths" data-vi="Điểm mạnh của chúng tôi">Our Key Strengths</h2>
+      </div>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="text-center">
+          <div class="text-5xl mb-4">🌍</div>
+          <h4 id="strength1" class="font-semibold text-xl mb-2" data-en="Vietnam – Africa Specialist" data-vi="Chuyên gia Việt Nam – Châu Phi">Vietnam – Africa Specialist</h4>
+          <p id="strength1-desc" class="text-gray-600" data-en="Deep knowledge of African trade lanes and ports" data-vi="Hiểu biết sâu về các tuyến thương mại và cảng Châu Phi">Deep knowledge of African trade lanes and ports</p>
+        </div>
+        <div class="text-center">
+          <div class="text-5xl mb-4">🚢</div>
+          <h4 id="strength2" class="font-semibold text-xl mb-2" data-en="Project Cargo Expertise" data-vi="Chuyên môn Hàng Dự án">Project Cargo Expertise</h4>
+          <p id="strength2-desc" class="text-gray-600" data-en="Experienced in handling complex and heavy-lift shipments" data-vi="Kinh nghiệm xử lý hàng hóa phức tạp và siêu trọng">Experienced in handling complex and heavy-lift shipments</p>
+        </div>
+        <div class="text-center">
+          <div class="text-5xl mb-4">🤝</div>
+          <h4 id="strength3" class="font-semibold text-xl mb-2" data-en="Strong Network" data-vi="Mạng lưới mạnh mẽ">Strong Network</h4>
+          <p id="strength3-desc" class="text-gray-600" data-en="Reliable partners across Vietnam and key African countries" data-vi="Đối tác đáng tin cậy tại Việt Nam và các quốc gia Châu Phi quan trọng">Reliable partners across Vietnam and key African countries</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-16 bg-[#1E6F9F] text-white text-center">
+    <div class="max-w-3xl mx-auto px-6">
+      <h2 id="cta-title" class="heading-font text-4xl font-bold mb-6" 
+          data-en="Ready to Work with Us?" data-vi="Sẵn sàng hợp tác cùng chúng tôi?">Ready to Work with Us?</h2>
+      <p id="cta-desc" class="text-xl mb-10" 
+         data-en="Let ZAFIR be your trusted logistics partner for Vietnam – Africa shipments." 
+         data-vi="Hãy để ZAFIR trở thành đối tác logistics đáng tin cậy cho các lô hàng Việt Nam – Châu Phi của bạn.">
+        Let ZAFIR be your trusted logistics partner for Vietnam – Africa shipments.
+      </p>
+      <button onclick="window.location.href='index.html'" 
+              class="inline-flex items-center gap-3 bg-[#D4AF37] text-[#0B3C5D] px-12 py-5 rounded-2xl text-xl font-semibold hover:bg-amber-500 transition">
+        <span id="cta-button" data-en="Get a Quote" data-vi="Nhận Báo Giá">Get a Quote</span>
+        <i class="fas fa-arrow-right"></i>
+      </button>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-[#0B3C5D] text-gray-300 py-16">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid md:grid-cols-4 gap-10">
+        <div>
+          <div class="flex items-center gap-3 mb-6">
+            <div class="w-9 h-9 bg-[#D4AF37] rounded-full flex items-center justify-center text-[#0B3C5D] font-bold">Z</div>
+            <h3 class="heading-font text-2xl font-bold text-white">ZAFIR Logistics</h3>
+          </div>
+          <p id="footer-desc" class="text-sm leading-relaxed" 
+             data-en="Your reliable logistics partner specializing in Vietnam – Africa shipments."
+             data-vi="Đối tác logistics đáng tin cậy chuyên tuyến Việt Nam – Châu Phi.">
+            Your reliable logistics partner specializing in Vietnam – Africa shipments.
+          </p>
+        </div>
+        <div>
+          <h4 id="footer-contact" class="font-semibold text-white mb-4" data-en="Contact" data-vi="Liên hệ">Contact</h4>
+          <p class="text-sm">58 Đường 34, Phường Bình Trưng, TP. Hồ Chí Minh, Việt Nam</p>
+          <p class="text-sm mt-2">📞 <a href="tel:0946000153" class="hover:text-[#D4AF37]">+84 946 000 153</a></p>
+          <p class="text-sm mt-1">✉️ <a href="mailto:manager@zafirlogistics.com" class="hover:text-[#D4AF37]">manager@zafirlogistics.com</a></p>
+        </div>
+        <div>
+          <h4 id="footer-services" class="font-semibold text-white mb-4" data-en="Services" data-vi="Dịch vụ">Services</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="#" class="hover:text-white">Ocean Freight</a></li>
+            <li><a href="#" class="hover:text-white">Project Cargo</a></li>
+            <li><a href="#" class="hover:text-white">Customs Clearance</a></li>
+          </ul>
+        </div>
+        <div>
+          <p id="slogan" class="text-sm italic" 
+             data-en='"Delivering Value Across Continents"' 
+             data-vi='"Kết nối Giá trị Giữa Các Châu lục"'>
+            "Delivering Value Across Continents"
+          </p>
+        </div>
+      </div>
+      <div class="border-t border-gray-700 mt-12 pt-8 text-center text-xs">
+        © 2026 ZAFIR Logistics Vietnam Co., Ltd. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    let currentLang = 'en';
+
+    function switchLanguage(lang) {
+      currentLang = lang;
+      
+      document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+      document.getElementById('btn-vi').classList.toggle('active', lang === 'vi');
+
+      document.querySelectorAll('[data-en]').forEach(el => {
+        const text = el.getAttribute(`data-${lang}`);
+        if (text) el.innerHTML = text;
+      });
+    }
+
+    // Initialize with English
+    window.onload = () => {
+      switchLanguage('en');
+    };
+  </script>
+</body>
+</html>

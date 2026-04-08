@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us - ZAFIR Logistics Vietnam</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <style>
+    body { font-family: 'Lato', system-ui, sans-serif; }
+    .heading-font { font-family: 'Montserrat', sans-serif; }
+    .hero-bg {
+      background-image: linear-gradient(rgba(11, 60, 93, 0.75), rgba(11, 60, 93, 0.75)), 
+                        url('https://source.unsplash.com/random/1920x1080/?logistics-contact');
+      background-size: cover;
+      background-position: center;
+    }
+    .lang-btn.active {
+      background-color: #D4AF37;
+      color: #0B3C5D;
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body class="text-gray-800">
+
+  <!-- HEADER - Consistent Navigation -->
+  <header class="bg-[#0B3C5D] text-white sticky top-0 z-50 shadow">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 bg-[#D4AF37] rounded-full flex items-center justify-center text-[#0B3C5D] font-bold text-2xl">Z</div>
+        <div>
+          <h1 class="heading-font text-2xl font-bold tracking-tight">ZAFIR</h1>
+          <p class="text-xs text-gray-300 -mt-1">LOGISTICS VIETNAM</p>
+        </div>
+      </div>
+
+      <!-- Language Toggle -->
+      <div class="flex items-center gap-2 bg-white/10 rounded-full p-1">
+        <button onclick="switchLanguage('en')" id="btn-en" 
+                class="lang-btn active px-4 py-1.5 text-xs rounded-full transition">EN</button>
+        <button onclick="switchLanguage('vi')" id="btn-vi" 
+                class="lang-btn px-4 py-1.5 text-xs rounded-full transition">VI</button>
+      </div>
+
+      <!-- Updated Navigation Menu -->
+      <nav class="hidden md:flex gap-8 text-sm font-medium">
+        <a href="index.html" class="hover:text-[#D4AF37] transition" data-en="Home" data-vi="Trang chủ">Home</a>
+        <a href="about.html" class="hover:text-[#D4AF37] transition" data-en="About Us" data-vi="Về chúng tôi">About Us</a>
+        <a href="services.html" class="hover:text-[#D4AF37] transition" data-en="Services" data-vi="Dịch vụ">Services</a>
+        <a href="routes.html" class="hover:text-[#D4AF37] transition" data-en="Routes" data-vi="Tuyến đường">Routes</a>
+        <a href="project-cargo.html" class="hover:text-[#D4AF37] transition" data-en="Project Cargo" data-vi="Hàng dự án">Project Cargo</a>
+        <a href="contact.html" class="hover:text-[#D4AF37] transition" data-en="Contact" data-vi="Liên hệ">Contact</a>
+      </nav>
+
+      <button onclick="window.location.href='index.html'" 
+              class="bg-[#D4AF37] hover:bg-amber-500 transition text-[#0B3C5D] px-6 py-2.5 rounded font-semibold text-sm flex items-center gap-2">
+        <i class="fas fa-paper-plane"></i> 
+        <span data-en="GET A QUOTE" data-vi="NHẬN BÁO GIÁ">GET A QUOTE</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="hero-bg h-[460px] flex items-center text-white">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="max-w-xl">
+        <h1 id="page-title" class="heading-font text-5xl md:text-6xl font-bold leading-tight mb-4" 
+            data-en="Contact Us" data-vi="Liên hệ với chúng tôi">
+          Contact Us
+        </h1>
+        <p id="page-subtitle" class="text-xl text-gray-100" 
+           data-en="Get in touch with our team for quotes, partnerships, or any logistics inquiries." 
+           data-vi="Liên hệ với đội ngũ của chúng tôi để nhận báo giá, hợp tác hoặc bất kỳ thắc mắc logistics nào.">
+          Get in touch with our team for quotes, partnerships, or any logistics inquiries.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <div class="max-w-7xl mx-auto px-6 py-20">
+    <div class="grid lg:grid-cols-12 gap-12">
+
+      <!-- Contact Form -->
+      <div class="lg:col-span-7 bg-white rounded-3xl shadow-lg p-10">
+        <h2 id="form-title" class="heading-font text-3xl font-bold text-[#0B3C5D] mb-8" 
+            data-en="Send us a Message" data-vi="Gửi tin nhắn cho chúng tôi">
+          Send us a Message
+        </h2>
+
+        <form id="contactForm" class="space-y-6">
+          <div class="grid md:grid-cols-2 gap-6">
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-2" data-en="Full Name *" data-vi="Họ và tên *">Full Name *</label>
+              <input type="text" id="fullName" required 
+                     class="w-full px-5 py-4 border border-gray-300 rounded-2xl focus:outline-none focus:border-[#1E6F9F]">
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-2" data-en="Company" data-vi="Công ty">Company</label>
+              <input type="text" id="company" 
+                     class="w-full px-5 py-4 border border-gray-300 rounded-2xl focus:outline-none focus:border-[#1E6F9F]">
+            </div>
+          </div>
+
+          <div class="grid md:grid-cols-2 gap-6">
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-2" data-en="Email Address *" data-vi="Địa chỉ Email *">Email Address *</label>
+              <input type="email" id="email" required 
+                     class="w-full px-5 py-4 border border-gray-300 rounded-2xl focus:outline-none focus:border-[#1E6F9F]">
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-2" data-en="Phone Number" data-vi="Số điện thoại">Phone Number</label>
+              <input type="tel" id="phone" 
+                     class="w-full px-5 py-4 border border-gray-300 rounded-2xl focus:outline-none focus:border-[#1E6F9F]">
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-2" data-en="Service Interested In" data-vi="Dịch vụ quan tâm">Service Interested In</label>
+            <select id="service" 
+                    class="w-full px-5 py-4 border border-gray-300 rounded-2xl focus:outline-none focus:border-[#1E6F9F]">
+              <option value="" data-en="Select a service" data-vi="Chọn dịch vụ">Select a service</option>
+              <option value="ocean" data-en="Ocean Freight" data-vi="Vận tải Biển">Ocean Freight</option>
+              <option value="project" data-en="Project Cargo" data-vi="Hàng Dự án">Project Cargo</option>
+              <option value="customs" data-en="Customs Clearance" data-vi="Khai Thuê Hải Quan">Customs Clearance</option>
+              <option value="warehousing" data-en="Warehousing & Trucking" data-vi="Kho Bãi & Vận tải Nội địa">Warehousing & Trucking</option>
+              <option value="other" data-en="Other" data-vi="Khác">Other</option>
+            </select>
+          </div>
+
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-2" data-en="Message / Requirements *" data-vi="Tin nhắn / Yêu cầu *">Message / Requirements *</label>
+            <textarea id="message" rows="6" required 
+                      class="w-full px-5 py-4 border border-gray-300 rounded-3xl focus:outline-none focus:border-[#1E6F9F]" 
+                      placeholder="Please describe your shipment needs..."></textarea>
+          </div>
+
+          <button type="submit" 
+                  class="w-full bg-[#0B3C5D] hover:bg-[#1E6F9F] transition text-white py-5 rounded-2xl font-semibold text-lg">
+            <span id="submit-text" data-en="Send Message" data-vi="Gửi tin nhắn">Send Message</span>
+          </button>
+        </form>
+      </div>
+
+      <!-- Contact Information -->
+      <div class="lg:col-span-5">
+        <div class="bg-[#0B3C5D] text-white rounded-3xl p-10 h-full">
+          <h2 id="info-title" class="heading-font text-3xl font-bold mb-10" 
+              data-en="Get in Touch" data-vi="Liên hệ trực tiếp">Get in Touch</h2>
+
+          <div class="space-y-10">
+            <div class="flex gap-5">
+              <div class="w-12 h-12 bg-white/20 rounded-2xl flex items-center justify-center flex-shrink-0">
+                <i class="fas fa-map-marker-alt text-2xl"></i>
+              </div>
+              <div>
+                <h4 id="address-label" class="font-semibold mb-1" data-en="Our Office" data-vi="Văn phòng chúng tôi">Our Office</h4>
+                <p class="text-gray-300 text-sm leading-relaxed">
+                  Số 58 Đường 34,<br>
+                  Phường Bình Trưng,<br>
+                  TP. Hồ Chí Minh, Việt Nam
+                </p>
+              </div>
+            </div>
+
+            <div class="flex gap-5">
+              <div class="w-12 h-12 bg-white/20 rounded-2xl flex items-center justify-center flex-shrink-0">
+                <i class="fas fa-phone-alt text-2xl"></i>
+              </div>
+              <div>
+                <h4 id="phone-label" class="font-semibold mb-1" data-en="Phone" data-vi="Điện thoại">Phone</h4>
+                <a href="tel:0946000153" class="text-[#D4AF37] hover:underline text-lg font-medium">0946 000 153</a>
+              </div>
+            </div>
+
+            <div class="flex gap-5">
+              <div class="w-12 h-12 bg-white/20 rounded-2xl flex items-center justify-center flex-shrink-0">
+                <i class="fas fa-envelope text-2xl"></i>
+              </div>
+              <div>
+                <h4 id="email-label" class="font-semibold mb-1" data-en="Email" data-vi="Email">Email</h4>
+                <a href="mailto:manager@zafirlogistics.com" class="text-[#D4AF37] hover:underline">manager@zafirlogistics.com</a>
+              </div>
+            </div>
+
+            <div class="flex gap-5">
+              <div class="w-12 h-12 bg-white/20 rounded-2xl flex items-center justify-center flex-shrink-0">
+                <i class="fas fa-globe text-2xl"></i>
+              </div>
+              <div>
+                <h4 id="web-label" class="font-semibold mb-1" data-en="Website" data-vi="Website">Website</h4>
+                <a href="https://www.zafirlogistics.com" target="_blank" class="text-[#D4AF37] hover:underline">www.zafirlogistics.com</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-16 pt-10 border-t border-white/20">
+            <p id="slogan" class="italic text-sm" 
+               data-en='"Delivering Value Across Continents"' 
+               data-vi='"Kết nối Giá trị Giữa Các Châu lục"'>
+              "Delivering Value Across Continents"
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Success Modal -->
+  <div id="successModal" class="hidden fixed inset-0 bg-black/70 flex items-center justify-center z-[100]">
+    <div class="bg-white rounded-3xl max-w-md w-full mx-4 p-10 text-center">
+      <div class="mx-auto w-20 h-20 bg-green-100 text-green-600 rounded-full flex items-center justify-center mb-6">
+        <i class="fas fa-check text-5xl"></i>
+      </div>
+      <h3 id="success-title" class="heading-font text-3xl font-bold text-[#0B3C5D] mb-3" 
+          data-en="Thank You!" data-vi="Cảm ơn bạn!">Thank You!</h3>
+      <p id="success-message" class="text-gray-600 mb-8" 
+         data-en="Your message has been sent successfully. Our team will contact you shortly."
+         data-vi="Tin nhắn của bạn đã được gửi thành công. Đội ngũ của chúng tôi sẽ liên hệ lại trong thời gian sớm nhất.">
+        Your message has been sent successfully. Our team will contact you shortly.
+      </p>
+      <button onclick="closeSuccessModal()" 
+              class="px-10 py-4 bg-[#0B3C5D] text-white rounded-2xl font-medium hover:bg-[#1E6F9F]">
+        <span data-en="Close" data-vi="Đóng">Close</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="bg-[#0B3C5D] text-gray-300 py-16">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid md:grid-cols-4 gap-10">
+        <div>
+          <div class="flex items-center gap-3 mb-6">
+            <div class="w-9 h-9 bg-[#D4AF37] rounded-full flex items-center justify-center text-[#0B3C5D] font-bold">Z</div>
+            <h3 class="heading-font text-2xl font-bold text-white">ZAFIR Logistics</h3>
+          </div>
+          <p id="footer-desc" class="text-sm leading-relaxed" 
+             data-en="Your reliable logistics partner specializing in Vietnam – Africa shipments."
+             data-vi="Đối tác logistics đáng tin cậy chuyên tuyến Việt Nam – Châu Phi.">
+            Your reliable logistics partner specializing in Vietnam – Africa shipments.
+          </p>
+        </div>
+        <div>
+          <h4 class="font-semibold text-white mb-4" data-en="Contact" data-vi="Liên hệ">Contact</h4>
+          <p class="text-sm">58 Đường 34, Phường Bình Trưng, TP. Hồ Chí Minh</p>
+          <p class="text-sm mt-2">📞 <a href="tel:0946000153" class="hover:text-[#D4AF37]">+84 946 000 153</a></p>
+          <p class="text-sm mt-1">✉️ <a href="mailto:manager@zafirlogistics.com" class="hover:text-[#D4AF37]">manager@zafirlogistics.com</a></p>
+        </div>
+        <div>
+          <h4 class="font-semibold text-white mb-4" data-en="Quick Links" data-vi="Liên kết nhanh">Quick Links</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="about.html" class="hover:text-white">About Us</a></li>
+            <li><a href="services.html" class="hover:text-white">Our Services</a></li>
+            <li><a href="#" class="hover:text-white">Vietnam - Africa Routes</a></li>
+          </ul>
+        </div>
+        <div>
+          <p id="footer-slogan" class="text-sm italic" 
+             data-en='"Delivering Value Across Continents"' 
+             data-vi='"Kết nối Giá trị Giữa Các Châu lục"'>
+            "Delivering Value Across Continents"
+          </p>
+        </div>
+      </div>
+      <div class="border-t border-gray-700 mt-12 pt-8 text-center text-xs">
+        © 2026 ZAFIR Logistics Vietnam Co., Ltd. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    let currentLang = 'en';
+
+    function switchLanguage(lang) {
+      currentLang = lang;
+      
+      document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+      document.getElementById('btn-vi').classList.toggle('active', lang === 'vi');
+
+      document.querySelectorAll('[data-en]').forEach(el => {
+        const text = el.getAttribute(`data-${lang}`);
+        if (text) el.innerHTML = text;
+      });
+    }
+
+    // Form handling
+    const contactForm = document.getElementById('contactForm');
+    const successModal = document.getElementById('successModal');
+
+    contactForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      // Simulate form submission
+      setTimeout(() => {
+        successModal.classList.remove('hidden');
+        successModal.classList.add('flex');
+        contactForm.reset();
+      }, 800);
+    });
+
+    function closeSuccessModal() {
+      successModal.classList.add('hidden');
+      successModal.classList.remove('flex');
+    }
+
+    // Close modal when clicking outside
+    successModal.addEventListener('click', function(e) {
+      if (e.target === successModal) {
+        closeSuccessModal();
+      }
+    });
+
+    // Initialize
+    window.onload = () => {
+      switchLanguage('en');
+    };
+  </script>
+</body>
+</html>

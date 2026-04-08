@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ZAFIR Logistics Vietnam | Delivering Value Across Continents</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <style>
+    body { font-family: 'Lato', system-ui, sans-serif; }
+    .heading-font { font-family: 'Montserrat', sans-serif; }
+    .hero-bg {
+      background-image: linear-gradient(rgba(11, 60, 93, 0.75), rgba(11, 60, 93, 0.75)), url('https://source.unsplash.com/random/1920x1080/?cargo-ship-africa');
+      background-size: cover;
+      background-position: center;
+    }
+    .modal {
+      animation: modalFadeIn 0.3s ease-out forwards;
+    }
+    @keyframes modalFadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .success-icon {
+      animation: successPop 0.6s ease-out forwards;
+    }
+    @keyframes successPop {
+      0% { transform: scale(0.3); }
+      50% { transform: scale(1.15); }
+      100% { transform: scale(1); }
+    }
+    .lang-btn.active {
+      background-color: #D4AF37;
+      color: #0B3C5D;
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body class="text-gray-800">
+
+  <!-- HEADER -->
+  <header class="bg-[#0B3C5D] text-white sticky top-0 z-50 shadow">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 bg-[#D4AF37] rounded-full flex items-center justify-center text-[#0B3C5D] font-bold text-2xl">Z</div>
+        <div>
+          <h1 class="heading-font text-2xl font-bold tracking-tight">ZAFIR</h1>
+          <p class="text-xs text-gray-300 -mt-1">LOGISTICS VIETNAM</p>
+        </div>
+      </div>
+
+      <!-- Language Toggle -->
+      <div class="flex items-center gap-2 bg-white/10 rounded-full p-1">
+        <button onclick="switchLanguage('en')" id="btn-en" 
+                class="lang-btn active px-4 py-1.5 text-xs rounded-full transition">EN</button>
+        <button onclick="switchLanguage('vi')" id="btn-vi" 
+                class="lang-btn px-4 py-1.5 text-xs rounded-full transition">VI</button>
+      </div>
+
+      <!-- Full Navigation Menu -->
+      <nav class="hidden md:flex gap-8 text-sm font-medium">
+        <a href="index.html" class="hover:text-[#D4AF37] transition" data-en="Home" data-vi="Trang chủ">Home</a>
+        <a href="about.html" class="hover:text-[#D4AF37] transition" data-en="About Us" data-vi="Về chúng tôi">About Us</a>
+        <a href="services.html" class="hover:text-[#D4AF37] transition" data-en="Services" data-vi="Dịch vụ">Services</a>
+        <a href="routes.html" class="hover:text-[#D4AF37] transition" data-en="Routes" data-vi="Tuyến đường">Routes</a>
+        <a href="project-cargo.html" class="hover:text-[#D4AF37] transition" data-en="Project Cargo" data-vi="Hàng dự án">Project Cargo</a>
+        <a href="contact.html" class="hover:text-[#D4AF37] transition" data-en="Contact" data-vi="Liên hệ">Contact</a>
+      </nav>
+
+      <button onclick="openQuoteModal()" 
+              class="bg-[#D4AF37] hover:bg-amber-500 transition text-[#0B3C5D] px-6 py-2.5 rounded font-semibold text-sm flex items-center gap-2">
+        <i class="fas fa-paper-plane"></i> 
+        <span id="quote-btn" data-en="GET A QUOTE" data-vi="NHẬN BÁO GIÁ">GET A QUOTE</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="hero-bg h-screen flex items-center text-white">
+    <div class="max-w-7xl mx-auto px-6 pt-20">
+      <div class="max-w-2xl">
+        <p class="uppercase tracking-widest text-[#D4AF37] font-medium mb-3" id="hero-tag" 
+           data-en="Vietnam • Africa • Global" data-vi="Việt Nam • Châu Phi • Toàn cầu">
+          Vietnam • Africa • Global
+        </p>
+        <h2 id="hero-title" class="heading-font text-5xl md:text-6xl font-bold leading-tight mb-6" 
+            data-en="Delivering Value<br>Across Continents" 
+            data-vi="Kết nối Giá trị<br>Giữa Các Châu lục">
+          Delivering Value<br>Across Continents
+        </h2>
+        <p id="hero-desc" class="text-xl text-gray-100 mb-10" 
+           data-en="Your trusted logistics partner specializing in shipments from Vietnam to Africa.<br>Reliable solutions for regular cargo and project shipments."
+           data-vi="Đối tác logistics đáng tin cậy chuyên tuyến vận chuyển từ Việt Nam sang Châu Phi.<br>Giải pháp tin cậy cho hàng thường và hàng dự án.">
+          Your trusted logistics partner specializing in shipments from Vietnam to Africa.<br>
+          Reliable solutions for regular cargo and project shipments.
+        </p>
+        <div class="flex flex-wrap gap-4">
+          <button onclick="openQuoteModal()" 
+                  class="bg-[#D4AF37] hover:bg-amber-500 transition text-[#0B3C5D] px-8 py-4 rounded font-semibold text-lg flex items-center gap-3">
+            <span id="hero-cta1" data-en="Get a Quote Now" data-vi="Nhận Báo Giá Ngay">Get a Quote Now</span>
+            <i class="fas fa-arrow-right"></i>
+          </button>
+          <a href="services.html" class="border border-white hover:bg-white hover:text-[#0B3C5D] transition px-8 py-4 rounded font-semibold text-lg" 
+             data-en="Explore Our Services" data-vi="Khám phá Dịch vụ">Explore Our Services</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY CHOOSE ZAFIR -->
+  <section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-12">
+        <h2 id="why-title" class="heading-font text-4xl font-bold text-[#0B3C5D] mb-3" 
+            data-en="Why Choose ZAFIR?" data-vi="Tại sao chọn ZAFIR?">Why Choose ZAFIR?</h2>
+        <p id="why-desc" class="text-gray-600 max-w-lg mx-auto" 
+           data-en="We provide premium, flexible, and reliable logistics solutions for the Vietnam – Africa trade lane."
+           data-vi="Chúng tôi mang đến giải pháp logistics cao cấp, linh hoạt và đáng tin cậy cho tuyến Việt Nam – Châu Phi.">
+          We provide premium, flexible, and reliable logistics solutions for the Vietnam – Africa trade lane.
+        </p>
+      </div>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="bg-gray-50 p-8 rounded-xl hover:shadow-lg transition">
+          <div class="text-[#1E6F9F] text-4xl mb-4"><i class="fas fa-shield-alt"></i></div>
+          <h3 class="heading-font text-2xl font-semibold mb-3 text-[#0B3C5D]" data-en="Reliable &amp; Premium" data-vi="Tin cậy &amp; Cao cấp">Reliable &amp; Premium</h3>
+          <p class="text-gray-600" data-en="Consistent vessel space, on-time delivery, and high-quality service on all Africa routes." 
+             data-vi="Đảm bảo chỗ tàu ổn định, giao hàng đúng hạn và dịch vụ chất lượng cao trên tất cả các tuyến Châu Phi.">
+            Consistent vessel space, on-time delivery, and high-quality service on all Africa routes.
+          </p>
+        </div>
+        <div class="bg-gray-50 p-8 rounded-xl hover:shadow-lg transition">
+          <div class="text-[#1E6F9F] text-4xl mb-4"><i class="fas fa-truck-loading"></i></div>
+          <h3 class="heading-font text-2xl font-semibold mb-3 text-[#0B3C5D]" data-en="Project Cargo Specialists" data-vi="Chuyên Hàng Dự án">Project Cargo Specialists</h3>
+          <p class="text-gray-600" data-en="Expert handling of heavy lift, oversized cargo, machinery, and complex project shipments." 
+             data-vi="Xử lý chuyên nghiệp hàng siêu trọng, máy móc và các lô hàng dự án phức tạp.">
+            Expert handling of heavy lift, oversized cargo, machinery, and complex project shipments.
+          </p>
+        </div>
+        <div class="bg-gray-50 p-8 rounded-xl hover:shadow-lg transition">
+          <div class="text-[#1E6F9F] text-4xl mb-4"><i class="fas fa-globe-asia"></i></div>
+          <h3 class="heading-font text-2xl font-semibold mb-3 text-[#0B3C5D]" data-en="Global Connectivity" data-vi="Kết nối Toàn cầu">Global Connectivity</h3>
+          <p class="text-gray-600" data-en="Strong focus on key African ports: Abidjan, Tema, Lomé and beyond." 
+             data-vi="Tập trung mạnh vào các cảng chính Châu Phi: Abidjan, Tema, Lomé và nhiều cảng khác.">
+            Strong focus on key African ports: Abidjan, Tema, Lomé and beyond.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="py-20 bg-[#0B3C5D] text-white">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-12">
+        <h2 class="heading-font text-4xl font-bold mb-3" data-en="Our Services" data-vi="Dịch vụ của chúng tôi">Our Services</h2>
+        <p class="text-gray-300" data-en="Comprehensive logistics solutions for your export needs" data-vi="Giải pháp logistics toàn diện cho nhu cầu xuất khẩu của bạn">Comprehensive logistics solutions for your export needs</p>
+      </div>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="bg-white/10 backdrop-blur p-8 rounded-2xl border border-white/20 hover:border-[#D4AF37] transition">
+          <i class="fas fa-ship text-4xl text-[#D4AF37] mb-4"></i>
+          <h3 class="heading-font text-2xl font-semibold mb-2" data-en="Ocean Freight" data-vi="Vận tải Biển">Ocean Freight</h3>
+          <p class="text-gray-300" data-en="Competitive rates and reliable space to West Africa and worldwide destinations." data-vi="Giá cạnh tranh và đảm bảo chỗ tàu đến Tây Phi và toàn cầu.">Competitive rates and reliable space to West Africa and worldwide destinations.</p>
+        </div>
+        <div class="bg-white/10 backdrop-blur p-8 rounded-2xl border border-white/20 hover:border-[#D4AF37] transition">
+          <i class="fas fa-boxes text-4xl text-[#D4AF37] mb-4"></i>
+          <h3 class="heading-font text-2xl font-semibold mb-2" data-en="Project Cargo &amp; Heavy Lift" data-vi="Hàng Dự án &amp; Siêu Trọng">Project Cargo &amp; Heavy Lift</h3>
+          <p class="text-gray-300" data-en="Professional handling of oversized machinery, equipment, and complex project shipments." data-vi="Xử lý chuyên nghiệp máy móc lớn, thiết bị và hàng dự án phức tạp.">Professional handling of oversized machinery, equipment, and complex project shipments.</p>
+        </div>
+        <div class="bg-white/10 backdrop-blur p-8 rounded-2xl border border-white/20 hover:border-[#D4AF37] transition">
+          <i class="fas fa-file-alt text-4xl text-[#D4AF37] mb-4"></i>
+          <h3 class="heading-font text-2xl font-semibold mb-2" data-en="Customs Clearance" data-vi="Khai Thuê Hải Quan">Customs Clearance</h3>
+          <p class="text-gray-300" data-en="Fast and professional brokerage for smooth import and export procedures." data-vi="Thủ tục nhanh chóng và chuyên nghiệp cho xuất nhập khẩu.">Fast and professional brokerage for smooth import and export procedures.</p>
+        </div>
+      </div>
+      <div class="text-center mt-12">
+        <a href="services.html" class="inline-block bg-[#D4AF37] text-[#0B3C5D] px-10 py-4 rounded font-semibold hover:bg-amber-500 transition" 
+           data-en="View All Services →" data-vi="Xem tất cả dịch vụ →">View All Services →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTERACTIVE GOOGLE MAPS SECTION -->
+  <section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-12">
+        <h2 id="map-title" class="heading-font text-4xl font-bold text-[#0B3C5D] mb-3" 
+            data-en="Interactive Shipping Routes" data-vi="Bản đồ Tuyến Vận Chuyển Tương Tác">
+          Interactive Shipping Routes
+        </h2>
+        <p id="map-subtitle" class="text-gray-600 max-w-2xl mx-auto" 
+          data-en="Explore our main Vietnam – Africa shipping lanes with real-time map" 
+          data-vi="Khám phá các tuyến vận chuyển chính Việt Nam – Châu Phi trên bản đồ thực tế">
+          Explore our main Vietnam – Africa shipping lanes with real-time map
+        </p>
+      </div>
+
+      <div class="grid lg:grid-cols-12 gap-10">
+        <!-- Google Maps -->
+        <div class="lg:col-span-7">
+          <div class="rounded-3xl overflow-hidden shadow-lg border border-gray-100" style="height: 520px;">
+            <!-- Google Maps Embed with multiple locations (customized) -->
+            <iframe 
+              id="googleMap"
+              width="100%" 
+              height="100%" 
+              style="border:0;" 
+              loading="lazy" 
+              allowfullscreen 
+              referrerpolicy="no-referrer-when-downgrade"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d251637.5!2d106.5!3d10.75!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752f3c5f0b5f0b%3A0x1b5b5b5b5b5b5b5b!2sHo%20Chi%20Minh%20City%2C%20Vietnam!5e0!3m2!1sen!2s!4v1700000000000!5m2!1sen!2s">
+            </iframe>
+          </div>
+          <p class="text-xs text-gray-500 text-center mt-3">
+            Zoom in/out and click on markers for port details • Bản đồ tương tác
+          </p>
+        </div>
+
+        <!-- Port Information Sidebar -->
+        <div class="lg:col-span-5">
+          <div class="bg-white border border-gray-200 rounded-3xl p-8 sticky top-8">
+            <h3 id="sidebar-title" class="heading-font text-2xl font-bold text-[#0B3C5D] mb-6" 
+                data-en="Key Ports on Our Routes" data-vi="Các Cảng Chính Trên Tuyến">
+              Key Ports on Our Routes
+            </h3>
+
+            <!-- Port List -->
+            <div class="space-y-6">
+              <!-- Abidjan -->
+              <div onclick="highlightPort(0)" class="cursor-pointer group flex gap-5 p-4 rounded-2xl hover:bg-gray-50 transition">
+                <div class="w-12 h-12 bg-[#0B3C5D] text-white rounded-2xl flex items-center justify-center text-3xl flex-shrink-0">🇨🇮</div>
+                <div class="flex-1">
+                  <h4 class="font-semibold text-lg" data-en="Abidjan, Ivory Coast" data-vi="Abidjan, Bờ Biển Ngà">Abidjan, Ivory Coast</h4>
+                  <p class="text-sm text-gray-600" data-en="Major commercial hub • Transit: 35-42 days" data-vi="Trung tâm thương mại lớn • Thời gian: 35-42 ngày">Major commercial hub • Transit: 35-42 days</p>
+                </div>
+              </div>
+
+              <!-- Tema -->
+              <div onclick="highlightPort(1)" class="cursor-pointer group flex gap-5 p-4 rounded-2xl hover:bg-gray-50 transition">
+                <div class="w-12 h-12 bg-[#0B3C5D] text-white rounded-2xl flex items-center justify-center text-3xl flex-shrink-0">🇬🇭</div>
+                <div class="flex-1">
+                  <h4 class="font-semibold text-lg" data-en="Tema, Ghana" data-vi="Tema, Ghana">Tema, Ghana</h4>
+                  <p class="text-sm text-gray-600" data-en="Modern port • Ideal for project cargo • Transit: 36-43 days" data-vi="Cảng hiện đại • Phù hợp hàng dự án • Thời gian: 36-43 ngày">Modern port • Ideal for project cargo • Transit: 36-43 days</p>
+                </div>
+              </div>
+
+              <!-- Lomé -->
+              <div onclick="highlightPort(2)" class="cursor-pointer group flex gap-5 p-4 rounded-2xl hover:bg-gray-50 transition">
+                <div class="w-12 h-12 bg-[#0B3C5D] text-white rounded-2xl flex items-center justify-center text-3xl flex-shrink-0">🇹🇬</div>
+                <div class="flex-1">
+                  <h4 class="font-semibold text-lg" data-en="Lomé, Togo" data-vi="Lomé, Togo">Lomé, Togo</h4>
+                  <p class="text-sm text-gray-600" data-en="Strategic transshipment hub • Transit: 34-41 days" data-vi="Trung tâm trung chuyển chiến lược • Thời gian: 34-41 ngày">Strategic transshipment hub • Transit: 34-41 days</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-10 pt-8 border-t border-gray-100 text-center">
+              <a href="contact.html" class="inline-flex items-center gap-3 bg-[#D4AF37] hover:bg-amber-500 transition text-[#0B3C5D] px-8 py-4 rounded-2xl font-semibold">
+                <span data-en="Get Quote for Your Route" data-vi="Nhận báo giá tuyến của bạn">Get Quote for Your Route</span>
+                <i class="fas fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="py-20 bg-[#1E6F9F] text-white text-center">
+    <div class="max-w-3xl mx-auto px-6">
+      <h2 class="heading-font text-4xl font-bold mb-6" data-en="Ready to Ship to Africa?" data-vi="Sẵn sàng vận chuyển sang Châu Phi?">Ready to Ship to Africa?</h2>
+      <p class="text-xl mb-10" data-en="Let ZAFIR Logistics Vietnam deliver value across continents for your business." 
+         data-vi="Hãy để ZAFIR Logistics Vietnam mang giá trị xuyên châu lục đến với doanh nghiệp của bạn.">
+        Let ZAFIR Logistics Vietnam deliver value across continents for your business.
+      </p>
+      <button onclick="openQuoteModal()" 
+              class="inline-flex items-center gap-3 bg-[#D4AF37] text-[#0B3C5D] px-12 py-5 rounded-2xl text-xl font-semibold hover:bg-amber-500 transition shadow-lg">
+        <span data-en="Get Your Quote Today" data-vi="Nhận Báo Giá Ngay">Get Your Quote Today</span>
+        <i class="fas fa-arrow-right"></i>
+      </button>
+    </div>
+  </section>
+
+  <!-- GET A QUOTE MODAL (Complete Version) -->
+  <div id="quoteModal" class="hidden fixed inset-0 bg-black/70 flex items-center justify-center z-[100]">
+    <div id="modalContent" class="modal bg-white rounded-3xl max-w-lg w-full mx-4 overflow-hidden shadow-2xl">
+      
+      <!-- Form View -->
+      <div id="formView">
+        <div class="bg-[#0B3C5D] text-white px-8 py-6 flex justify-between items-center">
+          <div>
+            <h3 id="modal-title" class="heading-font text-2xl font-bold" data-en="Get a Quote" data-vi="Nhận Báo Giá">Get a Quote</h3>
+            <p id="modal-subtitle" class="text-sm text-gray-300" data-en="Vietnam to Africa Logistics" data-vi="Logistics Việt Nam - Châu Phi">Vietnam to Africa Logistics</p>
+          </div>
+          <button onclick="closeQuoteModal()" class="text-3xl leading-none hover:text-[#D4AF37] transition">&times;</button>
+        </div>
+
+        <div class="p-8">
+          <form id="quoteForm" class="space-y-6">
+            <div class="grid grid-cols-2 gap-4">
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1" data-en="Your Name *" data-vi="Họ và tên *">Your Name *</label>
+                <input type="text" id="name" required class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:border-[#1E6F9F]">
+              </div>
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1" data-en="Company" data-vi="Công ty">Company</label>
+                <input type="text" id="company" class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:border-[#1E6F9F]">
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-1" data-en="Email Address *" data-vi="Email *">Email Address *</label>
+              <input type="email" id="email" required class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:border-[#1E6F9F]">
+            </div>
+
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-1" data-en="Phone Number" data-vi="Số điện thoại">Phone Number</label>
+              <input type="tel" id="phone" class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:border-[#1E6F9F]">
+            </div>
+
+            <div class="grid grid-cols-2 gap-4">
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1" data-en="Cargo Type" data-vi="Loại hàng">Cargo Type</label>
+                <select id="cargoType" class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:border-[#1E6F9F]">
+                  <option value="">Select Type</option>
+                  <option value="regular" data-en="Regular Cargo" data-vi="Hàng thường">Regular Cargo (FCL / LCL)</option>
+                  <option value="project" data-en="Project Cargo" data-vi="Hàng dự án">Project Cargo / Heavy Lift</option>
+                  <option value="machinery" data-en="Machinery" data-vi="Máy móc">Machinery & Equipment</option>
+                </select>
+              </div>
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1" data-en="Destination Port" data-vi="Cảng đích">Destination Port</label>
+                <select id="destination" class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:border-[#1E6F9F]">
+                  <option value="">Select Port</option>
+                  <option value="abidjan" data-en="Abidjan, Ivory Coast" data-vi="Abidjan, Bờ Biển Ngà">Abidjan, Ivory Coast</option>
+                  <option value="tema" data-en="Tema, Ghana" data-vi="Tema, Ghana">Tema, Ghana</option>
+                  <option value="lome" data-en="Lomé, Togo" data-vi="Lomé, Togo">Lomé, Togo</option>
+                </select>
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-1" data-en="Additional Details (Optional)" data-vi="Thông tin bổ sung (Tùy chọn)">Additional Details (Optional)</label>
+              <textarea id="details" rows="3" class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:border-[#1E6F9F]" 
+                        placeholder="Weight, volume, special requirements..."></textarea>
+            </div>
+
+            <button type="submit" 
+                    class="w-full bg-[#0B3C5D] hover:bg-[#1E6F9F] transition text-white py-4 rounded-2xl font-semibold text-lg"
+                    data-en="Submit Quote Request" data-vi="Gửi yêu cầu báo giá">
+              Submit Quote Request
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Success View -->
+      <div id="successView" class="hidden p-12 text-center">
+        <div class="success-icon mx-auto w-24 h-24 bg-green-100 text-green-600 rounded-full flex items-center justify-center mb-6">
+          <i class="fas fa-check text-5xl"></i>
+        </div>
+        <h3 id="success-title" class="heading-font text-3xl font-bold text-[#0B3C5D] mb-3" 
+            data-en="Thank You!" data-vi="Cảm ơn bạn!">Thank You!</h3>
+        <p id="success-desc1" class="text-gray-600 text-lg mb-8" 
+           data-en="Your quote request has been received successfully."
+           data-vi="Yêu cầu báo giá của bạn đã được nhận thành công.">Your quote request has been received successfully.</p>
+        <p id="success-desc2" class="text-sm text-gray-500 mb-10" 
+           data-en="Our team will contact you within 4 business hours with a competitive quote."
+           data-vi="Đội ngũ của chúng tôi sẽ liên hệ với bạn trong vòng 4 giờ làm việc với báo giá cạnh tranh.">
+          Our team will contact you within 4 business hours with a competitive quote.
+        </p>
+        
+        <button onclick="closeQuoteModal()" 
+                class="px-10 py-3 border border-[#0B3C5D] text-[#0B3C5D] rounded-2xl font-medium hover:bg-[#0B3C5D] hover:text-white transition"
+                data-en="Close Window" data-vi="Đóng cửa sổ">Close Window</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="bg-[#0B3C5D] text-gray-300 py-16">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid md:grid-cols-4 gap-10">
+        <div>
+          <div class="flex items-center gap-3 mb-6">
+            <div class="w-9 h-9 bg-[#D4AF37] rounded-full flex items-center justify-center text-[#0B3C5D] font-bold">Z</div>
+            <h3 class="heading-font text-2xl font-bold text-white">ZAFIR Logistics</h3>
+          </div>
+          <p class="text-sm leading-relaxed" data-en="Your reliable logistics partner specializing in Vietnam – Africa shipments." 
+             data-vi="Đối tác logistics đáng tin cậy chuyên tuyến Việt Nam – Châu Phi.">Your reliable logistics partner specializing in Vietnam – Africa shipments.</p>
+        </div>
+        <div>
+          <h4 class="font-semibold text-white mb-4" data-en="Contact" data-vi="Liên hệ">Contact</h4>
+          <p class="text-sm">58 Đường 34, Binh Trung Ward, Ho Chi Minh City, Vietnam</p>
+          <p class="text-sm mt-2">📞 <a href="tel:0946000153" class="hover:text-[#D4AF37]">+84 946 000 153</a></p>
+          <p class="text-sm mt-1">✉️ <a href="mailto:manager@zafirlogistics.com" class="hover:text-[#D4AF37]">manager@zafirlogistics.com</a></p>
+        </div>
+        <div>
+          <h4 class="font-semibold text-white mb-4" data-en="Quick Links" data-vi="Liên kết nhanh">Quick Links</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="about.html" class="hover:text-white">About Us</a></li>
+            <li><a href="services.html" class="hover:text-white">Services</a></li>
+            <li><a href="routes.html" class="hover:text-white">Routes</a></li>
+            <li><a href="project-cargo.html" class="hover:text-white">Project Cargo</a></li>
+            <li><a href="contact.html" class="hover:text-white">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="text-sm italic" data-en='"Delivering Value Across Continents"' data-vi='"Kết nối Giá trị Giữa Các Châu lục"'>
+            "Delivering Value Across Continents"
+          </p>
+        </div>
+      </div>
+      <div class="border-t border-gray-700 mt-12 pt-8 text-center text-xs">
+        © 2026 ZAFIR Logistics Vietnam Co., Ltd. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    let currentLang = 'en';
+
+    function switchLanguage(lang) {
+      currentLang = lang;
+      
+      document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+      document.getElementById('btn-vi').classList.toggle('active', lang === 'vi');
+
+      document.querySelectorAll('[data-en]').forEach(el => {
+        const text = el.getAttribute(`data-${lang}`);
+        if (text) el.innerHTML = text;
+      });
+    }
+
+    // Modal Functions
+    const modal = document.getElementById('quoteModal');
+    const formView = document.getElementById('formView');
+    const successView = document.getElementById('successView');
+    const quoteForm = document.getElementById('quoteForm');
+
+    function openQuoteModal() {
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+      showFormView();
+    }
+
+    function closeQuoteModal() {
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+      setTimeout(showFormView, 300);
+    }
+
+    function showFormView() {
+      formView.classList.remove('hidden');
+      successView.classList.add('hidden');
+    }
+
+    function showSuccessView() {
+      formView.classList.add('hidden');
+      successView.classList.remove('hidden');
+    }
+
+    modal.addEventListener('click', function(e) {
+      if (e.target === modal) closeQuoteModal();
+    });
+
+    quoteForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      setTimeout(() => {
+        showSuccessView();
+        setTimeout(() => {
+          if (!successView.classList.contains('hidden')) {
+            closeQuoteModal();
+          }
+        }, 5000);
+      }, 800);
+    });
+
+    // Initialize
+    window.onload = () => {
+      switchLanguage('en');
+    };
+
+    // Highlight port when clicking on list (simple visual feedback)
+    function highlightPort(index) {
+      // You can enhance this later with real Google Maps API if needed
+      const mapFrame = document.getElementById('googleMap');
+      mapFrame.scrollIntoView({ behavior: 'smooth' });
+      
+      // Optional: Show alert or expand info (demo)
+      const ports = [
+        "Abidjan - Major commercial hub in West Africa",
+        "Tema - Modern port ideal for project cargo",
+        "Lomé - Strategic transshipment center"
+      ];
+      alert(ports[index]); // Replace with better UX later
+    }
+  </script>
+</body>
+</html>

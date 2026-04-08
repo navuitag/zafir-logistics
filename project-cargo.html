@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project Cargo - ZAFIR Logistics Vietnam</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <style>
+    body { font-family: 'Lato', system-ui, sans-serif; }
+    .heading-font { font-family: 'Montserrat', sans-serif; }
+    .hero-bg {
+      background-image: linear-gradient(rgba(11, 60, 93, 0.85), rgba(11, 60, 93, 0.85)), 
+                        url('https://source.unsplash.com/random/1920x1080/?heavy-machinery-port');
+      background-size: cover;
+      background-position: center;
+    }
+    .lang-btn.active {
+      background-color: #D4AF37;
+      color: #0B3C5D;
+      font-weight: 600;
+    }
+    .card-hover {
+      transition: all 0.4s ease;
+    }
+    .card-hover:hover {
+      transform: translateY(-12px);
+    }
+  </style>
+</head>
+<body class="text-gray-800">
+
+  <!-- HEADER - Consistent Navigation -->
+  <header class="bg-[#0B3C5D] text-white sticky top-0 z-50 shadow">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 bg-[#D4AF37] rounded-full flex items-center justify-center text-[#0B3C5D] font-bold text-2xl">Z</div>
+        <div>
+          <h1 class="heading-font text-2xl font-bold tracking-tight">ZAFIR</h1>
+          <p class="text-xs text-gray-300 -mt-1">LOGISTICS VIETNAM</p>
+        </div>
+      </div>
+
+      <!-- Language Toggle -->
+      <div class="flex items-center gap-2 bg-white/10 rounded-full p-1">
+        <button onclick="switchLanguage('en')" id="btn-en" 
+                class="lang-btn active px-4 py-1.5 text-xs rounded-full transition">EN</button>
+        <button onclick="switchLanguage('vi')" id="btn-vi" 
+                class="lang-btn px-4 py-1.5 text-xs rounded-full transition">VI</button>
+      </div>
+
+      <!-- Updated Navigation Menu -->
+      <nav class="hidden md:flex gap-8 text-sm font-medium">
+        <a href="index.html" class="hover:text-[#D4AF37] transition" data-en="Home" data-vi="Trang chủ">Home</a>
+        <a href="about.html" class="hover:text-[#D4AF37] transition" data-en="About Us" data-vi="Về chúng tôi">About Us</a>
+        <a href="services.html" class="hover:text-[#D4AF37] transition" data-en="Services" data-vi="Dịch vụ">Services</a>
+        <a href="routes.html" class="hover:text-[#D4AF37] transition" data-en="Routes" data-vi="Tuyến đường">Routes</a>
+        <a href="project-cargo.html" class="hover:text-[#D4AF37] transition" data-en="Project Cargo" data-vi="Hàng dự án">Project Cargo</a>
+        <a href="contact.html" class="hover:text-[#D4AF37] transition" data-en="Contact" data-vi="Liên hệ">Contact</a>
+      </nav>
+
+      <button onclick="window.location.href='index.html'" 
+              class="bg-[#D4AF37] hover:bg-amber-500 transition text-[#0B3C5D] px-6 py-2.5 rounded font-semibold text-sm flex items-center gap-2">
+        <i class="fas fa-paper-plane"></i> 
+        <span data-en="GET A QUOTE" data-vi="NHẬN BÁO GIÁ">GET A QUOTE</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="hero-bg h-[520px] flex items-center text-white">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="max-w-3xl">
+        <h1 id="page-title" class="heading-font text-5xl md:text-6xl font-bold leading-tight mb-6" 
+            data-en="Project Cargo &amp; Heavy Lift" data-vi="Hàng Dự án &amp; Siêu Trọng">
+          Project Cargo &amp; Heavy Lift
+        </h1>
+        <p id="page-subtitle" class="text-2xl text-gray-100" 
+           data-en="Expert solutions for complex, oversized, and challenging shipments from Vietnam to Africa."
+           data-vi="Giải pháp chuyên sâu cho các lô hàng phức tạp, siêu trường siêu trọng từ Việt Nam sang Châu Phi.">
+          Expert solutions for complex, oversized, and challenging shipments from Vietnam to Africa.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTRODUCTION -->
+  <section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid lg:grid-cols-2 gap-16 items-center">
+        <div>
+          <h2 id="intro-title" class="heading-font text-4xl font-bold text-[#0B3C5D] mb-6" 
+              data-en="When Experience Matters" data-vi="Khi Kinh Nghiệm Là Yếu Tố Quyết Định">
+            When Experience Matters
+          </h2>
+          <div class="prose text-gray-700 leading-relaxed text-lg">
+            <p id="intro-p1" data-en="ZAFIR Logistics Vietnam specializes in handling Project Cargo and Heavy Lift shipments. From large industrial machinery to complete factory equipment, we manage every detail with precision and care."
+               data-vi="ZAFIR Logistics Vietnam chuyên xử lý các lô hàng Dự án và Siêu Trọng. Từ máy móc công nghiệp lớn đến thiết bị nhà máy hoàn chỉnh, chúng tôi quản lý mọi chi tiết một cách chính xác và cẩn thận.">
+              ZAFIR Logistics Vietnam specializes in handling Project Cargo and Heavy Lift shipments. From large industrial machinery to complete factory equipment, we manage every detail with precision and care.
+            </p>
+            <p id="intro-p2" class="mt-6" 
+               data-en="Our experienced team ensures safe loading, proper lashing, accurate documentation, and timely delivery — even to challenging destinations in Africa."
+               data-vi="Đội ngũ giàu kinh nghiệm của chúng tôi đảm bảo việc bốc xếp an toàn, chằng buộc đúng kỹ thuật, thủ tục giấy tờ chính xác và giao hàng đúng hạn — ngay cả với các điểm đến khó khăn tại Châu Phi.">
+              Our experienced team ensures safe loading, proper lashing, accurate documentation, and timely delivery — even to challenging destinations in Africa.
+            </p>
+          </div>
+        </div>
+        <div class="bg-gray-100 h-96 rounded-3xl flex items-center justify-center text-6xl text-gray-400 border-2 border-dashed">
+          Heavy Machinery / Project Cargo Image
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT WE HANDLE -->
+  <section class="py-20 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-12">
+        <h2 id="handle-title" class="heading-font text-4xl font-bold text-[#0B3C5D]" 
+            data-en="Types of Project Cargo We Handle" data-vi="Các Loại Hàng Dự án Chúng Tôi Xử Lý">
+          Types of Project Cargo We Handle
+        </h2>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="bg-white p-8 rounded-3xl card-hover">
+          <div class="text-5xl mb-6">🏭</div>
+          <h3 id="type1" class="heading-font text-2xl font-semibold mb-3" data-en="Industrial Machinery" data-vi="Máy móc Công nghiệp">Industrial Machinery</h3>
+          <p id="type1-desc" class="text-gray-600" data-en="Generators, turbines, compressors, production lines" data-vi="Máy phát điện, tua bin, máy nén, dây chuyền sản xuất">Generators, turbines, compressors, production lines</p>
+        </div>
+        <div class="bg-white p-8 rounded-3xl card-hover">
+          <div class="text-5xl mb-6">🏗️</div>
+          <h3 id="type2" class="heading-font text-2xl font-semibold mb-3" data-en="Construction Equipment" data-vi="Thiết bị Xây dựng">Construction Equipment</h3>
+          <p id="type2-desc" class="text-gray-600" data-en="Excavators, cranes, bulldozers, concrete pumps" data-vi="Máy xúc, cần cẩu, máy ủi, máy bơm bê tông">Excavators, cranes, bulldozers, concrete pumps</p>
+        </div>
+        <div class="bg-white p-8 rounded-3xl card-hover">
+          <div class="text-5xl mb-6">⚙️</div>
+          <h3 id="type3" class="heading-font text-2xl font-semibold mb-3" data-en="Oversized &amp; Heavy Lift" data-vi="Siêu Trọng &amp; Nâng Hạ Nặng">Oversized &amp; Heavy Lift</h3>
+          <p id="type3-desc" class="text-gray-600" data-en="Transformers, steel structures, wind turbine blades" data-vi="Máy biến áp, kết cấu thép, cánh tua bin gió">Transformers, steel structures, wind turbine blades</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OUR PROCESS -->
+  <section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-6">
+      <h2 id="process-title" class="heading-font text-4xl font-bold text-center text-[#0B3C5D] mb-16" 
+          data-en="Our Project Cargo Process" data-vi="Quy Trình Xử Lý Hàng Dự án Của Chúng Tôi">
+        Our Project Cargo Process
+      </h2>
+
+      <div class="grid md:grid-cols-4 gap-8">
+        <div class="text-center">
+          <div class="w-16 h-16 mx-auto bg-[#0B3C5D] text-white rounded-2xl flex items-center justify-center text-3xl font-bold mb-6">1</div>
+          <h4 id="step1" class="font-semibold text-xl mb-2" data-en="Consultation" data-vi="Tư vấn">Consultation</h4>
+          <p id="step1-desc" class="text-gray-600 text-sm" data-en="Understanding your cargo specifications and destination requirements" data-vi="Hiểu rõ thông số hàng hóa và yêu cầu điểm đến">Understanding your cargo specifications and destination requirements</p>
+        </div>
+        <div class="text-center">
+          <div class="w-16 h-16 mx-auto bg-[#0B3C5D] text-white rounded-2xl flex items-center justify-center text-3xl font-bold mb-6">2</div>
+          <h4 id="step2" class="font-semibold text-xl mb-2" data-en="Engineering &amp; Planning" data-vi="Thiết kế &amp; Lập kế hoạch">Engineering &amp; Planning</h4>
+          <p id="step2-desc" class="text-gray-600 text-sm" data-en="Route survey, packaging design, and lifting method" data-vi="Khảo sát tuyến đường, thiết kế đóng gói và phương án nâng hạ">Route survey, packaging design, and lifting method</p>
+        </div>
+        <div class="text-center">
+          <div class="w-16 h-16 mx-auto bg-[#0B3C5D] text-white rounded-2xl flex items-center justify-center text-3xl font-bold mb-6">3</div>
+          <h4 id="step3" class="font-semibold text-xl mb-2" data-en="Execution" data-vi="Thực hiện">Execution</h4>
+          <p id="step3-desc" class="text-gray-600 text-sm" data-en="Special packaging, lashing, loading and sea transportation" data-vi="Đóng gói đặc biệt, chằng buộc, bốc xếp và vận chuyển biển">Special packaging, lashing, loading and sea transportation</p>
+        </div>
+        <div class="text-center">
+          <div class="w-16 h-16 mx-auto bg-[#0B3C5D] text-white rounded-2xl flex items-center justify-center text-3xl font-bold mb-6">4</div>
+          <h4 id="step4" class="font-semibold text-xl mb-2" data-en="Delivery &amp; Clearance" data-vi="Giao hàng &amp; Hải quan">Delivery &amp; Clearance</h4>
+          <p id="step4-desc" class="text-gray-600 text-sm" data-en="On-site delivery and customs clearance in Africa" data-vi="Giao hàng tận nơi và thông quan tại Châu Phi">On-site delivery and customs clearance in Africa</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-20 bg-[#1E6F9F] text-white text-center">
+    <div class="max-w-3xl mx-auto px-6">
+      <h2 id="cta-title" class="heading-font text-4xl font-bold mb-6" 
+          data-en="Have a Complex Project?" data-vi="Bạn có dự án phức tạp?">Have a Complex Project?</h2>
+      <p id="cta-desc" class="text-xl mb-10" 
+         data-en="Let our Project Cargo experts provide you with a tailored solution and competitive quotation."
+         data-vi="Hãy để chuyên gia Hàng Dự án của chúng tôi tư vấn giải pháp phù hợp và báo giá cạnh tranh cho bạn.">
+        Let our Project Cargo experts provide you with a tailored solution and competitive quotation.
+      </p>
+      <a href="contact.html" 
+         class="inline-flex items-center gap-4 bg-[#D4AF37] hover:bg-amber-500 transition text-[#0B3C5D] px-14 py-6 rounded-3xl text-xl font-semibold">
+        <span data-en="Request Project Quote" data-vi="Yêu cầu Báo Giá Dự án">Request Project Quote</span>
+        <i class="fas fa-arrow-right"></i>
+      </a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-[#0B3C5D] text-gray-300 py-16">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid md:grid-cols-4 gap-10">
+        <div>
+          <div class="flex items-center gap-3 mb-6">
+            <div class="w-9 h-9 bg-[#D4AF37] rounded-full flex items-center justify-center text-[#0B3C5D] font-bold">Z</div>
+            <h3 class="heading-font text-2xl font-bold text-white">ZAFIR Logistics</h3>
+          </div>
+          <p id="footer-desc" class="text-sm leading-relaxed" 
+             data-en="Your reliable logistics partner specializing in Vietnam – Africa shipments."
+             data-vi="Đối tác logistics đáng tin cậy chuyên tuyến Việt Nam – Châu Phi.">
+            Your reliable logistics partner specializing in Vietnam – Africa shipments.
+          </p>
+        </div>
+        <div>
+          <h4 class="font-semibold text-white mb-4" data-en="Contact" data-vi="Liên hệ">Contact</h4>
+          <p class="text-sm">58 Đường 34, Phường Bình Trưng, TP. Hồ Chí Minh</p>
+          <p class="text-sm mt-2">📞 <a href="tel:0946000153" class="hover:text-[#D4AF37]">+84 946 000 153</a></p>
+          <p class="text-sm mt-1">✉️ <a href="mailto:manager@zafirlogistics.com" class="hover:text-[#D4AF37]">manager@zafirlogistics.com</a></p>
+        </div>
+        <div>
+          <h4 class="font-semibold text-white mb-4" data-en="Services" data-vi="Dịch vụ">Services</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="services.html" class="hover:text-white">Ocean Freight</a></li>
+            <li><a href="#" class="hover:text-white">Project Cargo</a></li>
+            <li><a href="routes.html" class="hover:text-white">Vietnam-Africa Routes</a></li>
+          </ul>
+        </div>
+        <div>
+          <p id="footer-slogan" class="text-sm italic" 
+             data-en='"Delivering Value Across Continents"' 
+             data-vi='"Kết nối Giá trị Giữa Các Châu lục"'>
+            "Delivering Value Across Continents"
+          </p>
+        </div>
+      </div>
+      <div class="border-t border-gray-700 mt-12 pt-8 text-center text-xs">
+        © 2026 ZAFIR Logistics Vietnam Co., Ltd. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    let currentLang = 'en';
+
+    function switchLanguage(lang) {
+      currentLang = lang;
+      
+      document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+      document.getElementById('btn-vi').classList.toggle('active', lang === 'vi');
+
+      document.querySelectorAll('[data-en]').forEach(el => {
+        const text = el.getAttribute(`data-${lang}`);
+        if (text) el.innerHTML = text;
+      });
+    }
+
+    window.onload = () => {
+      switchLanguage('en');
+    };
+  </script>
+</body>
+</html>

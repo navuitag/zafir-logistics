@@ -6,32 +6,12 @@
   <title>Project Cargo - ZAFIR Logistics Vietnam</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
-  <style>
-    body { font-family: 'Lato', system-ui, sans-serif; }
-    .heading-font { font-family: 'Montserrat', sans-serif; }
-    .hero-bg {
-      background-image: linear-gradient(rgba(11, 60, 93, 0.85), rgba(11, 60, 93, 0.85)), 
-                        url('https://source.unsplash.com/random/1920x1080/?heavy-machinery-port');
-      background-size: cover;
-      background-position: center;
-    }
-    .lang-btn.active {
-      background-color: #D4AF37;
-      color: #0B3C5D;
-      font-weight: 600;
-    }
-    .card-hover {
-      transition: all 0.4s ease;
-    }
-    .card-hover:hover {
-      transform: translateY(-12px);
-    }
-  </style>
+  <link rel="stylesheet" href="site.css">
 </head>
-<body class="text-gray-800">
+<body class="text-slate-800 antialiased bg-slate-50">
 
   <!-- HEADER - Consistent Navigation -->
-  <header class="bg-[#0B3C5D] text-white sticky top-0 z-50 shadow">
+  <header class="site-header text-white sticky top-0 z-50">
     <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
       <div class="flex items-center gap-3">
         <div class="w-10 h-10 rounded-full overflow-hidden bg-white flex items-center justify-center"><img src="logo.jpg" alt="ZAFIR Logistics Logo" class="w-full h-full object-cover"></div>
@@ -50,7 +30,7 @@
       </div>
 
       <!-- Updated Navigation Menu -->
-      <nav class="hidden md:flex gap-8 text-sm font-medium">
+      <nav class="site-nav hidden md:flex gap-8 text-sm font-medium">
         <a href="index.html" class="hover:text-[#D4AF37] transition" data-en="Home" data-vi="Trang chủ">Home</a>
         <a href="about.html" class="hover:text-[#D4AF37] transition" data-en="About Us" data-vi="Về chúng tôi">About Us</a>
         <a href="services.html" class="hover:text-[#D4AF37] transition" data-en="Services" data-vi="Dịch vụ">Services</a>
@@ -60,7 +40,7 @@
       </nav>
 
       <button onclick="window.location.href='index.html'" 
-              class="bg-[#D4AF37] hover:bg-amber-500 transition text-[#0B3C5D] px-6 py-2.5 rounded font-semibold text-sm flex items-center gap-2">
+              class="bg-[#D4AF37] hover:bg-amber-500 transition text-[#0B3C5D] px-6 py-2.5 rounded-full font-semibold text-sm flex items-center gap-2 shadow-md shadow-amber-900/20 hover:shadow-lg">
         <i class="fas fa-paper-plane"></i> 
         <span data-en="GET A QUOTE" data-vi="NHẬN BÁO GIÁ">GET A QUOTE</span>
       </button>
@@ -68,7 +48,7 @@
   </header>
 
   <!-- HERO SECTION -->
-  <section class="hero-bg h-[520px] flex items-center text-white">
+  <section class="hero-bg hero-bg--project h-[520px] flex items-center text-white">
     <div class="max-w-7xl mx-auto px-6">
       <div class="max-w-3xl">
         <h1 id="page-title" class="heading-font text-5xl md:text-6xl font-bold leading-tight mb-6" 
@@ -85,7 +65,7 @@
   </section>
 
   <!-- INTRODUCTION -->
-  <section class="py-20 bg-white">
+  <section class="py-24 bg-white border-b border-slate-100">
     <div class="max-w-7xl mx-auto px-6">
       <div class="grid lg:grid-cols-2 gap-16 items-center">
         <div>
@@ -105,7 +85,7 @@
             </p>
           </div>
         </div>
-        <div class="bg-gray-100 h-96 rounded-3xl flex items-center justify-center text-6xl text-gray-400 border-2 border-dashed">
+        <div class="h-96 rounded-3xl flex items-center justify-center text-4xl text-slate-500 text-center px-4 border border-slate-200/90 bg-gradient-to-br from-slate-100 via-white to-slate-100 shadow-inner shadow-slate-200/80 ring-1 ring-slate-200/60">
           Heavy Machinery / Project Cargo Image
         </div>
       </div>
@@ -113,7 +93,7 @@
   </section>
 
   <!-- WHAT WE HANDLE -->
-  <section class="py-20 bg-gray-50">
+  <section class="py-24 bg-slate-50 border-y border-slate-100">
     <div class="max-w-7xl mx-auto px-6">
       <div class="text-center mb-12">
         <h2 id="handle-title" class="heading-font text-4xl font-bold text-[#0B3C5D]" 
@@ -123,17 +103,17 @@
       </div>
 
       <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <div class="bg-white p-8 rounded-3xl card-hover">
+        <div class="bg-white p-8 rounded-3xl card-hover border border-slate-100 shadow-md shadow-slate-900/5">
           <div class="text-5xl mb-6">🏭</div>
           <h3 id="type1" class="heading-font text-2xl font-semibold mb-3" data-en="Industrial Machinery" data-vi="Máy móc Công nghiệp">Industrial Machinery</h3>
           <p id="type1-desc" class="text-gray-600" data-en="Generators, turbines, compressors, production lines" data-vi="Máy phát điện, tua bin, máy nén, dây chuyền sản xuất">Generators, turbines, compressors, production lines</p>
         </div>
-        <div class="bg-white p-8 rounded-3xl card-hover">
+        <div class="bg-white p-8 rounded-3xl card-hover border border-slate-100 shadow-md shadow-slate-900/5">
           <div class="text-5xl mb-6">🏗️</div>
           <h3 id="type2" class="heading-font text-2xl font-semibold mb-3" data-en="Construction Equipment" data-vi="Thiết bị Xây dựng">Construction Equipment</h3>
           <p id="type2-desc" class="text-gray-600" data-en="Excavators, cranes, bulldozers, concrete pumps" data-vi="Máy xúc, cần cẩu, máy ủi, máy bơm bê tông">Excavators, cranes, bulldozers, concrete pumps</p>
         </div>
-        <div class="bg-white p-8 rounded-3xl card-hover">
+        <div class="bg-white p-8 rounded-3xl card-hover border border-slate-100 shadow-md shadow-slate-900/5">
           <div class="text-5xl mb-6">⚙️</div>
           <h3 id="type3" class="heading-font text-2xl font-semibold mb-3" data-en="Oversized &amp; Heavy Lift" data-vi="Siêu Trọng &amp; Nâng Hạ Nặng">Oversized &amp; Heavy Lift</h3>
           <p id="type3-desc" class="text-gray-600" data-en="Transformers, steel structures, wind turbine blades" data-vi="Máy biến áp, kết cấu thép, cánh tua bin gió">Transformers, steel structures, wind turbine blades</p>
@@ -143,7 +123,7 @@
   </section>
 
   <!-- OUR PROCESS -->
-  <section class="py-20 bg-white">
+  <section class="py-24 bg-white border-b border-slate-100">
     <div class="max-w-7xl mx-auto px-6">
       <h2 id="process-title" class="heading-font text-4xl font-bold text-center text-[#0B3C5D] mb-16" 
           data-en="Our Project Cargo Process" data-vi="Quy Trình Xử Lý Hàng Dự án Của Chúng Tôi">
@@ -176,8 +156,9 @@
   </section>
 
   <!-- CTA -->
-  <section class="py-20 bg-[#1E6F9F] text-white text-center">
-    <div class="max-w-3xl mx-auto px-6">
+  <section class="py-24 bg-gradient-to-br from-[#1E6F9F] via-[#1a6190] to-[#0B3C5D] text-white text-center relative overflow-hidden">
+    <div class="pointer-events-none absolute inset-0 opacity-25 bg-[radial-gradient(circle_at_30%_20%,rgba(212,175,55,0.25),transparent_55%)]"></div>
+    <div class="relative max-w-3xl mx-auto px-6">
       <h2 id="cta-title" class="heading-font text-4xl font-bold mb-6" 
           data-en="Have a Complex Project?" data-vi="Bạn có dự án phức tạp?">Have a Complex Project?</h2>
       <p id="cta-desc" class="text-xl mb-10" 
@@ -186,7 +167,7 @@
         Let our Project Cargo experts provide you with a tailored solution and competitive quotation.
       </p>
       <a href="contact.html" 
-         class="inline-flex items-center gap-4 bg-[#D4AF37] hover:bg-amber-500 transition text-[#0B3C5D] px-14 py-6 rounded-3xl text-xl font-semibold">
+         class="inline-flex items-center gap-4 bg-[#D4AF37] hover:bg-amber-500 transition text-[#0B3C5D] px-14 py-5 rounded-full text-xl font-semibold shadow-xl shadow-black/20">
         <span data-en="Request Project Quote" data-vi="Yêu cầu Báo Giá Dự án">Request Project Quote</span>
         <i class="fas fa-arrow-right"></i>
       </a>
@@ -194,7 +175,7 @@
   </section>
 
   <!-- FOOTER -->
-  <footer class="bg-[#0B3C5D] text-gray-300 py-16">
+  <footer class="site-footer bg-[#0B3C5D] text-gray-300 py-16">
     <div class="max-w-7xl mx-auto px-6">
       <div class="grid md:grid-cols-4 gap-10">
         <div>

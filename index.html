@@ -6,40 +6,12 @@
   <title>ZAFIR Logistics Vietnam | Delivering Value Across Continents</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
-  <style>
-    body { font-family: 'Lato', system-ui, sans-serif; }
-    .heading-font { font-family: 'Montserrat', sans-serif; }
-    .hero-bg {
-      background-image: linear-gradient(rgba(11, 60, 93, 0.75), rgba(11, 60, 93, 0.75)), url('https://source.unsplash.com/random/1920x1080/?cargo-ship-africa');
-      background-size: cover;
-      background-position: center;
-    }
-    .modal {
-      animation: modalFadeIn 0.3s ease-out forwards;
-    }
-    @keyframes modalFadeIn {
-      from { opacity: 0; transform: translateY(30px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    .success-icon {
-      animation: successPop 0.6s ease-out forwards;
-    }
-    @keyframes successPop {
-      0% { transform: scale(0.3); }
-      50% { transform: scale(1.15); }
-      100% { transform: scale(1); }
-    }
-    .lang-btn.active {
-      background-color: #D4AF37;
-      color: #0B3C5D;
-      font-weight: 600;
-    }
-  </style>
+  <link rel="stylesheet" href="site.css">
 </head>
-<body class="text-gray-800">
+<body class="text-slate-800 antialiased bg-slate-50">
 
   <!-- HEADER -->
-  <header class="bg-[#0B3C5D] text-white sticky top-0 z-50 shadow">
+  <header class="site-header text-white sticky top-0 z-50">
     <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
       <div class="flex items-center gap-3">
         <div class="w-10 h-10 rounded-full overflow-hidden bg-white flex items-center justify-center"><img src="logo.jpg" alt="ZAFIR Logistics Logo" class="w-full h-full object-cover"></div>
@@ -58,7 +30,7 @@
       </div>
 
       <!-- Full Navigation Menu -->
-      <nav class="hidden md:flex gap-8 text-sm font-medium">
+      <nav class="site-nav hidden md:flex gap-8 text-sm font-medium">
         <a href="index.html" class="hover:text-[#D4AF37] transition" data-en="Home" data-vi="Trang chủ">Home</a>
         <a href="about.html" class="hover:text-[#D4AF37] transition" data-en="About Us" data-vi="Về chúng tôi">About Us</a>
         <a href="services.html" class="hover:text-[#D4AF37] transition" data-en="Services" data-vi="Dịch vụ">Services</a>
@@ -68,7 +40,7 @@
       </nav>
 
       <button onclick="openQuoteModal()" 
-              class="bg-[#D4AF37] hover:bg-amber-500 transition text-[#0B3C5D] px-6 py-2.5 rounded font-semibold text-sm flex items-center gap-2">
+              class="bg-[#D4AF37] hover:bg-amber-500 transition text-[#0B3C5D] px-6 py-2.5 rounded-full font-semibold text-sm flex items-center gap-2 shadow-md shadow-amber-900/20 hover:shadow-lg">
         <i class="fas fa-paper-plane"></i> 
         <span id="quote-btn" data-en="GET A QUOTE" data-vi="NHẬN BÁO GIÁ">GET A QUOTE</span>
       </button>
@@ -76,7 +48,7 @@
   </header>
 
   <!-- HERO SECTION -->
-  <section class="hero-bg h-screen flex items-center text-white">
+  <section class="hero-bg hero-bg--home h-screen flex items-center text-white">
     <div class="max-w-7xl mx-auto px-6 pt-20">
       <div class="max-w-2xl">
         <p class="uppercase tracking-widest text-[#D4AF37] font-medium mb-3" id="hero-tag" 
@@ -96,11 +68,11 @@
         </p>
         <div class="flex flex-wrap gap-4">
           <button onclick="openQuoteModal()" 
-                  class="bg-[#D4AF37] hover:bg-amber-500 transition text-[#0B3C5D] px-8 py-4 rounded font-semibold text-lg flex items-center gap-3">
+                  class="bg-[#D4AF37] hover:bg-amber-500 transition text-[#0B3C5D] px-8 py-4 rounded-full font-semibold text-lg flex items-center gap-3 shadow-xl shadow-amber-900/25">
             <span id="hero-cta1" data-en="Get a Quote Now" data-vi="Nhận Báo Giá Ngay">Get a Quote Now</span>
             <i class="fas fa-arrow-right"></i>
           </button>
-          <a href="services.html" class="border border-white hover:bg-white hover:text-[#0B3C5D] transition px-8 py-4 rounded font-semibold text-lg" 
+          <a href="services.html" class="border-2 border-white/90 hover:bg-white hover:text-[#0B3C5D] transition px-8 py-4 rounded-full font-semibold text-lg backdrop-blur-sm bg-white/5" 
              data-en="Explore Our Services" data-vi="Khám phá Dịch vụ">Explore Our Services</a>
         </div>
       </div>
@@ -108,7 +80,7 @@
   </section>
 
   <!-- WHY CHOOSE ZAFIR -->
-  <section class="py-20 bg-white">
+  <section class="py-24 bg-white border-y border-slate-100/80">
     <div class="max-w-7xl mx-auto px-6">
       <div class="text-center mb-12">
         <h2 id="why-title" class="heading-font text-4xl font-bold text-[#0B3C5D] mb-3" 
@@ -120,7 +92,7 @@
         </p>
       </div>
       <div class="grid md:grid-cols-3 gap-8">
-        <div class="bg-gray-50 p-8 rounded-xl hover:shadow-lg transition">
+        <div class="z-card bg-white p-8 rounded-2xl border border-slate-100 shadow-sm hover:border-[#D4AF37]/30">
           <div class="text-[#1E6F9F] text-4xl mb-4"><i class="fas fa-shield-alt"></i></div>
           <h3 class="heading-font text-2xl font-semibold mb-3 text-[#0B3C5D]" data-en="Reliable &amp; Premium" data-vi="Tin cậy &amp; Cao cấp">Reliable &amp; Premium</h3>
           <p class="text-gray-600" data-en="Consistent vessel space, on-time delivery, and high-quality service on all Africa routes." 
@@ -128,7 +100,7 @@
             Consistent vessel space, on-time delivery, and high-quality service on all Africa routes.
           </p>
         </div>
-        <div class="bg-gray-50 p-8 rounded-xl hover:shadow-lg transition">
+        <div class="z-card bg-white p-8 rounded-2xl border border-slate-100 shadow-sm hover:border-[#D4AF37]/30">
           <div class="text-[#1E6F9F] text-4xl mb-4"><i class="fas fa-truck-loading"></i></div>
           <h3 class="heading-font text-2xl font-semibold mb-3 text-[#0B3C5D]" data-en="Project Cargo Specialists" data-vi="Chuyên Hàng Dự án">Project Cargo Specialists</h3>
           <p class="text-gray-600" data-en="Expert handling of heavy lift, oversized cargo, machinery, and complex project shipments." 
@@ -136,7 +108,7 @@
             Expert handling of heavy lift, oversized cargo, machinery, and complex project shipments.
           </p>
         </div>
-        <div class="bg-gray-50 p-8 rounded-xl hover:shadow-lg transition">
+        <div class="z-card bg-white p-8 rounded-2xl border border-slate-100 shadow-sm hover:border-[#D4AF37]/30">
           <div class="text-[#1E6F9F] text-4xl mb-4"><i class="fas fa-globe-asia"></i></div>
           <h3 class="heading-font text-2xl font-semibold mb-3 text-[#0B3C5D]" data-en="Global Connectivity" data-vi="Kết nối Toàn cầu">Global Connectivity</h3>
           <p class="text-gray-600" data-en="Strong focus on key African ports: Abidjan, Tema, Lomé and beyond." 
@@ -149,38 +121,41 @@
   </section>
 
   <!-- SERVICES -->
-  <section class="py-20 bg-[#0B3C5D] text-white">
+  <section class="py-24 bg-gradient-to-b from-[#0B3C5D] via-[#0d4570] to-[#0B3C5D] text-white relative overflow-hidden">
+    <div class="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,rgba(212,175,55,0.12),transparent)]"></div>
+    <div class="relative">
     <div class="max-w-7xl mx-auto px-6">
       <div class="text-center mb-12">
         <h2 class="heading-font text-4xl font-bold mb-3" data-en="Our Services" data-vi="Dịch vụ của chúng tôi">Our Services</h2>
         <p class="text-gray-300" data-en="Comprehensive logistics solutions for your export needs" data-vi="Giải pháp logistics toàn diện cho nhu cầu xuất khẩu của bạn">Comprehensive logistics solutions for your export needs</p>
       </div>
       <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <div class="bg-white/10 backdrop-blur p-8 rounded-2xl border border-white/20 hover:border-[#D4AF37] transition">
+        <div class="bg-white/10 backdrop-blur-md p-8 rounded-2xl border border-white/20 hover:border-[#D4AF37]/80 hover:bg-white/[0.14] transition-all duration-300 shadow-lg shadow-black/10">
           <i class="fas fa-ship text-4xl text-[#D4AF37] mb-4"></i>
           <h3 class="heading-font text-2xl font-semibold mb-2" data-en="Ocean Freight" data-vi="Vận tải Biển">Ocean Freight</h3>
           <p class="text-gray-300" data-en="Competitive rates and reliable space to West Africa and worldwide destinations." data-vi="Giá cạnh tranh và đảm bảo chỗ tàu đến Tây Phi và toàn cầu.">Competitive rates and reliable space to West Africa and worldwide destinations.</p>
         </div>
-        <div class="bg-white/10 backdrop-blur p-8 rounded-2xl border border-white/20 hover:border-[#D4AF37] transition">
+        <div class="bg-white/10 backdrop-blur-md p-8 rounded-2xl border border-white/20 hover:border-[#D4AF37]/80 hover:bg-white/[0.14] transition-all duration-300 shadow-lg shadow-black/10">
           <i class="fas fa-boxes text-4xl text-[#D4AF37] mb-4"></i>
           <h3 class="heading-font text-2xl font-semibold mb-2" data-en="Project Cargo &amp; Heavy Lift" data-vi="Hàng Dự án &amp; Siêu Trọng">Project Cargo &amp; Heavy Lift</h3>
           <p class="text-gray-300" data-en="Professional handling of oversized machinery, equipment, and complex project shipments." data-vi="Xử lý chuyên nghiệp máy móc lớn, thiết bị và hàng dự án phức tạp.">Professional handling of oversized machinery, equipment, and complex project shipments.</p>
         </div>
-        <div class="bg-white/10 backdrop-blur p-8 rounded-2xl border border-white/20 hover:border-[#D4AF37] transition">
+        <div class="bg-white/10 backdrop-blur-md p-8 rounded-2xl border border-white/20 hover:border-[#D4AF37]/80 hover:bg-white/[0.14] transition-all duration-300 shadow-lg shadow-black/10">
           <i class="fas fa-file-alt text-4xl text-[#D4AF37] mb-4"></i>
           <h3 class="heading-font text-2xl font-semibold mb-2" data-en="Customs Clearance" data-vi="Khai Thuê Hải Quan">Customs Clearance</h3>
           <p class="text-gray-300" data-en="Fast and professional brokerage for smooth import and export procedures." data-vi="Thủ tục nhanh chóng và chuyên nghiệp cho xuất nhập khẩu.">Fast and professional brokerage for smooth import and export procedures.</p>
         </div>
       </div>
       <div class="text-center mt-12">
-        <a href="services.html" class="inline-block bg-[#D4AF37] text-[#0B3C5D] px-10 py-4 rounded font-semibold hover:bg-amber-500 transition" 
+        <a href="services.html" class="inline-block bg-[#D4AF37] text-[#0B3C5D] px-10 py-4 rounded-full font-semibold hover:bg-amber-500 transition shadow-lg shadow-black/20 hover:shadow-xl" 
            data-en="View All Services →" data-vi="Xem tất cả dịch vụ →">View All Services →</a>
       </div>
+    </div>
     </div>
   </section>
 
   <!-- INTERACTIVE GOOGLE MAPS SECTION -->
-  <section class="py-20 bg-white">
+  <section class="py-24 bg-slate-50 border-t border-slate-100">
     <div class="max-w-7xl mx-auto px-6">
       <div class="text-center mb-12">
         <h2 id="map-title" class="heading-font text-4xl font-bold text-[#0B3C5D] mb-3" 
@@ -197,7 +172,7 @@
       <div class="grid lg:grid-cols-12 gap-10">
         <!-- Google Maps -->
         <div class="lg:col-span-7">
-          <div class="rounded-3xl overflow-hidden shadow-lg border border-gray-100" style="height: 520px;">
+          <div class="rounded-3xl overflow-hidden shadow-2xl shadow-slate-900/10 ring-1 ring-slate-200/80" style="height: 520px;">
             <!-- Google Maps Embed with multiple locations (customized) -->
             <iframe 
               id="googleMap"
@@ -217,7 +192,7 @@
 
         <!-- Port Information Sidebar -->
         <div class="lg:col-span-5">
-          <div class="bg-white border border-gray-200 rounded-3xl p-8 sticky top-8">
+          <div class="bg-white border border-slate-200/90 rounded-3xl p-8 sticky top-8 shadow-xl shadow-slate-900/5">
             <h3 id="sidebar-title" class="heading-font text-2xl font-bold text-[#0B3C5D] mb-6" 
                 data-en="Key Ports on Our Routes" data-vi="Các Cảng Chính Trên Tuyến">
               Key Ports on Our Routes
@@ -266,7 +241,9 @@
   </section>
 
   <!-- FINAL CTA -->
-  <section class="py-20 bg-[#1E6F9F] text-white text-center">
+  <section class="py-24 bg-gradient-to-br from-[#1E6F9F] via-[#1a6190] to-[#0B3C5D] text-white text-center relative overflow-hidden">
+    <div class="pointer-events-none absolute inset-0 opacity-30 bg-[url('data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%23ffffff\' fill-opacity=\'0.06\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')]"></div>
+    <div class="relative">
     <div class="max-w-3xl mx-auto px-6">
       <h2 class="heading-font text-4xl font-bold mb-6" data-en="Ready to Ship to Africa?" data-vi="Sẵn sàng vận chuyển sang Châu Phi?">Ready to Ship to Africa?</h2>
       <p class="text-xl mb-10" data-en="Let ZAFIR Logistics Vietnam deliver value across continents for your business." 
@@ -274,15 +251,16 @@
         Let ZAFIR Logistics Vietnam deliver value across continents for your business.
       </p>
       <button onclick="openQuoteModal()" 
-              class="inline-flex items-center gap-3 bg-[#D4AF37] text-[#0B3C5D] px-12 py-5 rounded-2xl text-xl font-semibold hover:bg-amber-500 transition shadow-lg">
+              class="inline-flex items-center gap-3 bg-[#D4AF37] text-[#0B3C5D] px-12 py-5 rounded-full text-xl font-semibold hover:bg-amber-500 transition shadow-xl shadow-black/25">
         <span data-en="Get Your Quote Today" data-vi="Nhận Báo Giá Ngay">Get Your Quote Today</span>
         <i class="fas fa-arrow-right"></i>
       </button>
     </div>
+    </div>
   </section>
 
   <!-- GET A QUOTE MODAL (Complete Version) -->
-  <div id="quoteModal" class="hidden fixed inset-0 bg-black/70 flex items-center justify-center z-[100]">
+  <div id="quoteModal" class="hidden fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-[100]">
     <div id="modalContent" class="modal bg-white rounded-3xl max-w-lg w-full mx-4 overflow-hidden shadow-2xl">
       
       <!-- Form View -->
@@ -378,7 +356,7 @@
   </div>
 
   <!-- FOOTER -->
-  <footer class="bg-[#0B3C5D] text-gray-300 py-16">
+  <footer class="site-footer bg-[#0B3C5D] text-gray-300 py-16">
     <div class="max-w-7xl mx-auto px-6">
       <div class="grid md:grid-cols-4 gap-10">
         <div>

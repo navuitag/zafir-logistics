@@ -8,71 +8,92 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
   <link rel="stylesheet" href="site.css">
 </head>
-<body class="text-slate-800 antialiased bg-slate-50">
+<body class="text-slate-800 antialiased bg-slate-50 overflow-x-hidden">
 
   <!-- HEADER -->
   <header class="site-header text-white sticky top-0 z-50">
-    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-      <div class="flex items-center gap-3">
-        <div class="w-10 h-10 rounded-full overflow-hidden bg-white flex items-center justify-center"><img src="logo.jpg" alt="ZAFIR Logistics Logo" class="w-full h-full object-cover"></div>
-        <div>
-          <h1 class="heading-font text-2xl font-bold tracking-tight">ZAFIR</h1>
-          <p class="text-xs text-gray-300 -mt-1">LOGISTICS VIETNAM</p>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3 md:py-4 flex items-center justify-between gap-2 sm:gap-3">
+      <a href="index.html" class="flex items-center gap-2 sm:gap-3 min-w-0 shrink-0">
+        <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-full overflow-hidden bg-white flex items-center justify-center shrink-0"><img src="logo.jpg" alt="ZAFIR Logistics Logo" class="w-full h-full object-cover"></div>
+        <div class="min-w-0">
+          <span class="heading-font text-xl sm:text-2xl font-bold tracking-tight block leading-tight">ZAFIR</span>
+          <span class="text-[10px] sm:text-xs text-gray-300 leading-tight hidden sm:block">LOGISTICS VIETNAM</span>
         </div>
-      </div>
+      </a>
 
-      <!-- Language Toggle -->
-      <div class="flex items-center gap-2 bg-white/10 rounded-full p-1">
-        <button onclick="switchLanguage('en')" id="btn-en" 
-                class="lang-btn active px-4 py-1.5 text-xs rounded-full transition">EN</button>
-        <button onclick="switchLanguage('vi')" id="btn-vi" 
-                class="lang-btn px-4 py-1.5 text-xs rounded-full transition">VI</button>
-      </div>
-
-      <!-- Full Navigation Menu -->
-      <nav class="site-nav hidden md:flex gap-8 text-sm font-medium">
-        <a href="index.html" class="hover:text-[#D4AF37] transition" data-en="Home" data-vi="Trang chủ">Home</a>
-        <a href="about.html" class="hover:text-[#D4AF37] transition" data-en="About Us" data-vi="Về chúng tôi">About Us</a>
-        <a href="services.html" class="hover:text-[#D4AF37] transition" data-en="Services" data-vi="Dịch vụ">Services</a>
-        <a href="routes.html" class="hover:text-[#D4AF37] transition" data-en="Routes" data-vi="Tuyến đường">Routes</a>
-        <a href="project-cargo.html" class="hover:text-[#D4AF37] transition" data-en="Project Cargo" data-vi="Hàng dự án">Project Cargo</a>
-        <a href="contact.html" class="hover:text-[#D4AF37] transition" data-en="Contact" data-vi="Liên hệ">Contact</a>
+      <nav class="site-nav hidden md:flex flex-1 justify-center gap-4 lg:gap-8 text-sm font-medium px-2" aria-label="Main">
+        <a href="index.html" class="hover:text-[#D4AF37] transition whitespace-nowrap" data-en="Home" data-vi="Trang chủ">Home</a>
+        <a href="about.html" class="hover:text-[#D4AF37] transition whitespace-nowrap" data-en="About Us" data-vi="Về chúng tôi">About Us</a>
+        <a href="services.html" class="hover:text-[#D4AF37] transition whitespace-nowrap" data-en="Services" data-vi="Dịch vụ">Services</a>
+        <a href="routes.html" class="hover:text-[#D4AF37] transition whitespace-nowrap" data-en="Routes" data-vi="Tuyến đường">Routes</a>
+        <a href="project-cargo.html" class="hover:text-[#D4AF37] transition whitespace-nowrap" data-en="Project Cargo" data-vi="Hàng dự án">Project Cargo</a>
+        <a href="contact.html" class="hover:text-[#D4AF37] transition whitespace-nowrap" data-en="Contact" data-vi="Liên hệ">Contact</a>
       </nav>
 
-      <button onclick="openQuoteModal()" 
-              class="bg-[#D4AF37] hover:bg-amber-500 transition text-[#0B3C5D] px-6 py-2.5 rounded-full font-semibold text-sm flex items-center gap-2 shadow-md shadow-amber-900/20 hover:shadow-lg">
-        <i class="fas fa-paper-plane"></i> 
-        <span id="quote-btn" data-en="GET A QUOTE" data-vi="NHẬN BÁO GIÁ">GET A QUOTE</span>
-      </button>
+      <div class="flex items-center gap-1 sm:gap-2 md:gap-3 shrink-0">
+        <div class="flex items-center gap-0.5 sm:gap-1 bg-white/10 rounded-full p-1">
+          <button onclick="switchLanguage('en')" id="btn-en" type="button"
+                  class="lang-btn active px-2.5 sm:px-4 py-1.5 text-xs rounded-full transition">EN</button>
+          <button onclick="switchLanguage('vi')" id="btn-vi" type="button"
+                  class="lang-btn px-2.5 sm:px-4 py-1.5 text-xs rounded-full transition">VI</button>
+        </div>
+
+        <button type="button" id="mobileMenuBtn" class="md:hidden p-2 rounded-full hover:bg-white/10 text-white -mr-0.5" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
+          <i class="fas fa-bars text-lg" aria-hidden="true"></i>
+        </button>
+
+        <button onclick="openQuoteModal()" type="button"
+                class="bg-[#D4AF37] hover:bg-amber-500 transition text-[#0B3C5D] px-2.5 sm:px-5 py-2 sm:py-2.5 rounded-full font-semibold text-xs sm:text-sm flex items-center gap-1 sm:gap-2 shadow-md shadow-amber-900/20 hover:shadow-lg">
+          <i class="fas fa-paper-plane sm:mr-0" aria-hidden="true"></i>
+          <span id="quote-btn" class="hidden sm:inline" data-en="GET A QUOTE" data-vi="NHẬN BÁO GIÁ">GET A QUOTE</span>
+        </button>
+      </div>
     </div>
   </header>
 
+  <div id="mobileNav" class="mobile-nav-overlay fixed inset-0 z-[60] hidden flex-col bg-[#0B3C5D]/98 backdrop-blur-md md:hidden" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Mobile menu">
+    <div class="safe-top flex justify-between items-center px-4 py-3 border-b border-white/10">
+      <span class="heading-font font-semibold text-white text-lg">Menu</span>
+      <button type="button" id="mobileMenuClose" class="p-2.5 rounded-full hover:bg-white/10 text-white" aria-label="Close menu">
+        <i class="fas fa-times text-xl" aria-hidden="true"></i>
+      </button>
+    </div>
+    <nav class="flex flex-col flex-1 overflow-y-auto overscroll-contain p-4 gap-0.5" aria-label="Mobile">
+      <a href="index.html" class="mobile-nav-link" data-en="Home" data-vi="Trang chủ">Home</a>
+      <a href="about.html" class="mobile-nav-link" data-en="About Us" data-vi="Về chúng tôi">About Us</a>
+      <a href="services.html" class="mobile-nav-link" data-en="Services" data-vi="Dịch vụ">Services</a>
+      <a href="routes.html" class="mobile-nav-link" data-en="Routes" data-vi="Tuyến đường">Routes</a>
+      <a href="project-cargo.html" class="mobile-nav-link" data-en="Project Cargo" data-vi="Hàng dự án">Project Cargo</a>
+      <a href="contact.html" class="mobile-nav-link" data-en="Contact" data-vi="Liên hệ">Contact</a>
+    </nav>
+  </div>
+
   <!-- HERO SECTION -->
-  <section class="hero-bg hero-bg--home h-screen flex items-center text-white">
-    <div class="max-w-7xl mx-auto px-6 pt-20">
+  <section class="hero-bg hero-bg--home min-h-[100svh] min-h-[100dvh] flex items-center text-white py-16 sm:py-20 md:min-h-0 md:h-screen md:py-0">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 w-full pt-8 sm:pt-20">
       <div class="max-w-2xl">
-        <p class="uppercase tracking-widest text-[#D4AF37] font-medium mb-3" id="hero-tag" 
+        <p class="uppercase tracking-wider sm:tracking-widest text-[#D4AF37] font-medium mb-3 text-xs sm:text-sm" id="hero-tag" 
            data-en="Vietnam • Africa • Global" data-vi="Việt Nam • Châu Phi • Toàn cầu">
           Vietnam • Africa • Global
         </p>
-        <h2 id="hero-title" class="heading-font text-5xl md:text-6xl font-bold leading-tight mb-6" 
+        <h2 id="hero-title" class="heading-font text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.12] sm:leading-tight mb-5 sm:mb-6" 
             data-en="Delivering Value<br>Across Continents" 
             data-vi="Kết nối Giá trị<br>Giữa Các Châu lục">
           Delivering Value<br>Across Continents
         </h2>
-        <p id="hero-desc" class="text-xl text-gray-100 mb-10" 
+        <p id="hero-desc" class="text-base sm:text-lg md:text-xl text-gray-100 mb-8 sm:mb-10 max-w-xl" 
            data-en="Your trusted logistics partner specializing in shipments from Vietnam to Africa.<br>Reliable solutions for regular cargo and project shipments."
            data-vi="Đối tác logistics đáng tin cậy chuyên tuyến vận chuyển từ Việt Nam sang Châu Phi.<br>Giải pháp tin cậy cho hàng thường và hàng dự án.">
           Your trusted logistics partner specializing in shipments from Vietnam to Africa.<br>
           Reliable solutions for regular cargo and project shipments.
         </p>
-        <div class="flex flex-wrap gap-4">
-          <button onclick="openQuoteModal()" 
-                  class="bg-[#D4AF37] hover:bg-amber-500 transition text-[#0B3C5D] px-8 py-4 rounded-full font-semibold text-lg flex items-center gap-3 shadow-xl shadow-amber-900/25">
+        <div class="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4">
+          <button onclick="openQuoteModal()" type="button"
+                  class="w-full sm:w-auto justify-center bg-[#D4AF37] hover:bg-amber-500 transition text-[#0B3C5D] px-6 sm:px-8 py-3.5 sm:py-4 rounded-full font-semibold text-base sm:text-lg flex items-center gap-3 shadow-xl shadow-amber-900/25">
             <span id="hero-cta1" data-en="Get a Quote Now" data-vi="Nhận Báo Giá Ngay">Get a Quote Now</span>
-            <i class="fas fa-arrow-right"></i>
+            <i class="fas fa-arrow-right" aria-hidden="true"></i>
           </button>
-          <a href="services.html" class="border-2 border-white/90 hover:bg-white hover:text-[#0B3C5D] transition px-8 py-4 rounded-full font-semibold text-lg backdrop-blur-sm bg-white/5" 
+          <a href="services.html" class="w-full sm:w-auto justify-center text-center border-2 border-white/90 hover:bg-white hover:text-[#0B3C5D] transition px-6 sm:px-8 py-3.5 sm:py-4 rounded-full font-semibold text-base sm:text-lg backdrop-blur-sm bg-white/5" 
              data-en="Explore Our Services" data-vi="Khám phá Dịch vụ">Explore Our Services</a>
         </div>
       </div>
@@ -81,9 +102,9 @@
 
   <!-- WHY CHOOSE ZAFIR -->
   <section class="py-24 bg-white border-y border-slate-100/80">
-    <div class="max-w-7xl mx-auto px-6">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
       <div class="text-center mb-12">
-        <h2 id="why-title" class="heading-font text-4xl font-bold text-[#0B3C5D] mb-3" 
+        <h2 id="why-title" class="heading-font text-3xl sm:text-4xl font-bold text-[#0B3C5D] mb-3" 
             data-en="Why Choose ZAFIR?" data-vi="Tại sao chọn ZAFIR?">Why Choose ZAFIR?</h2>
         <p id="why-desc" class="text-gray-600 max-w-lg mx-auto" 
            data-en="We provide premium, flexible, and reliable logistics solutions for the Vietnam – Africa trade lane."
@@ -124,7 +145,7 @@
   <section class="py-24 bg-gradient-to-b from-[#0B3C5D] via-[#0d4570] to-[#0B3C5D] text-white relative overflow-hidden">
     <div class="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,rgba(212,175,55,0.12),transparent)]"></div>
     <div class="relative">
-    <div class="max-w-7xl mx-auto px-6">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
       <div class="text-center mb-12">
         <h2 class="heading-font text-4xl font-bold mb-3" data-en="Our Services" data-vi="Dịch vụ của chúng tôi">Our Services</h2>
         <p class="text-gray-300" data-en="Comprehensive logistics solutions for your export needs" data-vi="Giải pháp logistics toàn diện cho nhu cầu xuất khẩu của bạn">Comprehensive logistics solutions for your export needs</p>
@@ -155,8 +176,8 @@
   </section>
 
   <!-- INTERACTIVE GOOGLE MAPS SECTION -->
-  <section class="py-24 bg-slate-50 border-t border-slate-100">
-    <div class="max-w-7xl mx-auto px-6">
+  <section class="py-16 sm:py-24 bg-slate-50 border-t border-slate-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
       <div class="text-center mb-12">
         <h2 id="map-title" class="heading-font text-4xl font-bold text-[#0B3C5D] mb-3" 
             data-en="Interactive Shipping Routes" data-vi="Bản đồ Tuyến Vận Chuyển Tương Tác">
@@ -172,7 +193,7 @@
       <div class="grid lg:grid-cols-12 gap-10">
         <!-- Google Maps -->
         <div class="lg:col-span-7">
-          <div class="rounded-3xl overflow-hidden shadow-2xl shadow-slate-900/10 ring-1 ring-slate-200/80" style="height: 520px;">
+          <div class="rounded-3xl overflow-hidden shadow-2xl shadow-slate-900/10 ring-1 ring-slate-200/80 min-h-[260px] h-[42vh] sm:h-[380px] lg:h-[520px] max-h-[640px]">
             <!-- Google Maps Embed with multiple locations (customized) -->
             <iframe 
               id="googleMap"
@@ -192,7 +213,7 @@
 
         <!-- Port Information Sidebar -->
         <div class="lg:col-span-5">
-          <div class="bg-white border border-slate-200/90 rounded-3xl p-8 sticky top-8 shadow-xl shadow-slate-900/5">
+          <div class="bg-white border border-slate-200/90 rounded-3xl p-6 sm:p-8 lg:sticky lg:top-24 shadow-xl shadow-slate-900/5">
             <h3 id="sidebar-title" class="heading-font text-2xl font-bold text-[#0B3C5D] mb-6" 
                 data-en="Key Ports on Our Routes" data-vi="Các Cảng Chính Trên Tuyến">
               Key Ports on Our Routes
@@ -226,10 +247,28 @@
                   <p class="text-sm text-gray-600" data-en="Strategic transshipment hub • Transit: 34-41 days" data-vi="Trung tâm trung chuyển chiến lược • Thời gian: 34-41 ngày">Strategic transshipment hub • Transit: 34-41 days</p>
                 </div>
               </div>
+
+              <!-- India -->
+              <div onclick="highlightPort(3)" class="cursor-pointer group flex gap-5 p-4 rounded-2xl hover:bg-gray-50 transition">
+                <div class="w-12 h-12 bg-[#0B3C5D] text-white rounded-2xl flex items-center justify-center text-3xl flex-shrink-0">🇮🇳</div>
+                <div class="flex-1">
+                  <h4 class="font-semibold text-lg" data-en="Nhava Sheva (Mumbai), India" data-vi="Nhava Sheva (Mumbai), Ấn Độ">Nhava Sheva (Mumbai), India</h4>
+                  <p class="text-sm text-gray-600" data-en="South Asia gateway • Transit: 12-18 days" data-vi="Cửa ngõ Nam Á • Thời gian: 12-18 ngày">South Asia gateway • Transit: 12-18 days</p>
+                </div>
+              </div>
+
+              <!-- Domestic Vietnam -->
+              <div onclick="highlightPort(4)" class="cursor-pointer group flex gap-5 p-4 rounded-2xl hover:bg-gray-50 transition">
+                <div class="w-12 h-12 bg-[#0B3C5D] text-white rounded-2xl flex items-center justify-center text-3xl flex-shrink-0">🇻🇳</div>
+                <div class="flex-1">
+                  <h4 class="font-semibold text-lg" data-en="Domestic — Vietnam" data-vi="Nội địa — Việt Nam">Domestic — Vietnam</h4>
+                  <p class="text-sm text-gray-600" data-en="Cat Lai, Cái Mép, Hai Phong &amp; inland • 2-6 days" data-vi="Cát Lái, Cái Mép, Hải Phòng &amp; nội địa • 2-6 ngày">Cat Lai, Cái Mép, Hai Phong &amp; inland • 2-6 days</p>
+                </div>
+              </div>
             </div>
 
             <div class="mt-10 pt-8 border-t border-gray-100 text-center">
-              <a href="contact.html" class="inline-flex items-center gap-3 bg-[#D4AF37] hover:bg-amber-500 transition text-[#0B3C5D] px-8 py-4 rounded-2xl font-semibold">
+              <a href="contact.html" class="inline-flex w-full sm:w-auto justify-center items-center gap-3 bg-[#D4AF37] hover:bg-amber-500 transition text-[#0B3C5D] px-8 py-4 rounded-full font-semibold">
                 <span data-en="Get Quote for Your Route" data-vi="Nhận báo giá tuyến của bạn">Get Quote for Your Route</span>
                 <i class="fas fa-arrow-right"></i>
               </a>
@@ -241,17 +280,17 @@
   </section>
 
   <!-- FINAL CTA -->
-  <section class="py-24 bg-gradient-to-br from-[#1E6F9F] via-[#1a6190] to-[#0B3C5D] text-white text-center relative overflow-hidden">
+  <section class="py-16 sm:py-24 bg-gradient-to-br from-[#1E6F9F] via-[#1a6190] to-[#0B3C5D] text-white text-center relative overflow-hidden">
     <div class="pointer-events-none absolute inset-0 opacity-30 bg-[url('data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%23ffffff\' fill-opacity=\'0.06\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')]"></div>
     <div class="relative">
-    <div class="max-w-3xl mx-auto px-6">
-      <h2 class="heading-font text-4xl font-bold mb-6" data-en="Ready to Ship to Africa?" data-vi="Sẵn sàng vận chuyển sang Châu Phi?">Ready to Ship to Africa?</h2>
-      <p class="text-xl mb-10" data-en="Let ZAFIR Logistics Vietnam deliver value across continents for your business." 
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+      <h2 class="heading-font text-3xl sm:text-4xl font-bold mb-6" data-en="Ready to Ship to Africa?" data-vi="Sẵn sàng vận chuyển sang Châu Phi?">Ready to Ship to Africa?</h2>
+      <p class="text-base sm:text-xl mb-8 sm:mb-10 max-w-prose mx-auto" data-en="Let ZAFIR Logistics Vietnam deliver value across continents for your business." 
          data-vi="Hãy để ZAFIR Logistics Vietnam mang giá trị xuyên châu lục đến với doanh nghiệp của bạn.">
         Let ZAFIR Logistics Vietnam deliver value across continents for your business.
       </p>
-      <button onclick="openQuoteModal()" 
-              class="inline-flex items-center gap-3 bg-[#D4AF37] text-[#0B3C5D] px-12 py-5 rounded-full text-xl font-semibold hover:bg-amber-500 transition shadow-xl shadow-black/25">
+      <button onclick="openQuoteModal()" type="button"
+              class="inline-flex w-full sm:w-auto justify-center items-center gap-3 bg-[#D4AF37] text-[#0B3C5D] px-10 sm:px-12 py-4 sm:py-5 rounded-full text-lg sm:text-xl font-semibold hover:bg-amber-500 transition shadow-xl shadow-black/25">
         <span data-en="Get Your Quote Today" data-vi="Nhận Báo Giá Ngay">Get Your Quote Today</span>
         <i class="fas fa-arrow-right"></i>
       </button>
@@ -261,11 +300,11 @@
 
   <!-- GET A QUOTE MODAL (Complete Version) -->
   <div id="quoteModal" class="hidden fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-[100]">
-    <div id="modalContent" class="modal bg-white rounded-3xl max-w-lg w-full mx-4 overflow-hidden shadow-2xl">
+    <div id="modalContent" class="modal bg-white rounded-2xl sm:rounded-3xl max-w-lg w-[calc(100%-2rem)] sm:w-full max-h-[90vh] overflow-y-auto overflow-x-hidden shadow-2xl mx-auto">
       
       <!-- Form View -->
       <div id="formView">
-        <div class="bg-[#0B3C5D] text-white px-8 py-6 flex justify-between items-center">
+        <div class="bg-[#0B3C5D] text-white px-4 sm:px-8 py-4 sm:py-6 flex justify-between items-center gap-4 shrink-0">
           <div>
             <h3 id="modal-title" class="heading-font text-2xl font-bold" data-en="Get a Quote" data-vi="Nhận Báo Giá">Get a Quote</h3>
             <p id="modal-subtitle" class="text-sm text-gray-300" data-en="Vietnam to Africa Logistics" data-vi="Logistics Việt Nam - Châu Phi">Vietnam to Africa Logistics</p>
@@ -273,9 +312,9 @@
           <button onclick="closeQuoteModal()" class="text-3xl leading-none hover:text-[#D4AF37] transition">&times;</button>
         </div>
 
-        <div class="p-8">
+        <div class="p-4 sm:p-8">
           <form id="quoteForm" class="space-y-6">
-            <div class="grid grid-cols-2 gap-4">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
                 <label class="block text-sm font-medium text-gray-700 mb-1" data-en="Your Name *" data-vi="Họ và tên *">Your Name *</label>
                 <input type="text" id="name" required class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:border-[#1E6F9F]">
@@ -296,7 +335,7 @@
               <input type="tel" id="phone" class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:border-[#1E6F9F]">
             </div>
 
-            <div class="grid grid-cols-2 gap-4">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
                 <label class="block text-sm font-medium text-gray-700 mb-1" data-en="Cargo Type" data-vi="Loại hàng">Cargo Type</label>
                 <select id="cargoType" class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:border-[#1E6F9F]">
@@ -333,7 +372,7 @@
       </div>
 
       <!-- Success View -->
-      <div id="successView" class="hidden p-12 text-center">
+      <div id="successView" class="hidden p-6 sm:p-12 text-center">
         <div class="success-icon mx-auto w-24 h-24 bg-green-100 text-green-600 rounded-full flex items-center justify-center mb-6">
           <i class="fas fa-check text-5xl"></i>
         </div>
@@ -356,9 +395,9 @@
   </div>
 
   <!-- FOOTER -->
-  <footer class="site-footer bg-[#0B3C5D] text-gray-300 py-16">
-    <div class="max-w-7xl mx-auto px-6">
-      <div class="grid md:grid-cols-4 gap-10">
+  <footer class="site-footer bg-[#0B3C5D] text-gray-300 py-12 sm:py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 sm:gap-10">
         <div>
           <div class="flex items-center gap-3 mb-6">
             <div class="w-9 h-9 rounded-full overflow-hidden bg-white flex items-center justify-center"><img src="logo.jpg" alt="ZAFIR Logistics Logo" class="w-full h-full object-cover"></div>
@@ -395,6 +434,7 @@
     </div>
   </footer>
 
+  <script src="site.js"></script>
   <script>
     let currentLang = 'en';
 
@@ -417,6 +457,7 @@
     const quoteForm = document.getElementById('quoteForm');
 
     function openQuoteModal() {
+      if (typeof closeMobileNav === 'function') closeMobileNav();
       modal.classList.remove('hidden');
       modal.classList.add('flex');
       showFormView();
@@ -469,7 +510,9 @@
       const ports = [
         "Abidjan - Major commercial hub in West Africa",
         "Tema - Modern port ideal for project cargo",
-        "Lomé - Strategic transshipment center"
+        "Lomé - Strategic transshipment center",
+        "Nhava Sheva (Mumbai) - South Asia gateway",
+        "Domestic Vietnam - Cat Lai, Cái Mép, Hai Phong & inland"
       ];
       alert(ports[index]); // Replace with better UX later
     }

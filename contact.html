@@ -8,54 +8,75 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
   <link rel="stylesheet" href="site.css">
 </head>
-<body class="text-slate-800 antialiased bg-slate-50">
+<body class="text-slate-800 antialiased bg-slate-50 overflow-x-hidden">
 
   <!-- HEADER - Consistent Navigation -->
   <header class="site-header text-white sticky top-0 z-50">
-    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-      <div class="flex items-center gap-3">
-        <div class="w-10 h-10 rounded-full overflow-hidden bg-white flex items-center justify-center"><img src="logo.jpg" alt="ZAFIR Logistics Logo" class="w-full h-full object-cover"></div>
-        <div>
-          <h1 class="heading-font text-2xl font-bold tracking-tight">ZAFIR</h1>
-          <p class="text-xs text-gray-300 -mt-1">LOGISTICS VIETNAM</p>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3 md:py-4 flex items-center justify-between gap-2 sm:gap-3">
+      <a href="index.html" class="flex items-center gap-2 sm:gap-3 min-w-0 shrink-0">
+        <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-full overflow-hidden bg-white flex items-center justify-center shrink-0"><img src="logo.jpg" alt="ZAFIR Logistics Logo" class="w-full h-full object-cover"></div>
+        <div class="min-w-0">
+          <span class="heading-font text-xl sm:text-2xl font-bold tracking-tight block leading-tight">ZAFIR</span>
+          <span class="text-[10px] sm:text-xs text-gray-300 leading-tight hidden sm:block">LOGISTICS VIETNAM</span>
         </div>
-      </div>
+      </a>
 
-      <!-- Language Toggle -->
-      <div class="flex items-center gap-2 bg-white/10 rounded-full p-1">
-        <button onclick="switchLanguage('en')" id="btn-en" 
-                class="lang-btn active px-4 py-1.5 text-xs rounded-full transition">EN</button>
-        <button onclick="switchLanguage('vi')" id="btn-vi" 
-                class="lang-btn px-4 py-1.5 text-xs rounded-full transition">VI</button>
-      </div>
-
-      <!-- Updated Navigation Menu -->
-      <nav class="site-nav hidden md:flex gap-8 text-sm font-medium">
-        <a href="index.html" class="hover:text-[#D4AF37] transition" data-en="Home" data-vi="Trang chủ">Home</a>
-        <a href="about.html" class="hover:text-[#D4AF37] transition" data-en="About Us" data-vi="Về chúng tôi">About Us</a>
-        <a href="services.html" class="hover:text-[#D4AF37] transition" data-en="Services" data-vi="Dịch vụ">Services</a>
-        <a href="routes.html" class="hover:text-[#D4AF37] transition" data-en="Routes" data-vi="Tuyến đường">Routes</a>
-        <a href="project-cargo.html" class="hover:text-[#D4AF37] transition" data-en="Project Cargo" data-vi="Hàng dự án">Project Cargo</a>
-        <a href="contact.html" class="hover:text-[#D4AF37] transition" data-en="Contact" data-vi="Liên hệ">Contact</a>
+      <nav class="site-nav hidden md:flex flex-1 justify-center gap-4 lg:gap-8 text-sm font-medium px-2" aria-label="Main">
+        <a href="index.html" class="hover:text-[#D4AF37] transition whitespace-nowrap" data-en="Home" data-vi="Trang chủ">Home</a>
+        <a href="about.html" class="hover:text-[#D4AF37] transition whitespace-nowrap" data-en="About Us" data-vi="Về chúng tôi">About Us</a>
+        <a href="services.html" class="hover:text-[#D4AF37] transition whitespace-nowrap" data-en="Services" data-vi="Dịch vụ">Services</a>
+        <a href="routes.html" class="hover:text-[#D4AF37] transition whitespace-nowrap" data-en="Routes" data-vi="Tuyến đường">Routes</a>
+        <a href="project-cargo.html" class="hover:text-[#D4AF37] transition whitespace-nowrap" data-en="Project Cargo" data-vi="Hàng dự án">Project Cargo</a>
+        <a href="contact.html" class="hover:text-[#D4AF37] transition whitespace-nowrap" data-en="Contact" data-vi="Liên hệ">Contact</a>
       </nav>
 
-      <button onclick="window.location.href='index.html'" 
-              class="bg-[#D4AF37] hover:bg-amber-500 transition text-[#0B3C5D] px-6 py-2.5 rounded-full font-semibold text-sm flex items-center gap-2 shadow-md shadow-amber-900/20 hover:shadow-lg">
-        <i class="fas fa-paper-plane"></i> 
-        <span data-en="GET A QUOTE" data-vi="NHẬN BÁO GIÁ">GET A QUOTE</span>
-      </button>
+      <div class="flex items-center gap-1 sm:gap-2 md:gap-3 shrink-0">
+        <div class="flex items-center gap-0.5 sm:gap-1 bg-white/10 rounded-full p-1">
+          <button onclick="switchLanguage('en')" id="btn-en" type="button"
+                  class="lang-btn active px-2.5 sm:px-4 py-1.5 text-xs rounded-full transition">EN</button>
+          <button onclick="switchLanguage('vi')" id="btn-vi" type="button"
+                  class="lang-btn px-2.5 sm:px-4 py-1.5 text-xs rounded-full transition">VI</button>
+        </div>
+
+        <button type="button" id="mobileMenuBtn" class="md:hidden p-2 rounded-full hover:bg-white/10 text-white -mr-0.5" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
+          <i class="fas fa-bars text-lg" aria-hidden="true"></i>
+        </button>
+
+        <button onclick="window.location.href='index.html'" type="button"
+                class="bg-[#D4AF37] hover:bg-amber-500 transition text-[#0B3C5D] px-2.5 sm:px-5 py-2 sm:py-2.5 rounded-full font-semibold text-xs sm:text-sm flex items-center gap-1 sm:gap-2 shadow-md shadow-amber-900/20 hover:shadow-lg">
+          <i class="fas fa-paper-plane" aria-hidden="true"></i>
+          <span class="hidden sm:inline" data-en="GET A QUOTE" data-vi="NHẬN BÁO GIÁ">GET A QUOTE</span>
+        </button>
+      </div>
     </div>
   </header>
 
+  <div id="mobileNav" class="mobile-nav-overlay fixed inset-0 z-[60] hidden flex-col bg-[#0B3C5D]/98 backdrop-blur-md md:hidden" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Mobile menu">
+    <div class="safe-top flex justify-between items-center px-4 py-3 border-b border-white/10">
+      <span class="heading-font font-semibold text-white text-lg">Menu</span>
+      <button type="button" id="mobileMenuClose" class="p-2.5 rounded-full hover:bg-white/10 text-white" aria-label="Close menu">
+        <i class="fas fa-times text-xl" aria-hidden="true"></i>
+      </button>
+    </div>
+    <nav class="flex flex-col flex-1 overflow-y-auto overscroll-contain p-4 gap-0.5" aria-label="Mobile">
+      <a href="index.html" class="mobile-nav-link" data-en="Home" data-vi="Trang chủ">Home</a>
+      <a href="about.html" class="mobile-nav-link" data-en="About Us" data-vi="Về chúng tôi">About Us</a>
+      <a href="services.html" class="mobile-nav-link" data-en="Services" data-vi="Dịch vụ">Services</a>
+      <a href="routes.html" class="mobile-nav-link" data-en="Routes" data-vi="Tuyến đường">Routes</a>
+      <a href="project-cargo.html" class="mobile-nav-link" data-en="Project Cargo" data-vi="Hàng dự án">Project Cargo</a>
+      <a href="contact.html" class="mobile-nav-link" data-en="Contact" data-vi="Liên hệ">Contact</a>
+    </nav>
+  </div>
+
   <!-- HERO SECTION -->
-  <section class="hero-bg hero-bg--contact h-[460px] flex items-center text-white">
-    <div class="max-w-7xl mx-auto px-6">
+  <section class="hero-bg hero-bg--contact min-h-[260px] py-14 sm:py-20 md:py-0 md:min-h-[380px] md:h-[460px] flex items-center text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 w-full">
       <div class="max-w-xl">
-        <h1 id="page-title" class="heading-font text-5xl md:text-6xl font-bold leading-tight mb-4" 
+        <h1 id="page-title" class="heading-font text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-3 sm:mb-4" 
             data-en="Contact Us" data-vi="Liên hệ với chúng tôi">
           Contact Us
         </h1>
-        <p id="page-subtitle" class="text-xl text-gray-100" 
+        <p id="page-subtitle" class="text-base sm:text-lg md:text-xl text-gray-100" 
            data-en="Get in touch with our team for quotes, partnerships, or any logistics inquiries." 
            data-vi="Liên hệ với đội ngũ của chúng tôi để nhận báo giá, hợp tác hoặc bất kỳ thắc mắc logistics nào.">
           Get in touch with our team for quotes, partnerships, or any logistics inquiries.
@@ -64,12 +85,12 @@
     </div>
   </section>
 
-  <div class="max-w-7xl mx-auto px-6 py-24">
-    <div class="grid lg:grid-cols-12 gap-12">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 py-16 sm:py-24">
+    <div class="grid lg:grid-cols-12 gap-8 lg:gap-12">
 
       <!-- Contact Form -->
-      <div class="lg:col-span-7 bg-white rounded-3xl shadow-xl shadow-slate-900/10 border border-slate-100 p-10">
-        <h2 id="form-title" class="heading-font text-3xl font-bold text-[#0B3C5D] mb-8" 
+      <div class="lg:col-span-7 bg-white rounded-3xl shadow-xl shadow-slate-900/10 border border-slate-100 p-6 sm:p-10">
+        <h2 id="form-title" class="heading-font text-2xl sm:text-3xl font-bold text-[#0B3C5D] mb-6 sm:mb-8" 
             data-en="Send us a Message" data-vi="Gửi tin nhắn cho chúng tôi">
           Send us a Message
         </h2>
@@ -130,7 +151,7 @@
 
       <!-- Contact Information -->
       <div class="lg:col-span-5">
-        <div class="bg-gradient-to-br from-[#0B3C5D] to-[#103e5f] text-white rounded-3xl p-10 h-full shadow-xl shadow-slate-900/25 ring-1 ring-white/10">
+        <div class="bg-gradient-to-br from-[#0B3C5D] to-[#103e5f] text-white rounded-3xl p-6 sm:p-10 h-full shadow-xl shadow-slate-900/25 ring-1 ring-white/10">
           <h2 id="info-title" class="heading-font text-3xl font-bold mb-10" 
               data-en="Get in Touch" data-vi="Liên hệ trực tiếp">Get in Touch</h2>
 
@@ -194,7 +215,7 @@
 
   <!-- Success Modal -->
   <div id="successModal" class="hidden fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-[100]">
-    <div class="bg-white rounded-3xl max-w-md w-full mx-4 p-10 text-center">
+    <div class="bg-white rounded-3xl max-w-md w-[calc(100%-2rem)] sm:w-full mx-4 p-8 sm:p-10 text-center max-h-[90vh] overflow-y-auto">
       <div class="mx-auto w-20 h-20 bg-green-100 text-green-600 rounded-full flex items-center justify-center mb-6">
         <i class="fas fa-check text-5xl"></i>
       </div>
@@ -213,9 +234,9 @@
   </div>
 
   <!-- FOOTER -->
-  <footer class="site-footer bg-[#0B3C5D] text-gray-300 py-16">
-    <div class="max-w-7xl mx-auto px-6">
-      <div class="grid md:grid-cols-4 gap-10">
+  <footer class="site-footer bg-[#0B3C5D] text-gray-300 py-12 sm:py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 sm:gap-10">
         <div>
           <div class="flex items-center gap-3 mb-6">
             <div class="w-9 h-9 rounded-full overflow-hidden bg-white flex items-center justify-center"><img src="logo.jpg" alt="ZAFIR Logistics Logo" class="w-full h-full object-cover"></div>
@@ -255,6 +276,7 @@
     </div>
   </footer>
 
+  <script src="site.js"></script>
   <script>
     let currentLang = 'en';
 

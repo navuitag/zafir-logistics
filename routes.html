@@ -8,54 +8,75 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
   <link rel="stylesheet" href="site.css">
 </head>
-<body class="text-slate-800 antialiased bg-slate-50">
+<body class="text-slate-800 antialiased bg-slate-50 overflow-x-hidden">
 
   <!-- HEADER - Consistent Navigation -->
   <header class="site-header text-white sticky top-0 z-50">
-    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-      <div class="flex items-center gap-3">
-        <div class="w-10 h-10 rounded-full overflow-hidden bg-white flex items-center justify-center"><img src="logo.jpg" alt="ZAFIR Logistics Logo" class="w-full h-full object-cover"></div>
-        <div>
-          <h1 class="heading-font text-2xl font-bold tracking-tight">ZAFIR</h1>
-          <p class="text-xs text-gray-300 -mt-1">LOGISTICS VIETNAM</p>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3 md:py-4 flex items-center justify-between gap-2 sm:gap-3">
+      <a href="index.html" class="flex items-center gap-2 sm:gap-3 min-w-0 shrink-0">
+        <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-full overflow-hidden bg-white flex items-center justify-center shrink-0"><img src="logo.jpg" alt="ZAFIR Logistics Logo" class="w-full h-full object-cover"></div>
+        <div class="min-w-0">
+          <span class="heading-font text-xl sm:text-2xl font-bold tracking-tight block leading-tight">ZAFIR</span>
+          <span class="text-[10px] sm:text-xs text-gray-300 leading-tight hidden sm:block">LOGISTICS VIETNAM</span>
         </div>
-      </div>
+      </a>
 
-      <!-- Language Toggle -->
-      <div class="flex items-center gap-2 bg-white/10 rounded-full p-1">
-        <button onclick="switchLanguage('en')" id="btn-en" 
-                class="lang-btn active px-4 py-1.5 text-xs rounded-full transition">EN</button>
-        <button onclick="switchLanguage('vi')" id="btn-vi" 
-                class="lang-btn px-4 py-1.5 text-xs rounded-full transition">VI</button>
-      </div>
-
-      <!-- Updated Navigation Menu -->
-      <nav class="site-nav hidden md:flex gap-8 text-sm font-medium">
-        <a href="index.html" class="hover:text-[#D4AF37] transition" data-en="Home" data-vi="Trang chủ">Home</a>
-        <a href="about.html" class="hover:text-[#D4AF37] transition" data-en="About Us" data-vi="Về chúng tôi">About Us</a>
-        <a href="services.html" class="hover:text-[#D4AF37] transition" data-en="Services" data-vi="Dịch vụ">Services</a>
-        <a href="routes.html" class="hover:text-[#D4AF37] transition" data-en="Routes" data-vi="Tuyến đường">Routes</a>
-        <a href="project-cargo.html" class="hover:text-[#D4AF37] transition" data-en="Project Cargo" data-vi="Hàng dự án">Project Cargo</a>
-        <a href="contact.html" class="hover:text-[#D4AF37] transition" data-en="Contact" data-vi="Liên hệ">Contact</a>
+      <nav class="site-nav hidden md:flex flex-1 justify-center gap-4 lg:gap-8 text-sm font-medium px-2" aria-label="Main">
+        <a href="index.html" class="hover:text-[#D4AF37] transition whitespace-nowrap" data-en="Home" data-vi="Trang chủ">Home</a>
+        <a href="about.html" class="hover:text-[#D4AF37] transition whitespace-nowrap" data-en="About Us" data-vi="Về chúng tôi">About Us</a>
+        <a href="services.html" class="hover:text-[#D4AF37] transition whitespace-nowrap" data-en="Services" data-vi="Dịch vụ">Services</a>
+        <a href="routes.html" class="hover:text-[#D4AF37] transition whitespace-nowrap" data-en="Routes" data-vi="Tuyến đường">Routes</a>
+        <a href="project-cargo.html" class="hover:text-[#D4AF37] transition whitespace-nowrap" data-en="Project Cargo" data-vi="Hàng dự án">Project Cargo</a>
+        <a href="contact.html" class="hover:text-[#D4AF37] transition whitespace-nowrap" data-en="Contact" data-vi="Liên hệ">Contact</a>
       </nav>
 
-      <button onclick="window.location.href='index.html'" 
-              class="bg-[#D4AF37] hover:bg-amber-500 transition text-[#0B3C5D] px-6 py-2.5 rounded-full font-semibold text-sm flex items-center gap-2 shadow-md shadow-amber-900/20 hover:shadow-lg">
-        <i class="fas fa-paper-plane"></i> 
-        <span data-en="GET A QUOTE" data-vi="NHẬN BÁO GIÁ">GET A QUOTE</span>
-      </button>
+      <div class="flex items-center gap-1 sm:gap-2 md:gap-3 shrink-0">
+        <div class="flex items-center gap-0.5 sm:gap-1 bg-white/10 rounded-full p-1">
+          <button onclick="switchLanguage('en')" id="btn-en" type="button"
+                  class="lang-btn active px-2.5 sm:px-4 py-1.5 text-xs rounded-full transition">EN</button>
+          <button onclick="switchLanguage('vi')" id="btn-vi" type="button"
+                  class="lang-btn px-2.5 sm:px-4 py-1.5 text-xs rounded-full transition">VI</button>
+        </div>
+
+        <button type="button" id="mobileMenuBtn" class="md:hidden p-2 rounded-full hover:bg-white/10 text-white -mr-0.5" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
+          <i class="fas fa-bars text-lg" aria-hidden="true"></i>
+        </button>
+
+        <button onclick="window.location.href='index.html'" type="button"
+                class="bg-[#D4AF37] hover:bg-amber-500 transition text-[#0B3C5D] px-2.5 sm:px-5 py-2 sm:py-2.5 rounded-full font-semibold text-xs sm:text-sm flex items-center gap-1 sm:gap-2 shadow-md shadow-amber-900/20 hover:shadow-lg">
+          <i class="fas fa-paper-plane" aria-hidden="true"></i>
+          <span class="hidden sm:inline" data-en="GET A QUOTE" data-vi="NHẬN BÁO GIÁ">GET A QUOTE</span>
+        </button>
+      </div>
     </div>
   </header>
 
+  <div id="mobileNav" class="mobile-nav-overlay fixed inset-0 z-[60] hidden flex-col bg-[#0B3C5D]/98 backdrop-blur-md md:hidden" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Mobile menu">
+    <div class="safe-top flex justify-between items-center px-4 py-3 border-b border-white/10">
+      <span class="heading-font font-semibold text-white text-lg">Menu</span>
+      <button type="button" id="mobileMenuClose" class="p-2.5 rounded-full hover:bg-white/10 text-white" aria-label="Close menu">
+        <i class="fas fa-times text-xl" aria-hidden="true"></i>
+      </button>
+    </div>
+    <nav class="flex flex-col flex-1 overflow-y-auto overscroll-contain p-4 gap-0.5" aria-label="Mobile">
+      <a href="index.html" class="mobile-nav-link" data-en="Home" data-vi="Trang chủ">Home</a>
+      <a href="about.html" class="mobile-nav-link" data-en="About Us" data-vi="Về chúng tôi">About Us</a>
+      <a href="services.html" class="mobile-nav-link" data-en="Services" data-vi="Dịch vụ">Services</a>
+      <a href="routes.html" class="mobile-nav-link" data-en="Routes" data-vi="Tuyến đường">Routes</a>
+      <a href="project-cargo.html" class="mobile-nav-link" data-en="Project Cargo" data-vi="Hàng dự án">Project Cargo</a>
+      <a href="contact.html" class="mobile-nav-link" data-en="Contact" data-vi="Liên hệ">Contact</a>
+    </nav>
+  </div>
+
   <!-- HERO SECTION -->
-  <section class="hero-bg hero-bg--routes h-[500px] flex items-center text-white">
-    <div class="max-w-7xl mx-auto px-6">
+  <section class="hero-bg hero-bg--routes min-h-[260px] py-14 sm:py-20 md:py-0 md:min-h-[380px] md:h-[500px] flex items-center text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 w-full">
       <div class="max-w-2xl">
-        <h1 id="page-title" class="heading-font text-5xl md:text-6xl font-bold leading-tight mb-4" 
+        <h1 id="page-title" class="heading-font text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-3 sm:mb-4" 
             data-en="Vietnam – Africa Trade Routes" data-vi="Tuyến Vận Chuyển Việt Nam – Châu Phi">
           Vietnam – Africa Trade Routes
         </h1>
-        <p id="page-subtitle" class="text-xl text-gray-100" 
+        <p id="page-subtitle" class="text-base sm:text-lg md:text-xl text-gray-100" 
            data-en="We specialize in reliable and cost-effective shipping between Vietnam and key African markets."
            data-vi="Chúng tôi chuyên sâu tuyến vận chuyển đáng tin cậy và tiết kiệm giữa Việt Nam và các thị trường Châu Phi quan trọng.">
           We specialize in reliable and cost-effective shipping between Vietnam and key African markets.
@@ -66,9 +87,9 @@
 
   <!-- MAIN ROUTES -->
   <section class="py-24 bg-white border-y border-slate-100">
-    <div class="max-w-7xl mx-auto px-6">
-      <div class="text-center mb-16">
-        <h2 id="main-routes-title" class="heading-font text-4xl font-bold text-[#0B3C5D]" 
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="text-center mb-10 sm:mb-16">
+        <h2 id="main-routes-title" class="heading-font text-3xl sm:text-4xl font-bold text-[#0B3C5D]" 
             data-en="Our Main Trade Lanes" data-vi="Các Tuyến Chính">Our Main Trade Lanes</h2>
       </div>
 
@@ -88,12 +109,12 @@
                data-vi="Trung tâm kinh tế lớn nhất và cảng bận rộn nhất Tây Phi. Phù hợp với hàng hóa thông thường, máy móc và hàng tiêu dùng.">
               Major economic center and busiest port in West Africa. Ideal for general cargo, machinery, and consumer goods.
             </p>
-            <div class="flex justify-between text-sm">
+            <div class="flex flex-col sm:flex-row sm:justify-between gap-2 sm:gap-0 text-sm">
               <div>
                 <span class="block text-gray-500" data-en="Transit Time" data-vi="Thời gian vận chuyển">Transit Time</span>
                 <span class="font-semibold text-[#0B3C5D]">35 – 42 days</span>
               </div>
-              <div class="text-right">
+              <div class="sm:text-right">
                 <span class="block text-gray-500" data-en="Frequency" data-vi="Tần suất">Frequency</span>
                 <span class="font-semibold text-[#0B3C5D]">Weekly sailings</span>
               </div>
@@ -115,12 +136,12 @@
                data-vi="Một trong những cảng hiện đại nhất Tây Phi với hạ tầng tốt. Phổ biến cho thiết bị công nghiệp và hàng dự án.">
               One of the most modern ports in West Africa with excellent infrastructure. Popular for industrial equipment and project cargo.
             </p>
-            <div class="flex justify-between text-sm">
+            <div class="flex flex-col sm:flex-row sm:justify-between gap-2 sm:gap-0 text-sm">
               <div>
                 <span class="block text-gray-500" data-en="Transit Time" data-vi="Thời gian vận chuyển">Transit Time</span>
                 <span class="font-semibold text-[#0B3C5D]">36 – 43 days</span>
               </div>
-              <div class="text-right">
+              <div class="sm:text-right">
                 <span class="block text-gray-500" data-en="Frequency" data-vi="Tần suất">Frequency</span>
                 <span class="font-semibold text-[#0B3C5D]">Weekly sailings</span>
               </div>
@@ -142,12 +163,12 @@
                data-vi="Trung tâm trung chuyển quan trọng với kết nối tốt đến các nước lân cận. Rất phù hợp để phân phối khắp Tây Phi.">
               Important regional hub with excellent connectivity to neighboring countries. Great for distribution across West Africa.
             </p>
-            <div class="flex justify-between text-sm">
+            <div class="flex flex-col sm:flex-row sm:justify-between gap-2 sm:gap-0 text-sm">
               <div>
                 <span class="block text-gray-500" data-en="Transit Time" data-vi="Thời gian vận chuyển">Transit Time</span>
                 <span class="font-semibold text-[#0B3C5D]">34 – 41 days</span>
               </div>
-              <div class="text-right">
+              <div class="sm:text-right">
                 <span class="block text-gray-500" data-en="Frequency" data-vi="Tần suất">Frequency</span>
                 <span class="font-semibold text-[#0B3C5D]">Bi-weekly sailings</span>
               </div>
@@ -169,12 +190,12 @@
                data-vi="Cảng container bận rộn nhất Ấn Độ và cửa ngõ chính cho thương mại tiểu lục địa. Phù hợp hàng tổng hợp, dệt may và vật tư công nghiệp.">
               India’s busiest container port and primary gateway for subcontinent trade. Suited to general cargo, textiles, and industrial supplies.
             </p>
-            <div class="flex justify-between text-sm">
+            <div class="flex flex-col sm:flex-row sm:justify-between gap-2 sm:gap-0 text-sm">
               <div>
                 <span class="block text-gray-500" data-en="Transit Time" data-vi="Thời gian vận chuyển">Transit Time</span>
                 <span class="font-semibold text-[#0B3C5D]">12 – 18 days</span>
               </div>
-              <div class="text-right">
+              <div class="sm:text-right">
                 <span class="block text-gray-500" data-en="Frequency" data-vi="Tần suất">Frequency</span>
                 <span class="font-semibold text-[#0B3C5D]">Weekly sailings</span>
               </div>
@@ -196,12 +217,12 @@
                data-vi="Tàu feed ven biển, sà lan và vận tải đường bộ kết nối Cát Lái, Cái Mép, Hải Phòng, Đà Nẵng và các khu công nghiệp trọng điểm trên cả nước.">
               Coastal feeders, barges, and trucking linking Cat Lai, Cái Mép, Hai Phong, Da Nang, and key industrial zones across Vietnam.
             </p>
-            <div class="flex justify-between text-sm">
+            <div class="flex flex-col sm:flex-row sm:justify-between gap-2 sm:gap-0 text-sm">
               <div>
                 <span class="block text-gray-500" data-en="Transit Time" data-vi="Thời gian vận chuyển">Transit Time</span>
                 <span class="font-semibold text-[#0B3C5D]">2 – 6 days</span>
               </div>
-              <div class="text-right">
+              <div class="sm:text-right">
                 <span class="block text-gray-500" data-en="Frequency" data-vi="Tần suất">Frequency</span>
                 <span class="font-semibold text-[#0B3C5D]" data-en="Daily / scheduled" data-vi="Hàng ngày / theo lịch">Daily / scheduled</span>
               </div>
@@ -278,9 +299,9 @@
   </section>
 
   <!-- FOOTER -->
-  <footer class="site-footer bg-[#0B3C5D] text-gray-300 py-16">
-    <div class="max-w-7xl mx-auto px-6">
-      <div class="grid md:grid-cols-4 gap-10">
+  <footer class="site-footer bg-[#0B3C5D] text-gray-300 py-12 sm:py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 sm:gap-10">
         <div>
           <div class="flex items-center gap-3 mb-6">
             <div class="w-9 h-9 rounded-full overflow-hidden bg-white flex items-center justify-center"><img src="logo.jpg" alt="ZAFIR Logistics Logo" class="w-full h-full object-cover"></div>
@@ -320,6 +341,7 @@
     </div>
   </footer>
 
+  <script src="site.js"></script>
   <script>
     let currentLang = 'en';
 

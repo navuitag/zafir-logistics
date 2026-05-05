@@ -41,6 +41,34 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+body.mobile-menu-open {
+  overflow: hidden;
+  touch-action: none;
+}
+
+/* Mobile full-screen nav */
+.mobile-nav-overlay {
+  padding-bottom: env(safe-area-inset-bottom, 0);
+}
+
+.mobile-nav-link {
+  display: block;
+  padding: 0.875rem 1rem;
+  border-radius: 0.75rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.95);
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.mobile-nav-link:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #d4af37;
+}
+
+.safe-top {
+  padding-top: max(0.75rem, env(safe-area-inset-top, 0px));
+}
+
 .heading-font {
   font-family: "Montserrat", sans-serif;
   letter-spacing: -0.02em;

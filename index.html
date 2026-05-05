@@ -362,10 +362,13 @@
                         placeholder="Weight, volume, special requirements..."></textarea>
             </div>
 
-            <button type="submit" 
-                    class="w-full bg-[#0B3C5D] hover:bg-[#1E6F9F] transition text-white py-4 rounded-2xl font-semibold text-lg"
-                    data-en="Submit Quote Request" data-vi="Gửi yêu cầu báo giá">
-              Submit Quote Request
+            <button type="submit" id="quoteSubmitBtn"
+                    class="w-full bg-[#0B3C5D] hover:bg-[#1E6F9F] disabled:opacity-70 disabled:pointer-events-none transition text-white py-4 rounded-2xl font-semibold text-lg inline-flex items-center justify-center gap-2">
+              <span id="quote-submit-label" data-en="Submit Quote Request" data-vi="Gửi yêu cầu báo giá">Submit Quote Request</span>
+              <span id="quote-submit-loading" class="hidden items-center justify-center gap-2">
+                <i class="fas fa-circle-notch fa-spin" aria-hidden="true"></i>
+                <span data-en="Sending..." data-vi="Đang gửi...">Sending...</span>
+              </span>
             </button>
           </form>
         </div>
@@ -455,17 +458,59 @@
     const formView = document.getElementById('formView');
     const successView = document.getElementById('successView');
     const quoteForm = document.getElementById('quoteForm');
+    const quoteSubmitBtn = document.getElementById('quoteSubmitBtn');
+    const quoteSubmitLabel = document.getElementById('quote-submit-label');
+    const quoteSubmitLoading = document.getElementById('quote-submit-loading');
+
+    function buildQuoteMailtoHref() {
+      const to = 'manager@zafirlogistics.com';
+      const name = document.getElementById('name').value.trim();
+      const company = document.getElementById('company').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      const cargoEl = document.getElementById('cargoType');
+      const cargoText = cargoEl.options[cargoEl.selectedIndex] ? cargoEl.options[cargoEl.selectedIndex].text.trim() : '';
+      const destEl = document.getElementById('destination');
+      const destText = destEl.options[destEl.selectedIndex] ? destEl.options[destEl.selectedIndex].text.trim() : '';
+      let details = document.getElementById('details').value.trim();
+      if (details.length > 4000) {
+        details = details.slice(0, 4000) + '\n…';
+      }
+      const subject = 'Quote request — ' + (name || 'ZAFIR Logistics');
+      const body =
+        'Name: ' + name + '\n' +
+        'Company: ' + (company || '—') + '\n' +
+        'Email: ' + email + '\n' +
+        'Phone: ' + (phone || '—') + '\n' +
+        'Cargo type: ' + (cargoText || '—') + '\n' +
+        'Destination port: ' + (destText || '—') + '\n\n' +
+        'Additional details:\n' + (details || '—');
+      return 'mailto:' + encodeURIComponent(to) +
+        '?subject=' + encodeURIComponent(subject) +
+        '&body=' + encodeURIComponent(body);
+    }
+
+    function setQuoteSubmitLoading(loading) {
+      if (!quoteSubmitBtn || !quoteSubmitLabel || !quoteSubmitLoading) return;
+      quoteSubmitBtn.disabled = loading;
+      quoteSubmitBtn.setAttribute('aria-busy', loading ? 'true' : 'false');
+      quoteSubmitLabel.classList.toggle('hidden', loading);
+      quoteSubmitLoading.classList.toggle('hidden', !loading);
+      quoteSubmitLoading.classList.toggle('flex', loading);
+    }
 
     function openQuoteModal() {
       if (typeof closeMobileNav === 'function') closeMobileNav();
       modal.classList.remove('hidden');
       modal.classList.add('flex');
+      document.body.classList.add('overflow-hidden');
       showFormView();
     }
 
     function closeQuoteModal() {
       modal.classList.add('hidden');
       modal.classList.remove('flex');
+      document.body.classList.remove('overflow-hidden');
       setTimeout(showFormView, 300);
     }
 
@@ -483,16 +528,33 @@
       if (e.target === modal) closeQuoteModal();
     });
 
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && modal && !modal.classList.contains('hidden')) {
+        closeQuoteModal();
+      }
+    });
+
     quoteForm.addEventListener('submit', function(e) {
       e.preventDefault();
-      setTimeout(() => {
+      if (!quoteForm.checkValidity()) {
+        quoteForm.reportValidity();
+        return;
+      }
+
+      setQuoteSubmitLoading(true);
+
+      window.setTimeout(function() {
+        try {
+          window.location.href = buildQuoteMailtoHref();
+        } catch (err) {
+          console.error(err);
+        }
+
+        quoteForm.reset();
+        setQuoteSubmitLoading(false);
         showSuccessView();
-        setTimeout(() => {
-          if (!successView.classList.contains('hidden')) {
-            closeQuoteModal();
-          }
-        }, 5000);
-      }, 800);
+        switchLanguage(currentLang);
+      }, 450);
     });
 
     // Initialize

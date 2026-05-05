@@ -142,9 +142,13 @@
                       placeholder="Please describe your shipment needs..."></textarea>
           </div>
 
-          <button type="submit" 
-                  class="w-full bg-[#0B3C5D] hover:bg-[#1E6F9F] transition text-white py-5 rounded-2xl font-semibold text-lg">
-            <span id="submit-text" data-en="Send Message" data-vi="Gửi tin nhắn">Send Message</span>
+          <button type="submit" id="contactSubmitBtn"
+                  class="w-full bg-[#0B3C5D] hover:bg-[#1E6F9F] disabled:opacity-70 disabled:pointer-events-none transition text-white py-5 rounded-2xl font-semibold text-lg inline-flex items-center justify-center gap-2">
+            <span id="submit-label" data-en="Send Message" data-vi="Gửi tin nhắn">Send Message</span>
+            <span id="submit-loading" class="hidden items-center justify-center gap-2">
+              <i class="fas fa-circle-notch fa-spin" aria-hidden="true"></i>
+              <span data-en="Sending..." data-vi="Đang gửi...">Sending...</span>
+            </span>
           </button>
         </form>
       </div>
@@ -295,26 +299,90 @@
     // Form handling
     const contactForm = document.getElementById('contactForm');
     const successModal = document.getElementById('successModal');
+    const submitBtn = document.getElementById('contactSubmitBtn');
+    const submitLabel = document.getElementById('submit-label');
+    const submitLoading = document.getElementById('submit-loading');
+
+    function buildMailtoHref() {
+      const to = 'manager@zafirlogistics.com';
+      const fullName = document.getElementById('fullName').value.trim();
+      const company = document.getElementById('company').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      const serviceEl = document.getElementById('service');
+      const serviceText = serviceEl.options[serviceEl.selectedIndex].text.trim();
+      let message = document.getElementById('message').value.trim();
+      if (message.length > 4000) {
+        message = message.slice(0, 4000) + '\n…';
+      }
+      const subject = 'Contact form — ' + (fullName || 'ZAFIR Logistics inquiry');
+      const body =
+        'Name: ' + fullName + '\n' +
+        'Company: ' + (company || '—') + '\n' +
+        'Email: ' + email + '\n' +
+        'Phone: ' + (phone || '—') + '\n' +
+        'Service: ' + (serviceText || '—') + '\n\n' +
+        'Message:\n' + message;
+      return 'mailto:' + encodeURIComponent(to) +
+        '?subject=' + encodeURIComponent(subject) +
+        '&body=' + encodeURIComponent(body);
+    }
+
+    function setSubmitLoading(loading) {
+      if (!submitBtn || !submitLabel || !submitLoading) return;
+      submitBtn.disabled = loading;
+      submitBtn.setAttribute('aria-busy', loading ? 'true' : 'false');
+      submitLabel.classList.toggle('hidden', loading);
+      submitLoading.classList.toggle('hidden', !loading);
+      submitLoading.classList.toggle('flex', loading);
+    }
+
+    function openSuccessModal() {
+      successModal.classList.remove('hidden');
+      successModal.classList.add('flex');
+      document.body.classList.add('overflow-hidden');
+      if (typeof closeMobileNav === 'function') closeMobileNav();
+    }
 
     contactForm.addEventListener('submit', function(e) {
       e.preventDefault();
-      
-      // Simulate form submission
-      setTimeout(() => {
-        successModal.classList.remove('hidden');
-        successModal.classList.add('flex');
+      if (!contactForm.checkValidity()) {
+        contactForm.reportValidity();
+        return;
+      }
+
+      setSubmitLoading(true);
+
+      window.setTimeout(function() {
+        try {
+          window.location.href = buildMailtoHref();
+        } catch (err) {
+          console.error(err);
+        }
+
         contactForm.reset();
-      }, 800);
+        setSubmitLoading(false);
+        openSuccessModal();
+
+        // Refresh translated strings on modal & button after reset (switchLanguage keeps UI in sync)
+        switchLanguage(currentLang);
+      }, 450);
     });
 
     function closeSuccessModal() {
       successModal.classList.add('hidden');
       successModal.classList.remove('flex');
+      document.body.classList.remove('overflow-hidden');
     }
 
-    // Close modal when clicking outside
     successModal.addEventListener('click', function(e) {
       if (e.target === successModal) {
+        closeSuccessModal();
+      }
+    });
+
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && successModal && !successModal.classList.contains('hidden')) {
         closeSuccessModal();
       }
     });

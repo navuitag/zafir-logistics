@@ -20,7 +20,9 @@ html {
   .route-card,
   .service-card,
   .card-hover,
-  .z-card {
+  .z-card,
+  .call-now-fab,
+  .call-now-fab__icon {
     transition: none !important;
     animation: none !important;
   }
@@ -32,6 +34,10 @@ html {
   }
   .hero-bg {
     background-attachment: scroll !important;
+  }
+
+  .call-now-fab:hover {
+    transform: none !important;
   }
 }
 
@@ -269,3 +275,96 @@ textarea:focus-visible {
 .site-footer a {
   transition: color 0.2s ease;
 }
+
+/* ——— Call Now floating button ——— */
+.call-now-fab {
+  position: fixed;
+  bottom: max(1rem, env(safe-area-inset-bottom, 0px));
+  right: max(1rem, env(safe-area-inset-right, 0px));
+  z-index: 55;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3.75rem;
+  height: 3.75rem;
+  border-radius: 9999px;
+  background: linear-gradient(145deg, #e8c858 0%, var(--zf-gold) 45%, #b8922a 100%);
+  color: var(--zf-navy);
+  box-shadow:
+    0 4px 18px rgba(11, 60, 93, 0.35),
+    0 0 0 1px rgba(255, 255, 255, 0.25) inset;
+  text-decoration: none;
+  overflow: visible;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+  animation: call-now-glow 2.5s ease-out infinite;
+}
+
+.call-now-fab:hover {
+  transform: scale(1.08);
+  animation: none;
+  box-shadow:
+    0 8px 28px rgba(11, 60, 93, 0.45),
+    0 0 0 1px rgba(255, 255, 255, 0.35) inset,
+    0 0 24px rgba(212, 175, 55, 0.45);
+}
+
+.call-now-fab:active {
+  transform: scale(0.96);
+}
+
+.call-now-fab__icon {
+  font-size: 1.35rem;
+  animation: call-now-ring 4.5s ease-in-out infinite;
+}
+
+@keyframes call-now-glow {
+  0%,
+  100% {
+    box-shadow:
+      0 4px 18px rgba(11, 60, 93, 0.35),
+      0 0 0 0 rgba(212, 175, 55, 0.5),
+      0 0 0 1px rgba(255, 255, 255, 0.25) inset;
+  }
+  55% {
+    box-shadow:
+      0 6px 26px rgba(11, 60, 93, 0.42),
+      0 0 0 14px rgba(212, 175, 55, 0),
+      0 0 0 1px rgba(255, 255, 255, 0.25) inset;
+  }
+}
+
+@keyframes call-now-ring {
+  0%,
+  88%,
+  100% {
+    transform: rotate(0deg);
+  }
+  90% {
+    transform: rotate(-14deg);
+  }
+  92% {
+    transform: rotate(14deg);
+  }
+  94% {
+    transform: rotate(-8deg);
+  }
+  96% {
+    transform: rotate(0deg);
+  }
+}
+
+@media (min-width: 768px) {
+  .call-now-fab {
+    width: 4.125rem;
+    height: 4.125rem;
+    bottom: 1.75rem;
+    right: 1.75rem;
+  }
+
+  .call-now-fab__icon {
+    font-size: 1.5rem;
+  }
+}
+

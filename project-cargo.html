@@ -42,7 +42,7 @@
           <i class="fas fa-bars text-lg" aria-hidden="true"></i>
         </button>
 
-        <button onclick="window.location.href='index.html'" type="button"
+        <button onclick="window.location.href='contact.html'" type="button"
                 class="bg-[#D4AF37] hover:bg-amber-500 transition text-[#0B3C5D] px-2.5 sm:px-5 py-2 sm:py-2.5 rounded-full font-semibold text-xs sm:text-sm flex items-center gap-1 sm:gap-2 shadow-md shadow-amber-900/20 hover:shadow-lg">
           <i class="fas fa-paper-plane" aria-hidden="true"></i>
           <span class="hidden sm:inline" data-en="GET A QUOTE" data-vi="NHẬN BÁO GIÁ">GET A QUOTE</span>
@@ -251,9 +251,15 @@
   <script src="site.js"></script>
   <script>
     let currentLang = 'en';
+    const LANGUAGE_STORAGE_KEY = 'zafirLanguage';
 
     function switchLanguage(lang) {
       currentLang = lang;
+      try {
+        localStorage.setItem(LANGUAGE_STORAGE_KEY, lang);
+      } catch (err) {
+        console.warn('Unable to save language preference:', err);
+      }
       
       document.getElementById('btn-en').classList.toggle('active', lang === 'en');
       document.getElementById('btn-vi').classList.toggle('active', lang === 'vi');
@@ -265,7 +271,13 @@
     }
 
     window.onload = () => {
-      switchLanguage('en');
+      let savedLang = 'en';
+      try {
+        savedLang = localStorage.getItem(LANGUAGE_STORAGE_KEY) || 'en';
+      } catch (err) {
+        console.warn('Unable to read language preference:', err);
+      }
+      switchLanguage(savedLang);
     };
   </script>
 </body>

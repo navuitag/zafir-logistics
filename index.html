@@ -450,9 +450,15 @@
   <script src="site.js"></script>
   <script>
     let currentLang = 'en';
+    const LANGUAGE_STORAGE_KEY = 'zafirLanguage';
 
     function switchLanguage(lang) {
       currentLang = lang;
+      try {
+        localStorage.setItem(LANGUAGE_STORAGE_KEY, lang);
+      } catch (err) {
+        console.warn('Unable to save language preference:', err);
+      }
       
       document.getElementById('btn-en').classList.toggle('active', lang === 'en');
       document.getElementById('btn-vi').classList.toggle('active', lang === 'vi');
@@ -567,9 +573,14 @@
       }, 450);
     });
 
-    // Initialize
     window.onload = () => {
-      switchLanguage('en');
+      let savedLang = 'en';
+      try {
+        savedLang = localStorage.getItem(LANGUAGE_STORAGE_KEY) || 'en';
+      } catch (err) {
+        console.warn('Unable to read language preference:', err);
+      }
+      switchLanguage(savedLang);
     };
 
     // Highlight port when clicking on list (simple visual feedback)

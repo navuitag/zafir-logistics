@@ -86,10 +86,10 @@
         <a href="contact.html" class="hover:text-[#D4AF37] transition whitespace-nowrap" data-en="Contact" data-vi="Liên hệ">Contact</a>
       </nav>
 
-      <div class="flex items-center gap-1 sm:gap-2 md:gap-3 shrink-0">
-        <div class="flex items-center gap-0.5 sm:gap-1 bg-white/10 rounded-full p-1">
-          <button type="button" onclick="switchLanguage('en')" id="btn-en" class="lang-btn active px-2.5 sm:px-4 py-1.5 text-xs rounded-full transition">EN</button>
-          <button type="button" onclick="switchLanguage('vi')" id="btn-vi" class="lang-btn px-2.5 sm:px-4 py-1.5 text-xs rounded-full transition">VI</button>
+      <div class="flex items-center gap-1 sm:gap-2 md:gap-3 shrink-0 min-w-0">
+        <div class="flex items-center gap-0.5 sm:gap-1 bg-white/10 rounded-full p-1 shrink-0" role="group" aria-label="Language">
+          <button type="button" onclick="switchLanguage('en')" class="lang-btn lang-btn-en active px-2.5 sm:px-4 py-1.5 text-xs rounded-full transition font-semibold">EN</button>
+          <button type="button" onclick="switchLanguage('vi')" class="lang-btn lang-btn-vi px-2.5 sm:px-4 py-1.5 text-xs rounded-full transition font-semibold">VI</button>
         </div>
 
         <button type="button" id="mobileMenuBtn" class="md:hidden p-2 rounded-full hover:bg-white/10 text-white -mr-0.5" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
@@ -106,10 +106,17 @@
 
   <div id="mobileNav" class="mobile-nav-overlay fixed inset-0 z-[60] hidden flex-col bg-[#0B3C5D]/98 backdrop-blur-md md:hidden" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Mobile menu">
     <div class="safe-top flex justify-between items-center px-4 py-3 border-b border-white/10">
-      <span class="heading-font font-semibold text-white text-lg">Menu</span>
+      <span class="heading-font font-semibold text-white text-lg" data-en="Menu" data-vi="Menu">Menu</span>
       <button type="button" id="mobileMenuClose" class="p-2.5 rounded-full hover:bg-white/10 text-white" aria-label="Close menu">
         <i class="fas fa-times text-xl" aria-hidden="true"></i>
       </button>
+    </div>
+    <div class="flex items-center justify-center gap-3 px-4 py-3 border-b border-white/10 bg-white/5">
+      <span class="text-xs text-white/70 shrink-0" data-en="Language" data-vi="Ngôn ngữ">Language</span>
+      <div class="flex items-center gap-1 bg-white/10 rounded-full p-1" role="group" aria-label="Language">
+        <button type="button" onclick="switchLanguage('en')" class="lang-btn lang-btn-en active px-4 py-2 text-xs rounded-full transition font-semibold">EN</button>
+        <button type="button" onclick="switchLanguage('vi')" class="lang-btn lang-btn-vi px-4 py-2 text-xs rounded-full transition font-semibold">VI</button>
+      </div>
     </div>
     <nav class="flex flex-col flex-1 overflow-y-auto overscroll-contain p-4 gap-0.5" aria-label="Mobile">
       <a href="index.html" class="mobile-nav-link" data-en="Home" data-vi="Trang chủ">Home</a>
@@ -120,10 +127,10 @@
       <a href="project-cargo.html" class="mobile-nav-link" data-en="Project Cargo" data-vi="Hàng dự án">Project Cargo</a>
       <a href="contact.html" class="mobile-nav-link" data-en="Contact" data-vi="Liên hệ">Contact</a>
       <p class="text-[10px] uppercase tracking-wider text-white/40 px-3 pt-4 pb-1" data-en="On this page" data-vi="Trên trang này">On this page</p>
-      <a href="#services" class="mobile-nav-link text-sm text-white/85">Services overview</a>
-      <a href="#global-network" class="mobile-nav-link text-sm text-white/85">Global network</a>
-      <a href="#excellence" class="mobile-nav-link text-sm text-white/85">Operational excellence</a>
-      <a href="#contact" class="mobile-nav-link text-sm text-white/85">Contact &amp; form</a>
+      <a href="#services" class="mobile-nav-link text-sm text-white/85" data-en="Services overview" data-vi="Tổng quan dịch vụ">Services overview</a>
+      <a href="#global-network" class="mobile-nav-link text-sm text-white/85" data-en="Global network" data-vi="Mạng lưới toàn cầu">Global network</a>
+      <a href="#excellence" class="mobile-nav-link text-sm text-white/85" data-en="Operational excellence" data-vi="Xuất sắc vận hành">Operational excellence</a>
+      <a href="#contact" class="mobile-nav-link text-sm text-white/85" data-en="Contact &amp; form" data-vi="Liên hệ &amp; biểu mẫu">Contact &amp; form</a>
     </nav>
   </div>
 
@@ -133,22 +140,22 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 py-12 sm:py-16 lg:py-20">
       <div class="grid lg:grid-cols-2 gap-10 lg:gap-14 items-center">
         <div class="relative z-10">
-          <p class="text-[#F37021] font-semibold text-sm uppercase tracking-[0.2em] mb-3">Zafir Logistics</p>
-          <h1 class="heading-font text-3xl sm:text-4xl md:text-5xl lg:text-[2.75rem] font-extrabold leading-tight text-white mb-4">
+          <p class="text-[#F37021] font-semibold text-sm uppercase tracking-[0.2em] mb-3" data-en="Zafir Logistics" data-vi="Zafir Logistics">Zafir Logistics</p>
+          <h1 class="heading-font text-3xl sm:text-4xl md:text-5xl lg:text-[2.75rem] font-extrabold leading-tight text-white mb-4" data-en="Connecting Vietnam to the world" data-vi="Kết nối Việt Nam với thế giới">
             Connecting Vietnam to the world
           </h1>
           <div class="value-bar flex flex-wrap items-center gap-2 sm:gap-3 text-sm sm:text-base text-slate-200 font-medium mb-8">
-            <span>Reliable</span><span class="sep" aria-hidden="true">|</span>
-            <span>Efficient</span><span class="sep" aria-hidden="true">|</span>
-            <span>Professional</span>
+            <span data-en="Reliable" data-vi="Tin cậy">Reliable</span><span class="sep" aria-hidden="true">|</span>
+            <span data-en="Efficient" data-vi="Hiệu quả">Efficient</span><span class="sep" aria-hidden="true">|</span>
+            <span data-en="Professional" data-vi="Chuyên nghiệp">Professional</span>
           </div>
           <div class="flex flex-col sm:flex-row gap-3 sm:gap-4">
             <a href="#contact" class="landing-cta inline-flex justify-center items-center gap-2 px-6 py-3.5 rounded-full text-base font-semibold">
-              Get a Custom Freight Quote
+              <span data-en="Get a Custom Freight Quote" data-vi="Nhận báo giá vận chuyển riêng">Get a Custom Freight Quote</span>
               <i class="fas fa-arrow-right text-sm" aria-hidden="true"></i>
             </a>
             <a href="#global-network" class="inline-flex justify-center items-center gap-2 px-6 py-3.5 rounded-full border-2 border-white/30 text-white font-semibold hover:bg-white/10 transition">
-              Explore Our Global Network
+              <span data-en="Explore Our Global Network" data-vi="Khám phá mạng lưới toàn cầu">Explore Our Global Network</span>
               <i class="fas fa-globe text-sm" aria-hidden="true"></i>
             </a>
           </div>
@@ -157,7 +164,7 @@
           <div class="rounded-2xl overflow-hidden shadow-2xl shadow-black/40 ring-1 ring-white/10 bg-slate-900/30">
             <img src="portfolio.jpg" alt="Zafir Logistics corporate overview: services, global presence, and contact details" class="w-full h-auto object-cover max-h-[min(520px,70vh)] object-top" width="1200" height="800" loading="eager" decoding="async">
           </div>
-          <p class="mt-3 text-xs text-slate-400 text-center lg:text-left">Creative reference from brand portfolio — interactive tools below expand on this network.</p>
+          <p class="mt-3 text-xs text-slate-400 text-center lg:text-left" data-en="Creative reference from brand portfolio — interactive tools below expand on this network." data-vi="Tham chiếu sáng tạo từ hồ sơ thương hiệu — các công cụ tương tác bên dưới mở rộng mạng lưới này.">Creative reference from brand portfolio — interactive tools below expand on this network.</p>
         </div>
       </div>
     </div>
@@ -167,8 +174,8 @@
   <section id="services" class="py-16 sm:py-24 bg-white border-b border-slate-100 scroll-mt-20">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
       <div class="text-center max-w-2xl mx-auto mb-12 sm:mb-16">
-        <h2 class="heading-font text-3xl sm:text-4xl font-bold text-[#0B3C5D] mb-3">Core Services Portfolio</h2>
-        <p class="text-slate-600">End-to-end capabilities aligned with how global shippers move cargo from Vietnam.</p>
+        <h2 class="heading-font text-3xl sm:text-4xl font-bold text-[#0B3C5D] mb-3" data-en="Core Services Portfolio" data-vi="Danh mục dịch vụ cốt lõi">Core Services Portfolio</h2>
+        <p class="text-slate-600" data-en="End-to-end capabilities aligned with how global shippers move cargo from Vietnam." data-vi="Năng lực trọn gói phù hợp cách các chủ hàng toàn cầu vận chuyển từ Việt Nam.">End-to-end capabilities aligned with how global shippers move cargo from Vietnam.</p>
       </div>
 
       <div class="grid sm:grid-cols-2 xl:grid-cols-5 gap-6 lg:gap-8">
@@ -176,36 +183,36 @@
           <div class="w-14 h-14 rounded-xl bg-[#0B3C5D] text-[#F37021] flex items-center justify-center text-2xl mb-4">
             <i class="fas fa-ship" aria-hidden="true"></i>
           </div>
-          <h3 class="heading-font text-lg font-bold text-[#0B3C5D] mb-2">Ocean Freight</h3>
-          <p class="text-slate-600 text-sm leading-relaxed flex-1">Seamless container management across major maritime trade lanes. We navigate complex shipping schedules so your cargo moves without friction across the global blue economy.</p>
+          <h3 class="heading-font text-lg font-bold text-[#0B3C5D] mb-2" data-en="Ocean Freight" data-vi="Vận tải biển">Ocean Freight</h3>
+          <p class="text-slate-600 text-sm leading-relaxed flex-1" data-en="Seamless container management across major maritime trade lanes. We navigate complex shipping schedules so your cargo moves without friction across the global blue economy." data-vi="Quản lý container liền mạch trên các tuyến hàng hải chính. Chúng tôi xử lý lịch tàu phức tạp để hàng hóa của bạn lưu thông suôn sẻ trên nền kinh tế biển toàn cầu.">Seamless container management across major maritime trade lanes. We navigate complex shipping schedules so your cargo moves without friction across the global blue economy.</p>
         </article>
         <article class="rounded-2xl border border-slate-100 bg-slate-50/80 p-6 shadow-sm hover:shadow-md transition-shadow flex flex-col">
           <div class="w-14 h-14 rounded-xl bg-[#F37021] text-white flex items-center justify-center text-2xl mb-4">
             <i class="fas fa-plane-up" aria-hidden="true"></i>
           </div>
-          <h3 class="heading-font text-lg font-bold text-[#0B3C5D] mb-2">Air Freight</h3>
-          <p class="text-slate-600 text-sm leading-relaxed flex-1">Rapid, time-definite aerial logistics for high-priority shipments. We bridge Vietnamese manufacturing hubs and international markets with maximum velocity.</p>
+          <h3 class="heading-font text-lg font-bold text-[#0B3C5D] mb-2" data-en="Air Freight" data-vi="Vận tải hàng không">Air Freight</h3>
+          <p class="text-slate-600 text-sm leading-relaxed flex-1" data-en="Rapid, time-definite aerial logistics for high-priority shipments. We bridge Vietnamese manufacturing hubs and international markets with maximum velocity." data-vi="Logistics hàng không nhanh, đúng thời gian cho lô hàng ưu tiên. Chúng tôi kết nối trung tâm sản xuất Việt Nam với thị trường quốc tế với tốc độ tối đa.">Rapid, time-definite aerial logistics for high-priority shipments. We bridge Vietnamese manufacturing hubs and international markets with maximum velocity.</p>
         </article>
         <article class="rounded-2xl border border-slate-100 bg-slate-50/80 p-6 shadow-sm hover:shadow-md transition-shadow flex flex-col">
           <div class="w-14 h-14 rounded-xl bg-[#0B3C5D] text-[#F37021] flex items-center justify-center text-2xl mb-4">
             <i class="fas fa-truck-loading" aria-hidden="true"></i>
           </div>
-          <h3 class="heading-font text-lg font-bold text-[#0B3C5D] mb-2">Breakbulk</h3>
-          <p class="text-slate-600 text-sm leading-relaxed flex-1">Specialized handling and individualized stowage for non-containerized cargo. We manage technical loading for heavy or irregularly shaped goods with expert precision.</p>
+          <h3 class="heading-font text-lg font-bold text-[#0B3C5D] mb-2" data-en="Breakbulk" data-vi="Hàng rời (Breakbulk)">Breakbulk</h3>
+          <p class="text-slate-600 text-sm leading-relaxed flex-1" data-en="Specialized handling and individualized stowage for non-containerized cargo. We manage technical loading for heavy or irregularly shaped goods with expert precision." data-vi="Xử lý chuyên biệt và xếp dỡ phù hợp cho hàng không container. Chúng tôi quản lý kỹ thuật bốc xếp hàng nặng hoặc hình dạng đặc thù với độ chính xác cao.">Specialized handling and individualized stowage for non-containerized cargo. We manage technical loading for heavy or irregularly shaped goods with expert precision.</p>
         </article>
         <article class="rounded-2xl border border-slate-100 bg-slate-50/80 p-6 shadow-sm hover:shadow-md transition-shadow flex flex-col">
           <div class="w-14 h-14 rounded-xl bg-[#F37021] text-white flex items-center justify-center text-2xl mb-4">
             <i class="fas fa-weight-hanging" aria-hidden="true"></i>
           </div>
-          <h3 class="heading-font text-lg font-bold text-[#0B3C5D] mb-2">Project Cargo</h3>
-          <p class="text-slate-600 text-sm leading-relaxed flex-1">End-to-end management of out-of-gauge (OOG) and industrial oversized equipment. Heavy-lift transport for massive machinery and infrastructure components.</p>
+          <h3 class="heading-font text-lg font-bold text-[#0B3C5D] mb-2" data-en="Project Cargo" data-vi="Hàng dự án">Project Cargo</h3>
+          <p class="text-slate-600 text-sm leading-relaxed flex-1" data-en="End-to-end management of out-of-gauge (OOG) and industrial oversized equipment. Heavy-lift transport for massive machinery and infrastructure components." data-vi="Quản lý trọn gói hàng quá khổ (OOG) và thiết bị công nghiệp cỡ lớn. Vận chuyển nâng hạ nặng cho máy móc và hạ tầng quy mô lớn.">End-to-end management of out-of-gauge (OOG) and industrial oversized equipment. Heavy-lift transport for massive machinery and infrastructure components.</p>
         </article>
         <article class="rounded-2xl border border-slate-100 bg-slate-50/80 p-6 shadow-sm hover:shadow-md transition-shadow flex flex-col sm:col-span-2 xl:col-span-1">
           <div class="w-14 h-14 rounded-xl bg-[#0B3C5D] text-[#F37021] flex items-center justify-center text-2xl mb-4">
             <i class="fas fa-warehouse" aria-hidden="true"></i>
           </div>
-          <h3 class="heading-font text-lg font-bold text-[#0B3C5D] mb-2">Logistics Solutions</h3>
-          <p class="text-slate-600 text-sm leading-relaxed flex-1">Integrated warehousing and supply chain optimization. From inventory to final-mile distribution, we streamline operations to cut overhead and lift efficiency.</p>
+          <h3 class="heading-font text-lg font-bold text-[#0B3C5D] mb-2" data-en="Logistics Solutions" data-vi="Giải pháp logistics">Logistics Solutions</h3>
+          <p class="text-slate-600 text-sm leading-relaxed flex-1" data-en="Integrated warehousing and supply chain optimization. From inventory to final-mile distribution, we streamline operations to cut overhead and lift efficiency." data-vi="Tích hợp kho bãi và tối ưu chuỗi cung ứng. Từ quản lý tồn kho đến phân phối chặng cuối, chúng tôi tinh gọn vận hành để giảm chi phí và nâng hiệu quả.">Integrated warehousing and supply chain optimization. From inventory to final-mile distribution, we streamline operations to cut overhead and lift efficiency.</p>
         </article>
       </div>
     </div>
@@ -216,8 +223,8 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
       <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-10">
         <div>
-          <h2 class="heading-font text-3xl sm:text-4xl font-bold text-[#0B3C5D]">Global Presence &amp; Network</h2>
-          <p class="text-slate-600 mt-2 max-w-2xl">Vietnam is the central node. Hover a region to see key ports — dashed lines show active trade corridors from Ho Chi Minh City / Cat Lai.</p>
+          <h2 class="heading-font text-3xl sm:text-4xl font-bold text-[#0B3C5D]" data-en="Global Presence &amp; Network" data-vi="Hiện diện &amp; mạng lưới toàn cầu">Global Presence &amp; Network</h2>
+          <p class="text-slate-600 mt-2 max-w-2xl" data-en="Vietnam is the central node. Hover a region to see key ports — dashed lines show active trade corridors from Ho Chi Minh City / Cat Lai." data-vi="Việt Nam là trung tâm. Di chuột qua từng khu vực để xem cảng chính — đường nét đứt thể hiện hành lang thương mại từ TP.HCM / Cát Lái.">Vietnam is the central node. Hover a region to see key ports — dashed lines show active trade corridors from Ho Chi Minh City / Cat Lai.</p>
         </div>
       </div>
 
@@ -248,23 +255,23 @@
             <!-- Hub -->
             <circle class="hub-pulse" cx="520" cy="188" fill="#F37021" opacity="0.25"/>
             <circle id="mapVietnamHub" cx="520" cy="188" r="11" fill="#F37021" stroke="#fff" stroke-width="3" class="cursor-pointer"/>
-            <text x="520" y="165" text-anchor="middle" fill="#0B3C5D" font-size="13" font-weight="700" font-family="Montserrat, sans-serif">Vietnam</text>
-            <text x="520" y="222" text-anchor="middle" fill="#64748b" font-size="10" font-family="Lato, sans-serif">HCMC · Cat Lai</text>
+            <text id="mapSvgCountry" x="520" y="165" text-anchor="middle" fill="#0B3C5D" font-size="13" font-weight="700" font-family="Montserrat, sans-serif">Vietnam</text>
+            <text id="mapSvgPorts" x="520" y="222" text-anchor="middle" fill="#64748b" font-size="10" font-family="Lato, sans-serif">HCMC · Cat Lai</text>
 
             <!-- Region hit targets (large transparent circles) -->
-            <g data-network-region="sea" data-title="South East Asia" tabindex="0" class="cursor-pointer outline-none" role="button" aria-label="South East Asia ports">
+            <g data-network-region="sea" data-title-en="South East Asia" data-title-vi="Đông Nam Á" tabindex="0" class="cursor-pointer outline-none" role="button" aria-label="South East Asia ports">
               <circle cx="700" cy="210" r="36" fill="transparent"/>
               <circle cx="700" cy="210" r="9" fill="#0B3C5D" stroke="#fff" stroke-width="2"/>
             </g>
-            <g data-network-region="mesa" data-title="Middle East &amp; South Asia" tabindex="0" class="cursor-pointer outline-none" role="button" aria-label="Middle East and South Asia ports">
+            <g data-network-region="mesa" data-title-en="Middle East &amp; South Asia" data-title-vi="Trung Đông &amp; Nam Á" tabindex="0" class="cursor-pointer outline-none" role="button" aria-label="Middle East and South Asia ports">
               <circle cx="450" cy="125" r="40" fill="transparent"/>
               <circle cx="450" cy="125" r="9" fill="#0B3C5D" stroke="#fff" stroke-width="2"/>
             </g>
-            <g data-network-region="africa" data-title="Africa" tabindex="0" class="cursor-pointer outline-none" role="button" aria-label="Africa ports">
+            <g data-network-region="africa" data-title-en="Africa" data-title-vi="Châu Phi" tabindex="0" class="cursor-pointer outline-none" role="button" aria-label="Africa ports">
               <circle cx="380" cy="248" r="44" fill="transparent"/>
               <circle cx="380" cy="248" r="9" fill="#0B3C5D" stroke="#fff" stroke-width="2"/>
             </g>
-            <g data-network-region="oceania" data-title="Oceania" tabindex="0" class="cursor-pointer outline-none" role="button" aria-label="Oceania ports">
+            <g data-network-region="oceania" data-title-en="Oceania" data-title-vi="Châu Đại Dương" tabindex="0" class="cursor-pointer outline-none" role="button" aria-label="Oceania ports">
               <circle cx="760" cy="318" r="38" fill="transparent"/>
               <circle cx="760" cy="318" r="9" fill="#0B3C5D" stroke="#fff" stroke-width="2"/>
             </g>
@@ -277,29 +284,29 @@
         <div class="border-t border-slate-100 bg-slate-50/90 px-4 py-8 sm:px-8">
           <h3 class="heading-font text-center text-lg font-bold text-[#0B3C5D] mb-6 flex items-center justify-center gap-3">
             <span class="h-px flex-1 max-w-[4rem] bg-slate-300"></span>
-            Our global presence
+            <span data-en="Our global presence" data-vi="Hiện diện toàn cầu của chúng tôi">Our global presence</span>
             <span class="h-px flex-1 max-w-[4rem] bg-slate-300"></span>
           </h3>
           <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 text-sm">
             <div>
-              <p class="font-bold text-[#0B3C5D] mb-1">Vietnam</p>
-              <p class="text-slate-600">Ho Chi Minh City Port, Cat Lai Port</p>
+              <p class="font-bold text-[#0B3C5D] mb-1" data-en="Vietnam" data-vi="Việt Nam">Vietnam</p>
+              <p class="text-slate-600" data-en="Ho Chi Minh City Port, Cat Lai Port" data-vi="Cảng TP.HCM, Cảng Cát Lái">Ho Chi Minh City Port, Cat Lai Port</p>
             </div>
             <div>
-              <p class="font-bold text-[#0B3C5D] mb-1">South East Asia</p>
-              <p class="text-slate-600">Singapore Port · Manila Port · Tanjung Priok · Surabaya</p>
+              <p class="font-bold text-[#0B3C5D] mb-1" data-en="South East Asia" data-vi="Đông Nam Á">South East Asia</p>
+              <p class="text-slate-600" data-en="Singapore Port · Manila Port · Tanjung Priok · Surabaya" data-vi="Cảng Singapore · Manila · Tanjung Priok · Surabaya">Singapore Port · Manila Port · Tanjung Priok · Surabaya</p>
             </div>
             <div>
-              <p class="font-bold text-[#0B3C5D] mb-1">Middle East &amp; South Asia</p>
-              <p class="text-slate-600">Jebel Ali (Dubai) · Chennai · Mundra</p>
+              <p class="font-bold text-[#0B3C5D] mb-1" data-en="Middle East &amp; South Asia" data-vi="Trung Đông &amp; Nam Á">Middle East &amp; South Asia</p>
+              <p class="text-slate-600" data-en="Jebel Ali (Dubai) · Chennai · Mundra" data-vi="Jebel Ali (Dubai) · Chennai · Mundra">Jebel Ali (Dubai) · Chennai · Mundra</p>
             </div>
             <div>
-              <p class="font-bold text-[#0B3C5D] mb-1">Africa</p>
-              <p class="text-slate-600">Abidjan · Tema · Lagos · Lomé · Bissau · Conakry · Dar es Salaam</p>
+              <p class="font-bold text-[#0B3C5D] mb-1" data-en="Africa" data-vi="Châu Phi">Africa</p>
+              <p class="text-slate-600" data-en="Abidjan · Tema · Lagos · Lomé · Bissau · Conakry · Dar es Salaam" data-vi="Abidjan · Tema · Lagos · Lomé · Bissau · Conakry · Dar es Salaam">Abidjan · Tema · Lagos · Lomé · Bissau · Conakry · Dar es Salaam</p>
             </div>
             <div class="sm:col-span-2 lg:col-span-2">
-              <p class="font-bold text-[#0B3C5D] mb-1">Oceania</p>
-              <p class="text-slate-600">Melbourne · Sydney · Auckland · Lyttelton</p>
+              <p class="font-bold text-[#0B3C5D] mb-1" data-en="Oceania" data-vi="Châu Đại Dương">Oceania</p>
+              <p class="text-slate-600" data-en="Melbourne · Sydney · Auckland · Lyttelton" data-vi="Melbourne · Sydney · Auckland · Lyttelton">Melbourne · Sydney · Auckland · Lyttelton</p>
             </div>
           </div>
         </div>
@@ -310,23 +317,23 @@
   <!-- 4. Operational Excellence -->
   <section id="excellence" class="py-16 sm:py-24 bg-white scroll-mt-20">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
-      <h2 class="heading-font text-3xl sm:text-4xl font-bold text-center text-[#0B3C5D] mb-12">Operational Excellence</h2>
+      <h2 class="heading-font text-3xl sm:text-4xl font-bold text-center text-[#0B3C5D] mb-12" data-en="Operational Excellence" data-vi="Xuất sắc vận hành">Operational Excellence</h2>
       <div class="grid md:grid-cols-3 gap-8 lg:gap-10">
         <article class="rounded-2xl border border-slate-100 p-8 bg-gradient-to-b from-slate-50 to-white shadow-sm">
-          <div class="text-[#F37021] text-3xl font-bold heading-font mb-4">Reliable</div>
-          <p class="text-slate-600 leading-relaxed text-sm sm:text-base">
+          <div class="text-[#F37021] text-3xl font-bold heading-font mb-4" data-en="Reliable" data-vi="Tin cậy">Reliable</div>
+          <p class="text-slate-600 leading-relaxed text-sm sm:text-base" data-en="Zafir Logistics provides mission-critical reliability to compete globally. Deep local expertise helps us navigate Vietnamese customs and the operational nuances of Cat Lai and Ho Chi Minh City ports, ensuring a seamless hand-off to our international network so cargo reaches hubs like Dubai or Sydney without administrative delay." data-vi="Zafir Logistics mang lại độ tin cậy then chốt để cạnh tranh toàn cầu. Am hiểu địa phương giúp chúng tôi xử lý hải quan Việt Nam và đặc thù vận hành tại Cát Lái và cảng TP.HCM, bàn giao liền mạch sang mạng lưới quốc tế để hàng đến các trung tâm như Dubai hay Sydney không bị trễ thủ tục.">
             Zafir Logistics provides mission-critical reliability to compete globally. Deep local expertise helps us navigate Vietnamese customs and the operational nuances of Cat Lai and Ho Chi Minh City ports, ensuring a seamless hand-off to our international network so cargo reaches hubs like Dubai or Sydney without administrative delay.
           </p>
         </article>
         <article class="rounded-2xl border border-slate-100 p-8 bg-gradient-to-b from-slate-50 to-white shadow-sm">
-          <div class="text-[#F37021] text-3xl font-bold heading-font mb-4">Efficient</div>
-          <p class="text-slate-600 leading-relaxed text-sm sm:text-base">
+          <div class="text-[#F37021] text-3xl font-bold heading-font mb-4" data-en="Efficient" data-vi="Hiệu quả">Efficient</div>
+          <p class="text-slate-600 leading-relaxed text-sm sm:text-base" data-en="We optimize every supply chain link to give clients a competitive edge. By streamlining transit between Vietnam’s manufacturing centers and our global port network, we remove bottlenecks and maximize resource utilization. Efficiency here means precision in logistics architecture—not only speed." data-vi="Chúng tôi tối ưu từng khâu chuỗi cung ứng để tạo lợi thế cạnh tranh. Bằng cách tinh gọn lưu chuyển giữa các trung tâm sản xuất Việt Nam và mạng cảng toàn cầu, chúng tôi loại bỏ nút thắt và tối đa hóa sử dụng nguồn lực. Hiệu quả ở đây là độ chính xác của kiến trúc logistics — không chỉ tốc độ.">
             We optimize every supply chain link to give clients a competitive edge. By streamlining transit between Vietnam’s manufacturing centers and our global port network, we remove bottlenecks and maximize resource utilization. Efficiency here means precision in logistics architecture—not only speed.
           </p>
         </article>
         <article class="rounded-2xl border border-slate-100 p-8 bg-gradient-to-b from-slate-50 to-white shadow-sm">
-          <div class="text-[#F37021] text-3xl font-bold heading-font mb-4">Professional</div>
-          <p class="text-slate-600 leading-relaxed text-sm sm:text-base">
+          <div class="text-[#F37021] text-3xl font-bold heading-font mb-4" data-en="Professional" data-vi="Chuyên nghiệp">Professional</div>
+          <p class="text-slate-600 leading-relaxed text-sm sm:text-base" data-en="Our team upholds international consultancy standards. From out-of-gauge project cargo to integrated warehousing, we represent Vietnamese businesses with distinction. We don’t just move goods—we manage reputations." data-vi="Đội ngũ tuân thủ tiêu chuẩn tư vấn quốc tế. Từ hàng dự án quá khổ đến kho tích hợp, chúng tôi đại diện doanh nghiệp Việt một cách uy tín. Chúng tôi không chỉ vận chuyển — chúng tôi quản trị danh tiếng.">
             Our team upholds international consultancy standards. From out-of-gauge project cargo to integrated warehousing, we represent Vietnamese businesses with distinction. We don’t just move goods—we manage reputations.
           </p>
         </article>
@@ -339,29 +346,29 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
       <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
         <div>
-          <h2 class="heading-font text-3xl sm:text-4xl font-bold mb-4">Get in Touch</h2>
-          <p class="text-slate-300 text-lg mb-8 leading-relaxed">
+          <h2 class="heading-font text-3xl sm:text-4xl font-bold mb-4" data-en="Get in Touch" data-vi="Liên hệ">Get in Touch</h2>
+          <p class="text-slate-300 text-lg mb-8 leading-relaxed" data-en="Optimize your global supply chain today. Our logistics experts are standing by to engineer your shipping solution." data-vi="Tối ưu chuỗi cung ứng toàn cầu ngay hôm nay. Đội ngũ logistics của chúng tôi sẵn sàng thiết kế giải pháp vận chuyển cho bạn.">
             Optimize your global supply chain today. Our logistics experts are standing by to engineer your shipping solution.
           </p>
           <ul class="space-y-4 text-slate-200">
             <li class="flex items-start gap-3">
               <span class="mt-0.5 w-9 h-9 rounded-lg bg-[#F37021]/20 text-[#F37021] flex items-center justify-center shrink-0"><i class="fas fa-phone" aria-hidden="true"></i></span>
               <div>
-                <p class="text-xs uppercase tracking-wider text-slate-400 font-semibold">Phone</p>
+                <p class="text-xs uppercase tracking-wider text-slate-400 font-semibold" data-en="Phone" data-vi="Điện thoại">Phone</p>
                 <a href="tel:+84946000153" class="text-white hover:text-[#F37021] font-semibold">0946 000 153</a>
               </div>
             </li>
             <li class="flex items-start gap-3">
               <span class="mt-0.5 w-9 h-9 rounded-lg bg-[#F37021]/20 text-[#F37021] flex items-center justify-center shrink-0"><i class="fas fa-envelope" aria-hidden="true"></i></span>
               <div>
-                <p class="text-xs uppercase tracking-wider text-slate-400 font-semibold">Email</p>
+                <p class="text-xs uppercase tracking-wider text-slate-400 font-semibold" data-en="Email" data-vi="Email">Email</p>
                 <a href="mailto:manager@zafirlogistics.com" class="text-white hover:text-[#F37021] font-semibold break-all">manager@zafirlogistics.com</a>
               </div>
             </li>
             <li class="flex items-start gap-3">
               <span class="mt-0.5 w-9 h-9 rounded-lg bg-[#F37021]/20 text-[#F37021] flex items-center justify-center shrink-0"><i class="fas fa-globe" aria-hidden="true"></i></span>
               <div>
-                <p class="text-xs uppercase tracking-wider text-slate-400 font-semibold">Website</p>
+                <p class="text-xs uppercase tracking-wider text-slate-400 font-semibold" data-en="Website" data-vi="Website">Website</p>
                 <a href="https://www.zafirlogistics.com" class="text-white hover:text-[#F37021] font-semibold" target="_blank" rel="noopener noreferrer">www.zafirlogistics.com</a>
               </div>
             </li>
@@ -371,31 +378,31 @@
         <div class="rounded-2xl bg-white text-slate-800 p-6 sm:p-8 shadow-xl">
           <form id="leadForm" class="space-y-5" novalidate>
             <div>
-              <label for="leadName" class="block text-sm font-semibold text-slate-700 mb-1">Full Name</label>
-              <input id="leadName" name="name" type="text" required autocomplete="name" class="w-full rounded-xl border border-slate-200 px-4 py-3 text-slate-800 focus:border-[#F37021] focus:ring-2 focus:ring-[#F37021]/25 outline-none transition" placeholder="Your name">
+              <label for="leadName" class="block text-sm font-semibold text-slate-700 mb-1" data-en="Full Name" data-vi="Họ và tên">Full Name</label>
+              <input id="leadName" name="name" type="text" required autocomplete="name" class="w-full rounded-xl border border-slate-200 px-4 py-3 text-slate-800 focus:border-[#F37021] focus:ring-2 focus:ring-[#F37021]/25 outline-none transition" placeholder="Your name" data-placeholder-en="Your name" data-placeholder-vi="Họ tên của bạn">
             </div>
             <div>
-              <label for="leadEmail" class="block text-sm font-semibold text-slate-700 mb-1">Corporate Email Address</label>
-              <input id="leadEmail" name="email" type="email" required autocomplete="email" class="w-full rounded-xl border border-slate-200 px-4 py-3 text-slate-800 focus:border-[#F37021] focus:ring-2 focus:ring-[#F37021]/25 outline-none transition" placeholder="you@company.com">
+              <label for="leadEmail" class="block text-sm font-semibold text-slate-700 mb-1" data-en="Corporate Email Address" data-vi="Email doanh nghiệp">Corporate Email Address</label>
+              <input id="leadEmail" name="email" type="email" required autocomplete="email" class="w-full rounded-xl border border-slate-200 px-4 py-3 text-slate-800 focus:border-[#F37021] focus:ring-2 focus:ring-[#F37021]/25 outline-none transition" placeholder="you@company.com" data-placeholder-en="you@company.com" data-placeholder-vi="ban@congty.com">
             </div>
             <div>
-              <label for="leadService" class="block text-sm font-semibold text-slate-700 mb-1">Service Type <span class="text-red-600">*</span></label>
+              <label for="leadService" class="block text-sm font-semibold text-slate-700 mb-1"><span data-en="Service Type" data-vi="Loại dịch vụ">Service Type</span> <span class="text-red-600">*</span></label>
               <select id="leadService" name="service" required class="w-full rounded-xl border border-slate-200 px-4 py-3 text-slate-800 focus:border-[#F37021] focus:ring-2 focus:ring-[#F37021]/25 outline-none transition bg-white">
-                <option value="" disabled selected>Select a service…</option>
-                <option value="Ocean Freight">Ocean Freight</option>
-                <option value="Air Freight">Air Freight</option>
-                <option value="Breakbulk">Breakbulk</option>
-                <option value="Project Cargo">Project Cargo</option>
-                <option value="Logistics Solutions">Logistics Solutions</option>
+                <option value="" disabled selected data-en="Select a service…" data-vi="Chọn dịch vụ…">Select a service…</option>
+                <option value="Ocean Freight" data-en="Ocean Freight" data-vi="Vận tải biển">Ocean Freight</option>
+                <option value="Air Freight" data-en="Air Freight" data-vi="Vận tải hàng không">Air Freight</option>
+                <option value="Breakbulk" data-en="Breakbulk" data-vi="Hàng rời">Breakbulk</option>
+                <option value="Project Cargo" data-en="Project Cargo" data-vi="Hàng dự án">Project Cargo</option>
+                <option value="Logistics Solutions" data-en="Logistics Solutions" data-vi="Giải pháp logistics">Logistics Solutions</option>
               </select>
-              <p class="text-xs text-slate-500 mt-1">Required for routing your inquiry to the right specialist.</p>
+              <p class="text-xs text-slate-500 mt-1" data-en="Required for routing your inquiry to the right specialist." data-vi="Bắt buộc để chuyển yêu cầu đến chuyên viên phù hợp.">Required for routing your inquiry to the right specialist.</p>
             </div>
             <div>
-              <label for="leadMessage" class="block text-sm font-semibold text-slate-700 mb-1">Message</label>
-              <textarea id="leadMessage" name="message" rows="4" class="w-full rounded-xl border border-slate-200 px-4 py-3 text-slate-800 focus:border-[#F37021] focus:ring-2 focus:ring-[#F37021]/25 outline-none transition resize-y" placeholder="Cargo details, lanes, timelines…"></textarea>
+              <label for="leadMessage" class="block text-sm font-semibold text-slate-700 mb-1" data-en="Message" data-vi="Nội dung">Message</label>
+              <textarea id="leadMessage" name="message" rows="4" class="w-full rounded-xl border border-slate-200 px-4 py-3 text-slate-800 focus:border-[#F37021] focus:ring-2 focus:ring-[#F37021]/25 outline-none transition resize-y" placeholder="Cargo details, lanes, timelines…" data-placeholder-en="Cargo details, lanes, timelines…" data-placeholder-vi="Mô tả hàng, tuyến, thời gian…"></textarea>
             </div>
             <button type="submit" class="landing-cta w-full flex justify-center items-center gap-2 px-6 py-3.5 rounded-xl text-base font-semibold">
-              Contact an Expert
+              <span data-en="Contact an Expert" data-vi="Liên hệ chuyên gia">Contact an Expert</span>
               <i class="fas fa-paper-plane text-sm" aria-hidden="true"></i>
             </button>
           </form>
@@ -405,7 +412,7 @@
   </section>
 
   <footer class="bg-[#00235b] text-slate-400 py-8 text-center text-sm border-t border-white/10">
-    <p>© 2026 Zafir Logistics. <a href="index.html" class="text-[#F37021] hover:underline">Visit full website</a></p>
+    <p><span data-en="© 2026 Zafir Logistics." data-vi="© 2026 Zafir Logistics.">© 2026 Zafir Logistics.</span> <a href="index.html" class="text-[#F37021] hover:underline" data-en="Visit full website" data-vi="Xem trang web đầy đủ">Visit full website</a></p>
   </footer>
 
   <a href="https://zalo.me/84946000153" target="_blank" rel="noopener noreferrer" class="zalo-fab" aria-label="Chat on Zalo" title="Zalo">
@@ -422,12 +429,100 @@
     let currentLang = 'en';
     const LANGUAGE_STORAGE_KEY = 'zafirLanguage';
 
+    var PORTS_BY_LANG = {
+      en: {
+        vietnam: {
+          title: 'Vietnam',
+          lines: ['Vietnam — Ho Chi Minh City Port, Cat Lai Port']
+        },
+        sea: {
+          title: 'South East Asia',
+          lines: [
+            'Singapore — Singapore Port',
+            'Philippines — Manila Port',
+            'Indonesia — Tanjung Priok Port, Surabaya Port'
+          ]
+        },
+        mesa: {
+          title: 'Middle East & South Asia',
+          lines: ['Dubai — Jebel Ali Port', 'India — Chennai Port, Mundra Port']
+        },
+        africa: {
+          title: 'Africa',
+          lines: [
+            'Ivory Coast — Abidjan Port',
+            'Ghana — Tema Port',
+            'Nigeria — Lagos Port',
+            'Togo — Lomé Port',
+            'Guinea-Bissau — Bissau Port',
+            'Guinea-Conakry — Conakry Port',
+            'Tanzania — Dar es Salaam Port'
+          ]
+        },
+        oceania: {
+          title: 'Oceania',
+          lines: ['Australia — Melbourne Port, Sydney Port', 'New Zealand — Auckland Port, Lyttelton Port']
+        }
+      },
+      vi: {
+        vietnam: {
+          title: 'Việt Nam',
+          lines: ['Việt Nam — Cảng TP.Hồ Chí Minh, Cảng Cát Lái']
+        },
+        sea: {
+          title: 'Đông Nam Á',
+          lines: [
+            'Singapore — Cảng Singapore',
+            'Philippines — Cảng Manila',
+            'Indonesia — Tanjung Priok, Surabaya'
+          ]
+        },
+        mesa: {
+          title: 'Trung Đông & Nam Á',
+          lines: ['Dubai — Jebel Ali', 'Ấn Độ — Chennai, Mundra']
+        },
+        africa: {
+          title: 'Châu Phi',
+          lines: [
+            'Bờ Biển Ngà — Abidjan',
+            'Ghana — Tema',
+            'Nigeria — Lagos',
+            'Togo — Lomé',
+            'Guinea-Bissau — Bissau',
+            'Guinea-Conakry — Conakry',
+            'Tanzania — Dar es Salaam'
+          ]
+        },
+        oceania: {
+          title: 'Châu Đại Dương',
+          lines: ['Úc — Melbourne, Sydney', 'New Zealand — Auckland, Lyttelton']
+        }
+      }
+    };
+
+    function syncPortfolioMapSvg(lang) {
+      var c = document.getElementById('mapSvgCountry');
+      var p = document.getElementById('mapSvgPorts');
+      if (c) c.textContent = lang === 'vi' ? 'Việt Nam' : 'Vietnam';
+      if (p) p.textContent = lang === 'vi' ? 'TP.HCM · Cát Lái' : 'HCMC · Cat Lai';
+    }
+
+    function applyI18nPlaceholders(lang) {
+      document.querySelectorAll('[data-placeholder-en]').forEach(function (el) {
+        var t = el.getAttribute('data-placeholder-' + lang) || el.getAttribute('data-placeholder-en');
+        if (t) el.setAttribute('placeholder', t);
+      });
+    }
+
     function switchLanguage(lang) {
       currentLang = lang;
-      var btnEn = document.getElementById('btn-en');
-      var btnVi = document.getElementById('btn-vi');
-      if (btnEn) btnEn.classList.toggle('active', lang === 'en');
-      if (btnVi) btnVi.classList.toggle('active', lang === 'vi');
+      window.portfolioCurrentLang = lang;
+      document.querySelectorAll('.lang-btn-en').forEach(function (b) {
+        b.classList.toggle('active', lang === 'en');
+      });
+      document.querySelectorAll('.lang-btn-vi').forEach(function (b) {
+        b.classList.toggle('active', lang === 'vi');
+      });
       try {
         localStorage.setItem(LANGUAGE_STORAGE_KEY, lang);
       } catch (err) {
@@ -437,7 +532,21 @@
         var text = el.getAttribute('data-' + lang);
         if (text) el.innerHTML = text;
       });
+      document.querySelectorAll('#leadService option').forEach(function (opt) {
+        var t = opt.getAttribute('data-' + lang);
+        if (t) opt.textContent = t;
+      });
+      syncPortfolioMapSvg(lang);
+      applyI18nPlaceholders(lang);
+      if (typeof window.portfolioHideMapTooltip === 'function') {
+        window.portfolioHideMapTooltip();
+      }
+      try {
+        document.documentElement.lang = lang === 'vi' ? 'vi' : 'en';
+      } catch (e) {}
     }
+
+    window.switchLanguage = switchLanguage;
 
     window.addEventListener('DOMContentLoaded', function () {
       var saved = 'en';
@@ -450,38 +559,15 @@
     });
 
     (function () {
-      const PORTS = {
-        sea: [
-          'Singapore — Singapore Port',
-          'Philippines — Manila Port',
-          'Indonesia — Tanjung Priok Port, Surabaya Port'
-        ],
-        mesa: [
-          'Dubai — Jebel Ali Port',
-          'India — Chennai Port, Mundra Port'
-        ],
-        africa: [
-          'Ivory Coast — Abidjan Port',
-          'Ghana — Tema Port',
-          'Nigeria — Lagos Port',
-          'Togo — Lomé Port',
-          'Guinea-Bissau — Bissau Port',
-          'Guinea-Conakry — Conakry Port',
-          'Tanzania — Dar es Salaam Port'
-        ],
-        oceania: [
-          'Australia — Melbourne Port, Sydney Port',
-          'New Zealand — Auckland Port, Lyttelton Port'
-        ],
-        vietnam: [
-          'Vietnam — Ho Chi Minh City Port, Cat Lai Port'
-        ]
-      };
-
       const tooltip = document.getElementById('networkTooltip');
       const mapWrap = document.querySelector('.network-map');
       const routes = document.querySelectorAll('.route-line');
-      let activeRoute = null;
+
+      function regionData(key) {
+        var lg = window.portfolioCurrentLang || 'en';
+        var bucket = PORTS_BY_LANG[lg] || PORTS_BY_LANG.en;
+        return bucket[key];
+      }
 
       function setRoutesActive(key) {
         routes.forEach(function (p) {
@@ -496,14 +582,14 @@
         });
       }
 
-      function showTooltip(title, key, clientX, clientY) {
+      function showTooltip(key, clientX, clientY) {
         if (!tooltip) return;
-        const list = PORTS[key];
-        if (!list) return;
+        var pack = regionData(key);
+        if (!pack) return;
         tooltip.innerHTML =
-          '<p class="font-bold text-[#0B3C5D] heading-font text-base mb-2">' + title + '</p>' +
+          '<p class="font-bold text-[#0B3C5D] heading-font text-base mb-2">' + pack.title + '</p>' +
           '<ul class="space-y-1 text-slate-600 text-xs sm:text-sm">' +
-          list.map(function (line) { return '<li>• ' + line + '</li>'; }).join('') +
+          pack.lines.map(function (line) { return '<li>• ' + line + '</li>'; }).join('') +
           '</ul>';
         tooltip.classList.remove('hidden');
         if (mapWrap && clientX != null && clientY != null) {
@@ -523,21 +609,22 @@
         setRoutesActive(null);
       }
 
+      window.portfolioHideMapTooltip = hideTooltip;
+
       document.querySelectorAll('[data-network-region]').forEach(function (el) {
         var key = el.getAttribute('data-network-region');
-        var title = el.getAttribute('data-title') || '';
 
         el.addEventListener('mouseenter', function () {
           setRoutesActive(key);
         });
         el.addEventListener('mousemove', function (e) {
-          showTooltip(title, key, e.clientX, e.clientY);
+          showTooltip(key, e.clientX, e.clientY);
         });
         el.addEventListener('mouseleave', hideTooltip);
 
         el.addEventListener('focus', function () {
           setRoutesActive(key);
-          showTooltip(title, key, null, null);
+          showTooltip(key, null, null);
           if (tooltip && mapWrap) {
             tooltip.style.left = '1rem';
             tooltip.style.top = '1rem';
@@ -550,12 +637,11 @@
       if (hub) {
         hub.addEventListener('mouseenter', function () { setRoutesActive('vietnam'); });
         hub.addEventListener('mousemove', function (e) {
-          showTooltip('Vietnam', 'vietnam', e.clientX, e.clientY);
+          showTooltip('vietnam', e.clientX, e.clientY);
         });
         hub.addEventListener('mouseleave', hideTooltip);
       }
 
-      /* Lead form → mailto */
       var form = document.getElementById('leadForm');
       if (form) {
         form.addEventListener('submit', function (e) {

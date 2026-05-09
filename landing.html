@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zafir Logistics — Connecting Vietnam to the World</title>
+  <meta name="description" content="Zafir Logistics: reliable ocean, air, breakbulk, project cargo and integrated logistics from Vietnam to global markets.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="site.css">
+  <style>
+    :root {
+      --landing-orange: #f37021;
+      --landing-navy: #0b3c5d;
+      --landing-navy-deep: #00235b;
+    }
+    .landing-cta {
+      background: linear-gradient(180deg, #ff8f4a 0%, var(--landing-orange) 55%, #d85a15 100%);
+      color: #fff;
+      box-shadow: 0 4px 14px rgba(243, 112, 33, 0.45);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .landing-cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 28px rgba(243, 112, 33, 0.5);
+    }
+    .landing-cta:active {
+      transform: translateY(0);
+    }
+    .value-bar span.sep {
+      color: var(--landing-orange);
+      font-weight: 700;
+    }
+    .network-map path.route-line {
+      fill: none;
+      stroke: var(--landing-navy);
+      stroke-width: 1.75;
+      stroke-dasharray: 7 5;
+      opacity: 0.35;
+      transition: opacity 0.2s ease, stroke-width 0.2s ease;
+    }
+    .network-map path.route-line.is-active {
+      opacity: 0.95;
+      stroke-width: 2.5;
+      stroke: var(--landing-orange);
+    }
+    .network-map .hub-pulse {
+      animation: hubPulse 2.8s ease-out infinite;
+    }
+    @keyframes hubPulse {
+      0%, 100% { r: 14; opacity: 0.35; }
+      50% { r: 22; opacity: 0.08; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .network-map .hub-pulse { animation: none; }
+      .landing-cta { transition: none; }
+      .landing-cta:hover { transform: none; }
+    }
+    #networkTooltip {
+      pointer-events: none;
+      max-width: min(22rem, calc(100vw - 2rem));
+    }
+  </style>
+</head>
+<body class="text-slate-800 antialiased bg-slate-50 overflow-x-hidden">
+
+  <header class="site-header text-white sticky top-0 z-50 border-b border-white/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3 md:py-4 flex items-center justify-between gap-3">
+      <a href="landing.html" class="flex items-center gap-2 sm:gap-3 min-w-0 shrink-0">
+        <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-full overflow-hidden bg-white flex items-center justify-center shrink-0 ring-2 ring-[#F37021]/40">
+          <img src="logo.jpg" alt="Zafir Logistics" class="w-full h-full object-cover">
+        </div>
+        <div class="min-w-0">
+          <span class="heading-font text-lg sm:text-xl font-bold tracking-tight block leading-tight">
+            <span class="text-white">ZAFIR</span> <span class="text-[#F37021]">LOGISTICS</span>
+          </span>
+          <span class="text-[10px] sm:text-xs text-white/70 leading-tight hidden sm:block">Connecting Vietnam to the world</span>
+        </div>
+      </a>
+
+      <nav class="hidden lg:flex items-center gap-6 text-sm font-medium" aria-label="On this page">
+        <a href="#services" class="text-white/90 hover:text-[#F37021] transition">Services</a>
+        <a href="#global-network" class="text-white/90 hover:text-[#F37021] transition">Global Network</a>
+        <a href="#excellence" class="text-white/90 hover:text-[#F37021] transition">Excellence</a>
+        <a href="#contact" class="text-white/90 hover:text-[#F37021] transition">Contact</a>
+        <a href="index.html" class="text-white/60 hover:text-[#D4AF37] transition text-xs">Full site</a>
+      </nav>
+
+      <div class="flex items-center gap-2 shrink-0">
+        <button type="button" id="mobileMenuBtn" class="lg:hidden p-2 rounded-full hover:bg-white/10 text-white" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
+          <i class="fas fa-bars text-lg" aria-hidden="true"></i>
+        </button>
+        <a href="#contact" class="landing-cta hidden sm:inline-flex items-center gap-2 px-4 py-2.5 rounded-full text-sm font-semibold">
+          Get a Custom Freight Quote
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <div id="mobileNav" class="mobile-nav-overlay fixed inset-0 z-[60] hidden flex-col bg-[#0B3C5D]/98 backdrop-blur-md lg:hidden" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Mobile menu">
+    <div class="safe-top flex justify-between items-center px-4 py-3 border-b border-white/10">
+      <span class="heading-font font-semibold text-white text-lg">Menu</span>
+      <button type="button" id="mobileMenuClose" class="p-2.5 rounded-full hover:bg-white/10 text-white" aria-label="Close menu">
+        <i class="fas fa-times text-xl" aria-hidden="true"></i>
+      </button>
+    </div>
+    <nav class="flex flex-col flex-1 overflow-y-auto p-4 gap-1" aria-label="Mobile">
+      <a href="#services" class="mobile-nav-link">Services</a>
+      <a href="#global-network" class="mobile-nav-link">Global Network</a>
+      <a href="#excellence" class="mobile-nav-link">Operational Excellence</a>
+      <a href="#contact" class="mobile-nav-link">Contact</a>
+      <a href="index.html" class="mobile-nav-link text-white/70">Full website</a>
+    </nav>
+  </div>
+
+  <!-- 1. Hero -->
+  <section class="relative overflow-hidden bg-gradient-to-br from-[#0B3C5D] via-[#0a3250] to-[#00235b] text-white">
+    <div class="pointer-events-none absolute inset-0 opacity-[0.07] bg-[radial-gradient(circle_at_70%_20%,#F37021,transparent_45%)]"></div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-12 sm:py-16 lg:py-20">
+      <div class="grid lg:grid-cols-2 gap-10 lg:gap-14 items-center">
+        <div class="relative z-10">
+          <p class="text-[#F37021] font-semibold text-sm uppercase tracking-[0.2em] mb-3">Zafir Logistics</p>
+          <h1 class="heading-font text-3xl sm:text-4xl md:text-5xl lg:text-[2.75rem] font-extrabold leading-tight text-white mb-4">
+            Connecting Vietnam to the world
+          </h1>
+          <div class="value-bar flex flex-wrap items-center gap-2 sm:gap-3 text-sm sm:text-base text-slate-200 font-medium mb-8">
+            <span>Reliable</span><span class="sep" aria-hidden="true">|</span>
+            <span>Efficient</span><span class="sep" aria-hidden="true">|</span>
+            <span>Professional</span>
+          </div>
+          <div class="flex flex-col sm:flex-row gap-3 sm:gap-4">
+            <a href="#contact" class="landing-cta inline-flex justify-center items-center gap-2 px-6 py-3.5 rounded-full text-base font-semibold">
+              Get a Custom Freight Quote
+              <i class="fas fa-arrow-right text-sm" aria-hidden="true"></i>
+            </a>
+            <a href="#global-network" class="inline-flex justify-center items-center gap-2 px-6 py-3.5 rounded-full border-2 border-white/30 text-white font-semibold hover:bg-white/10 transition">
+              Explore Our Global Network
+              <i class="fas fa-globe text-sm" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+        <div class="relative z-10">
+          <div class="rounded-2xl overflow-hidden shadow-2xl shadow-black/40 ring-1 ring-white/10 bg-slate-900/30">
+            <img src="portfolio.jpg" alt="Zafir Logistics corporate overview: services, global presence, and contact details" class="w-full h-auto object-cover max-h-[min(520px,70vh)] object-top" width="1200" height="800" loading="eager" decoding="async">
+          </div>
+          <p class="mt-3 text-xs text-slate-400 text-center lg:text-left">Creative reference from brand portfolio — interactive tools below expand on this network.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. Core Services -->
+  <section id="services" class="py-16 sm:py-24 bg-white border-b border-slate-100 scroll-mt-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="text-center max-w-2xl mx-auto mb-12 sm:mb-16">
+        <h2 class="heading-font text-3xl sm:text-4xl font-bold text-[#0B3C5D] mb-3">Core Services Portfolio</h2>
+        <p class="text-slate-600">End-to-end capabilities aligned with how global shippers move cargo from Vietnam.</p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 xl:grid-cols-5 gap-6 lg:gap-8">
+        <article class="rounded-2xl border border-slate-100 bg-slate-50/80 p-6 shadow-sm hover:shadow-md transition-shadow flex flex-col">
+          <div class="w-14 h-14 rounded-xl bg-[#0B3C5D] text-[#F37021] flex items-center justify-center text-2xl mb-4">
+            <i class="fas fa-ship" aria-hidden="true"></i>
+          </div>
+          <h3 class="heading-font text-lg font-bold text-[#0B3C5D] mb-2">Ocean Freight</h3>
+          <p class="text-slate-600 text-sm leading-relaxed flex-1">Seamless container management across major maritime trade lanes. We navigate complex shipping schedules so your cargo moves without friction across the global blue economy.</p>
+        </article>
+        <article class="rounded-2xl border border-slate-100 bg-slate-50/80 p-6 shadow-sm hover:shadow-md transition-shadow flex flex-col">
+          <div class="w-14 h-14 rounded-xl bg-[#F37021] text-white flex items-center justify-center text-2xl mb-4">
+            <i class="fas fa-plane-up" aria-hidden="true"></i>
+          </div>
+          <h3 class="heading-font text-lg font-bold text-[#0B3C5D] mb-2">Air Freight</h3>
+          <p class="text-slate-600 text-sm leading-relaxed flex-1">Rapid, time-definite aerial logistics for high-priority shipments. We bridge Vietnamese manufacturing hubs and international markets with maximum velocity.</p>
+        </article>
+        <article class="rounded-2xl border border-slate-100 bg-slate-50/80 p-6 shadow-sm hover:shadow-md transition-shadow flex flex-col">
+          <div class="w-14 h-14 rounded-xl bg-[#0B3C5D] text-[#F37021] flex items-center justify-center text-2xl mb-4">
+            <i class="fas fa-truck-loading" aria-hidden="true"></i>
+          </div>
+          <h3 class="heading-font text-lg font-bold text-[#0B3C5D] mb-2">Breakbulk</h3>
+          <p class="text-slate-600 text-sm leading-relaxed flex-1">Specialized handling and individualized stowage for non-containerized cargo. We manage technical loading for heavy or irregularly shaped goods with expert precision.</p>
+        </article>
+        <article class="rounded-2xl border border-slate-100 bg-slate-50/80 p-6 shadow-sm hover:shadow-md transition-shadow flex flex-col">
+          <div class="w-14 h-14 rounded-xl bg-[#F37021] text-white flex items-center justify-center text-2xl mb-4">
+            <i class="fas fa-weight-hanging" aria-hidden="true"></i>
+          </div>
+          <h3 class="heading-font text-lg font-bold text-[#0B3C5D] mb-2">Project Cargo</h3>
+          <p class="text-slate-600 text-sm leading-relaxed flex-1">End-to-end management of out-of-gauge (OOG) and industrial oversized equipment. Heavy-lift transport for massive machinery and infrastructure components.</p>
+        </article>
+        <article class="rounded-2xl border border-slate-100 bg-slate-50/80 p-6 shadow-sm hover:shadow-md transition-shadow flex flex-col sm:col-span-2 xl:col-span-1">
+          <div class="w-14 h-14 rounded-xl bg-[#0B3C5D] text-[#F37021] flex items-center justify-center text-2xl mb-4">
+            <i class="fas fa-warehouse" aria-hidden="true"></i>
+          </div>
+          <h3 class="heading-font text-lg font-bold text-[#0B3C5D] mb-2">Logistics Solutions</h3>
+          <p class="text-slate-600 text-sm leading-relaxed flex-1">Integrated warehousing and supply chain optimization. From inventory to final-mile distribution, we streamline operations to cut overhead and lift efficiency.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. Global Network -->
+  <section id="global-network" class="py-16 sm:py-24 bg-slate-100 border-y border-slate-200 scroll-mt-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-10">
+        <div>
+          <h2 class="heading-font text-3xl sm:text-4xl font-bold text-[#0B3C5D]">Global Presence &amp; Network</h2>
+          <p class="text-slate-600 mt-2 max-w-2xl">Vietnam is the central node. Hover a region to see key ports — dashed lines show active trade corridors from Ho Chi Minh City / Cat Lai.</p>
+        </div>
+      </div>
+
+      <div class="relative rounded-3xl border border-slate-200 bg-white shadow-lg shadow-slate-900/5 overflow-hidden">
+        <div class="network-map relative p-4 sm:p-8">
+          <svg class="w-full h-auto max-h-[420px] select-none" viewBox="0 0 900 400" role="img" aria-labelledby="mapTitle mapDesc">
+            <title id="mapTitle">Stylized world map with Vietnam hub and trade routes</title>
+            <desc id="mapDesc">Interactive regions highlight port lists on hover. Central hub at Vietnam.</desc>
+            <defs>
+              <linearGradient id="oceanGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" style="stop-color:#e2e8f0"/>
+                <stop offset="100%" style="stop-color:#f1f5f9"/>
+              </linearGradient>
+            </defs>
+            <rect width="900" height="400" fill="url(#oceanGrad)"/>
+            <!-- Minimal continent hints -->
+            <ellipse cx="280" cy="200" rx="120" ry="90" fill="#cbd5e1" opacity="0.35"/>
+            <ellipse cx="520" cy="170" rx="95" ry="75" fill="#cbd5e1" opacity="0.3"/>
+            <ellipse cx="650" cy="240" rx="70" ry="55" fill="#cbd5e1" opacity="0.28"/>
+            <ellipse cx="780" cy="300" rx="55" ry="40" fill="#cbd5e1" opacity="0.28"/>
+
+            <!-- Routes from Vietnam hub (520, 188) -->
+            <path class="route-line" data-route="sea" d="M520 188 C 580 175, 640 195, 700 210"/>
+            <path class="route-line" data-route="mesa" d="M520 188 C 500 140, 480 130, 450 125"/>
+            <path class="route-line" data-route="africa" d="M520 188 C 470 210, 420 230, 380 248"/>
+            <path class="route-line" data-route="oceania" d="M520 188 C 620 260, 700 300, 760 318"/>
+
+            <!-- Hub -->
+            <circle class="hub-pulse" cx="520" cy="188" fill="#F37021" opacity="0.25"/>
+            <circle id="mapVietnamHub" cx="520" cy="188" r="11" fill="#F37021" stroke="#fff" stroke-width="3" class="cursor-pointer"/>
+            <text x="520" y="165" text-anchor="middle" fill="#0B3C5D" font-size="13" font-weight="700" font-family="Montserrat, sans-serif">Vietnam</text>
+            <text x="520" y="222" text-anchor="middle" fill="#64748b" font-size="10" font-family="Lato, sans-serif">HCMC · Cat Lai</text>
+
+            <!-- Region hit targets (large transparent circles) -->
+            <g data-network-region="sea" data-title="South East Asia" tabindex="0" class="cursor-pointer outline-none" role="button" aria-label="South East Asia ports">
+              <circle cx="700" cy="210" r="36" fill="transparent"/>
+              <circle cx="700" cy="210" r="9" fill="#0B3C5D" stroke="#fff" stroke-width="2"/>
+            </g>
+            <g data-network-region="mesa" data-title="Middle East &amp; South Asia" tabindex="0" class="cursor-pointer outline-none" role="button" aria-label="Middle East and South Asia ports">
+              <circle cx="450" cy="125" r="40" fill="transparent"/>
+              <circle cx="450" cy="125" r="9" fill="#0B3C5D" stroke="#fff" stroke-width="2"/>
+            </g>
+            <g data-network-region="africa" data-title="Africa" tabindex="0" class="cursor-pointer outline-none" role="button" aria-label="Africa ports">
+              <circle cx="380" cy="248" r="44" fill="transparent"/>
+              <circle cx="380" cy="248" r="9" fill="#0B3C5D" stroke="#fff" stroke-width="2"/>
+            </g>
+            <g data-network-region="oceania" data-title="Oceania" tabindex="0" class="cursor-pointer outline-none" role="button" aria-label="Oceania ports">
+              <circle cx="760" cy="318" r="38" fill="transparent"/>
+              <circle cx="760" cy="318" r="9" fill="#0B3C5D" stroke="#fff" stroke-width="2"/>
+            </g>
+          </svg>
+
+          <div id="networkTooltip" class="hidden absolute z-20 left-4 top-4 sm:left-auto sm:right-4 sm:top-4 rounded-xl border border-slate-200 bg-white/95 backdrop-blur px-4 py-3 shadow-xl text-sm" role="tooltip"></div>
+        </div>
+
+        <!-- Reference grid matching portfolio -->
+        <div class="border-t border-slate-100 bg-slate-50/90 px-4 py-8 sm:px-8">
+          <h3 class="heading-font text-center text-lg font-bold text-[#0B3C5D] mb-6 flex items-center justify-center gap-3">
+            <span class="h-px flex-1 max-w-[4rem] bg-slate-300"></span>
+            Our global presence
+            <span class="h-px flex-1 max-w-[4rem] bg-slate-300"></span>
+          </h3>
+          <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 text-sm">
+            <div>
+              <p class="font-bold text-[#0B3C5D] mb-1">Vietnam</p>
+              <p class="text-slate-600">Ho Chi Minh City Port, Cat Lai Port</p>
+            </div>
+            <div>
+              <p class="font-bold text-[#0B3C5D] mb-1">South East Asia</p>
+              <p class="text-slate-600">Singapore Port · Manila Port · Tanjung Priok · Surabaya</p>
+            </div>
+            <div>
+              <p class="font-bold text-[#0B3C5D] mb-1">Middle East &amp; South Asia</p>
+              <p class="text-slate-600">Jebel Ali (Dubai) · Chennai · Mundra</p>
+            </div>
+            <div>
+              <p class="font-bold text-[#0B3C5D] mb-1">Africa</p>
+              <p class="text-slate-600">Abidjan · Tema · Lagos · Lomé · Bissau · Conakry · Dar es Salaam</p>
+            </div>
+            <div class="sm:col-span-2 lg:col-span-2">
+              <p class="font-bold text-[#0B3C5D] mb-1">Oceania</p>
+              <p class="text-slate-600">Melbourne · Sydney · Auckland · Lyttelton</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. Operational Excellence -->
+  <section id="excellence" class="py-16 sm:py-24 bg-white scroll-mt-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <h2 class="heading-font text-3xl sm:text-4xl font-bold text-center text-[#0B3C5D] mb-12">Operational Excellence</h2>
+      <div class="grid md:grid-cols-3 gap-8 lg:gap-10">
+        <article class="rounded-2xl border border-slate-100 p-8 bg-gradient-to-b from-slate-50 to-white shadow-sm">
+          <div class="text-[#F37021] text-3xl font-bold heading-font mb-4">Reliable</div>
+          <p class="text-slate-600 leading-relaxed text-sm sm:text-base">
+            Zafir Logistics provides mission-critical reliability to compete globally. Deep local expertise helps us navigate Vietnamese customs and the operational nuances of Cat Lai and Ho Chi Minh City ports, ensuring a seamless hand-off to our international network so cargo reaches hubs like Dubai or Sydney without administrative delay.
+          </p>
+        </article>
+        <article class="rounded-2xl border border-slate-100 p-8 bg-gradient-to-b from-slate-50 to-white shadow-sm">
+          <div class="text-[#F37021] text-3xl font-bold heading-font mb-4">Efficient</div>
+          <p class="text-slate-600 leading-relaxed text-sm sm:text-base">
+            We optimize every supply chain link to give clients a competitive edge. By streamlining transit between Vietnam’s manufacturing centers and our global port network, we remove bottlenecks and maximize resource utilization. Efficiency here means precision in logistics architecture—not only speed.
+          </p>
+        </article>
+        <article class="rounded-2xl border border-slate-100 p-8 bg-gradient-to-b from-slate-50 to-white shadow-sm">
+          <div class="text-[#F37021] text-3xl font-bold heading-font mb-4">Professional</div>
+          <p class="text-slate-600 leading-relaxed text-sm sm:text-base">
+            Our team upholds international consultancy standards. From out-of-gauge project cargo to integrated warehousing, we represent Vietnamese businesses with distinction. We don’t just move goods—we manage reputations.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. Contact -->
+  <section id="contact" class="py-16 sm:py-24 bg-[#0B3C5D] text-white scroll-mt-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+        <div>
+          <h2 class="heading-font text-3xl sm:text-4xl font-bold mb-4">Get in Touch</h2>
+          <p class="text-slate-300 text-lg mb-8 leading-relaxed">
+            Optimize your global supply chain today. Our logistics experts are standing by to engineer your shipping solution.
+          </p>
+          <ul class="space-y-4 text-slate-200">
+            <li class="flex items-start gap-3">
+              <span class="mt-0.5 w-9 h-9 rounded-lg bg-[#F37021]/20 text-[#F37021] flex items-center justify-center shrink-0"><i class="fas fa-phone" aria-hidden="true"></i></span>
+              <div>
+                <p class="text-xs uppercase tracking-wider text-slate-400 font-semibold">Phone</p>
+                <a href="tel:+84946000153" class="text-white hover:text-[#F37021] font-semibold">0946 000 153</a>
+              </div>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="mt-0.5 w-9 h-9 rounded-lg bg-[#F37021]/20 text-[#F37021] flex items-center justify-center shrink-0"><i class="fas fa-envelope" aria-hidden="true"></i></span>
+              <div>
+                <p class="text-xs uppercase tracking-wider text-slate-400 font-semibold">Email</p>
+                <a href="mailto:manager@zafirlogistics.com" class="text-white hover:text-[#F37021] font-semibold break-all">manager@zafirlogistics.com</a>
+              </div>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="mt-0.5 w-9 h-9 rounded-lg bg-[#F37021]/20 text-[#F37021] flex items-center justify-center shrink-0"><i class="fas fa-globe" aria-hidden="true"></i></span>
+              <div>
+                <p class="text-xs uppercase tracking-wider text-slate-400 font-semibold">Website</p>
+                <a href="https://www.zafirlogistics.com" class="text-white hover:text-[#F37021] font-semibold" target="_blank" rel="noopener noreferrer">www.zafirlogistics.com</a>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="rounded-2xl bg-white text-slate-800 p-6 sm:p-8 shadow-xl">
+          <form id="leadForm" class="space-y-5" novalidate>
+            <div>
+              <label for="leadName" class="block text-sm font-semibold text-slate-700 mb-1">Full Name</label>
+              <input id="leadName" name="name" type="text" required autocomplete="name" class="w-full rounded-xl border border-slate-200 px-4 py-3 text-slate-800 focus:border-[#F37021] focus:ring-2 focus:ring-[#F37021]/25 outline-none transition" placeholder="Your name">
+            </div>
+            <div>
+              <label for="leadEmail" class="block text-sm font-semibold text-slate-700 mb-1">Corporate Email Address</label>
+              <input id="leadEmail" name="email" type="email" required autocomplete="email" class="w-full rounded-xl border border-slate-200 px-4 py-3 text-slate-800 focus:border-[#F37021] focus:ring-2 focus:ring-[#F37021]/25 outline-none transition" placeholder="you@company.com">
+            </div>
+            <div>
+              <label for="leadService" class="block text-sm font-semibold text-slate-700 mb-1">Service Type <span class="text-red-600">*</span></label>
+              <select id="leadService" name="service" required class="w-full rounded-xl border border-slate-200 px-4 py-3 text-slate-800 focus:border-[#F37021] focus:ring-2 focus:ring-[#F37021]/25 outline-none transition bg-white">
+                <option value="" disabled selected>Select a service…</option>
+                <option value="Ocean Freight">Ocean Freight</option>
+                <option value="Air Freight">Air Freight</option>
+                <option value="Breakbulk">Breakbulk</option>
+                <option value="Project Cargo">Project Cargo</option>
+                <option value="Logistics Solutions">Logistics Solutions</option>
+              </select>
+              <p class="text-xs text-slate-500 mt-1">Required for routing your inquiry to the right specialist.</p>
+            </div>
+            <div>
+              <label for="leadMessage" class="block text-sm font-semibold text-slate-700 mb-1">Message</label>
+              <textarea id="leadMessage" name="message" rows="4" class="w-full rounded-xl border border-slate-200 px-4 py-3 text-slate-800 focus:border-[#F37021] focus:ring-2 focus:ring-[#F37021]/25 outline-none transition resize-y" placeholder="Cargo details, lanes, timelines…"></textarea>
+            </div>
+            <button type="submit" class="landing-cta w-full flex justify-center items-center gap-2 px-6 py-3.5 rounded-xl text-base font-semibold">
+              Contact an Expert
+              <i class="fas fa-paper-plane text-sm" aria-hidden="true"></i>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="bg-[#00235b] text-slate-400 py-8 text-center text-sm border-t border-white/10">
+    <p>© 2026 Zafir Logistics. <a href="index.html" class="text-[#F37021] hover:underline">Visit full website</a></p>
+  </footer>
+
+  <a href="https://zalo.me/84946000153" target="_blank" rel="noopener noreferrer" class="zalo-fab" aria-label="Chat on Zalo" title="Zalo">
+    <svg class="zalo-fab__icon" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path fill="currentColor" d="M12.49 10.2722v-.4496h1.3467v6.3218h-.7704a.576.576 0 01-.5763-.5729l-.0006.0005a3.273 3.273 0 01-1.9372.6321c-1.8138 0-3.2844-1.4697-3.2844-3.2823 0-1.8125 1.4706-3.2822 3.2844-3.2822a3.273 3.273 0 011.9372.6321l.0006.0005zM6.9188 7.7896v.205c0 .3823-.051.6944-.2995 1.0605l-.03.0343c-.0542.0615-.1815.206-.2421.2843L2.024 14.8h4.8948v.7682a.5764.5764 0 01-.5767.5761H0v-.3622c0-.4436.1102-.6414.2495-.8476L4.8582 9.23H.1922V7.7896h6.7266zm8.5513 8.3548a.4805.4805 0 01-.4803-.4798v-7.875h1.4416v8.3548H15.47zM20.6934 9.6C22.52 9.6 24 11.0807 24 12.9044c0 1.8252-1.4801 3.306-3.3066 3.306-1.8264 0-3.3066-1.4808-3.3066-3.306 0-1.8237 1.4802-3.3044 3.3066-3.3044zm-10.1412 5.253c1.0675 0 1.9324-.8645 1.9324-1.9312 0-1.065-.865-1.9295-1.9324-1.9295s-1.9324.8644-1.9324 1.9295c0 1.0667.865 1.9312 1.9324 1.9312zm10.1412-.0033c1.0737 0 1.945-.8707 1.945-1.9453 0-1.073-.8713-1.9436-1.945-1.9436-1.0753 0-1.945.8706-1.945 1.9436 0 1.0746.8697 1.9453 1.945 1.9453z"/>
+    </svg>
+  </a>
+  <a href="tel:+84946000153" class="call-now-fab" aria-label="Call now" title="0946 000 153">
+    <i class="fas fa-phone-alt call-now-fab__icon" aria-hidden="true"></i>
+  </a>
+
+  <script src="site.js"></script>
+  <script>
+    (function () {
+      const PORTS = {
+        sea: [
+          'Singapore — Singapore Port',
+          'Philippines — Manila Port',
+          'Indonesia — Tanjung Priok Port, Surabaya Port'
+        ],
+        mesa: [
+          'Dubai — Jebel Ali Port',
+          'India — Chennai Port, Mundra Port'
+        ],
+        africa: [
+          'Ivory Coast — Abidjan Port',
+          'Ghana — Tema Port',
+          'Nigeria — Lagos Port',
+          'Togo — Lomé Port',
+          'Guinea-Bissau — Bissau Port',
+          'Guinea-Conakry — Conakry Port',
+          'Tanzania — Dar es Salaam Port'
+        ],
+        oceania: [
+          'Australia — Melbourne Port, Sydney Port',
+          'New Zealand — Auckland Port, Lyttelton Port'
+        ],
+        vietnam: [
+          'Vietnam — Ho Chi Minh City Port, Cat Lai Port'
+        ]
+      };
+
+      const tooltip = document.getElementById('networkTooltip');
+      const mapWrap = document.querySelector('.network-map');
+      const routes = document.querySelectorAll('.route-line');
+      let activeRoute = null;
+
+      function setRoutesActive(key) {
+        routes.forEach(function (p) {
+          var r = p.getAttribute('data-route');
+          if (!key) {
+            p.classList.remove('is-active');
+          } else if (key === 'vietnam') {
+            p.classList.add('is-active');
+          } else {
+            p.classList.toggle('is-active', r === key);
+          }
+        });
+      }
+
+      function showTooltip(title, key, clientX, clientY) {
+        if (!tooltip) return;
+        const list = PORTS[key];
+        if (!list) return;
+        tooltip.innerHTML =
+          '<p class="font-bold text-[#0B3C5D] heading-font text-base mb-2">' + title + '</p>' +
+          '<ul class="space-y-1 text-slate-600 text-xs sm:text-sm">' +
+          list.map(function (line) { return '<li>• ' + line + '</li>'; }).join('') +
+          '</ul>';
+        tooltip.classList.remove('hidden');
+        if (mapWrap && clientX != null && clientY != null) {
+          const rect = mapWrap.getBoundingClientRect();
+          var x = clientX - rect.left + mapWrap.scrollLeft;
+          var y = clientY - rect.top + mapWrap.scrollTop;
+          var tw = tooltip.offsetWidth || 280;
+          var th = tooltip.offsetHeight || 100;
+          tooltip.style.left = Math.max(8, Math.min(x + 12, rect.width - tw - 8)) + 'px';
+          tooltip.style.top = Math.max(8, Math.min(y + 12, rect.height - th - 8)) + 'px';
+          tooltip.style.right = 'auto';
+        }
+      }
+
+      function hideTooltip() {
+        if (tooltip) tooltip.classList.add('hidden');
+        setRoutesActive(null);
+      }
+
+      document.querySelectorAll('[data-network-region]').forEach(function (el) {
+        var key = el.getAttribute('data-network-region');
+        var title = el.getAttribute('data-title') || '';
+
+        el.addEventListener('mouseenter', function () {
+          setRoutesActive(key);
+        });
+        el.addEventListener('mousemove', function (e) {
+          showTooltip(title, key, e.clientX, e.clientY);
+        });
+        el.addEventListener('mouseleave', hideTooltip);
+
+        el.addEventListener('focus', function () {
+          setRoutesActive(key);
+          showTooltip(title, key, null, null);
+          if (tooltip && mapWrap) {
+            tooltip.style.left = '1rem';
+            tooltip.style.top = '1rem';
+          }
+        });
+        el.addEventListener('blur', hideTooltip);
+      });
+
+      var hub = document.getElementById('mapVietnamHub');
+      if (hub) {
+        hub.addEventListener('mouseenter', function () { setRoutesActive('vietnam'); });
+        hub.addEventListener('mousemove', function (e) {
+          showTooltip('Vietnam', 'vietnam', e.clientX, e.clientY);
+        });
+        hub.addEventListener('mouseleave', hideTooltip);
+      }
+
+      /* Lead form → mailto */
+      var form = document.getElementById('leadForm');
+      if (form) {
+        form.addEventListener('submit', function (e) {
+          e.preventDefault();
+          if (!form.checkValidity()) {
+            form.reportValidity();
+            return;
+          }
+          var name = document.getElementById('leadName').value.trim();
+          var email = document.getElementById('leadEmail').value.trim();
+          var service = document.getElementById('leadService').value;
+          var message = document.getElementById('leadMessage').value.trim();
+          var body = 'Name: ' + name + '\n' +
+            'Email: ' + email + '\n' +
+            'Service type: ' + service + '\n\n' +
+            'Message:\n' + message;
+          window.location.href = 'mailto:manager@zafirlogistics.com?subject=' +
+            encodeURIComponent('Expert inquiry — ' + service) +
+            '&body=' + encodeURIComponent(body);
+        });
+      }
+    })();
+  </script>
+</body>
+</html>
